@@ -1,6 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome" // Import the FontAwesomeIcon component
-import { faUser } from "@fortawesome/free-solid-svg-icons" // import the icons you need
-
 const Header = () => {
   return (
     <nav className="flex items-center justify-between flex-wrap bg-mygrey p-6">
@@ -40,9 +37,7 @@ const Header = () => {
           <a
             href="#"
             className="text-xl mt-4 mr-10 inline-block text-black hover:text-mypurple"
-          >
-            <FontAwesomeIcon icon={faUser}></FontAwesomeIcon>
-          </a>
+          ></a>
         </div>
       </div>
     </nav>
