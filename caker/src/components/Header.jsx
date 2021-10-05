@@ -1,7 +1,7 @@
 const Header = () => {
   return (
-    <nav className="flex items-center justify-between flex-wrap bg-mygrey p-6">
-      <div className="flex items-center flex-shrink-0 text-mygold mr-6 w-1/3">
+    <nav className="navbar navbar-expand-lg navbar-light">
+      <div className="flex items-center flex-shrink-0 text-warning mr-6 w-1/3">
         <span className="ml-10 text-2xl font-medium tracking-tight">
           <a href="#">LE COIN DES GOURMANDISES</a>
         </span>
@@ -10,25 +10,25 @@ const Header = () => {
         <div className="text-sm lg:flex-grow px-5">
           <a
             href="#responsive-header"
-            className="mt-4 inline-block text-mygold hover:text-mypurple mr-10"
+            className="mt-4 inline-block text-warning hover:text-mypurple mr-10"
           >
             ACCUEIL
           </a>
           <a
             href="#responsive-header"
-            className="mt-4 inline-block text-mygold hover:text-mypurple mr-10"
+            className="mt-4 inline-block text-warning hover:text-danger mr-10"
           >
             PROFIL
           </a>
           <a
             href="#responsive-header"
-            className="mt-4 inline-block text-mygold hover:text-mypurple mr-10"
+            className="mt-4 inline-block text-warning hover:text-danger mr-10"
           >
             TROUVER MON PATISSIER
           </a>
           <a
             href="#responsive-header"
-            className="mt-4 inline-block text-mygold hover:text-mypurple"
+            className="mt-4 inline-block text-warning hover:text-danger"
           >
             VENDS TES PATISSERIES
           </a>
@@ -36,7 +36,7 @@ const Header = () => {
         <div>
           <a
             href="#"
-            className="text-xl mt-4 mr-10 inline-block text-black hover:text-mypurple"
+            className="text-xl mt-4 mr-10 inline-block text-dark hover:text-danger"
           ></a>
         </div>
       </div>
