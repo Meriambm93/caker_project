@@ -1,3 +1,8 @@
+import Image from "next/image"
+import framboiseLaitAmandes from "../assets/images/framboise-lait-amandes.png"
+import mollyCake from "../assets/images/mollycakefleur.png"
+import montBlanc from "../assets/images/montblanc.png"
+
 const Hero = () => {
   return (
     <div
@@ -25,11 +30,7 @@ const Hero = () => {
           <div className="container">
             <div className="row p-5">
               <div className="mx-auto col-md-8 col-lg-6 order-lg-last">
-                <img
-                  className="img-fluid"
-                  src="./assets/img/mollycakefleur.png"
-                  alt=""
-                />
+                <Image src={mollyCake} alt="Image" width={500} height={500} />
               </div>
               <div className="col-lg-6 mb-0 d-flex align-items-center">
                 <div className="text-align-left align-self-center">
@@ -50,11 +51,7 @@ const Hero = () => {
           <div className="container">
             <div className="row p-5">
               <div className="mx-auto col-md-8 col-lg-6 order-lg-last">
-                <img
-                  className="img-fluid"
-                  src="./assets/img/montblanc.png"
-                  alt=""
-                />
+                <Image src={montBlanc} alt="Image" width={500} height={500} />
               </div>
               <div className="col-lg-6 mb-0 d-flex align-items-center">
                 <div className="text-align-left">
@@ -74,6 +71,13 @@ const Hero = () => {
           <div className="container">
             <div className="row p-5">
               <div className="mx-auto col-md-8 col-lg-6 order-lg-last">
+                <Image
+                  src={framboiseLaitAmandes}
+                  alt="Image"
+                  width={500}
+                  height={500}
+                />
+
                 <img
                   className="img-fluid"
                   src="./assets/img/framboise-lait-amandes.png"
