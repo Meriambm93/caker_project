@@ -4,8 +4,8 @@ import Page from "../src/components/Page"
 import Head from "next/head"
 import Patisserie from "../src/components/Patisserie"
 import Main from "../src/components/Main"
-import ModalPatisserie from "../src/components/ModalPatisserie"
-const Patisserie = () => {
+
+const patisserie = () => {
   return (
     <Page>
       <Head>
@@ -14,9 +14,9 @@ const Patisserie = () => {
       </Head>
       <Header></Header>
       <Main></Main>
-      <ModalPatisserie></ModalPatisserie>
+      <Patisserie></Patisserie>
       <Footer></Footer>
     </Page>
   )
 }
-export default Patisserie
+export default patisserie
