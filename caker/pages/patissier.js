@@ -1,10 +1,9 @@
-import Header from "../src/components/Header";
-import ModalPatissier from "../src/components/ModalPatissier";
-import ContainerPatissier from "../src/components/ContainerPatissier";
-import SectionPatissier from "../src/components/SectionPatissier";
-import Footer from "../src/components/Footer";
-import Head from 'next/head'
-
+import Header from "../src/components/Header"
+import ModalPatissier from "../src/components/ModalPatissier"
+import ContainerPatissier from "../src/components/ContainerPatissier"
+import SectionPatissier from "../src/components/SectionPatissier"
+import Footer from "../src/components/Footer"
+import Head from "next/head"
 
 const patissier = () => {
   return (
@@ -20,6 +19,6 @@ const patissier = () => {
       <Footer />
     </page>
   )
-};
+}
 
-export default patissier;
+export default patissier
