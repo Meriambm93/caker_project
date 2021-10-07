@@ -1,3 +1,8 @@
+import Image from "next/image"
+import custom from "../assets/images/custom.png"
+
+
+
 const SectionPatissier = () => {
   return (
     <section className="bg-light py-5">
@@ -36,9 +41,9 @@ const SectionPatissier = () => {
                       <div className="row">
                         <div className="col-12 p-md-5">
                           <a href="#">
-                            <img
+                            <Image 
                               className="img-fluid brand-img"
-                              src="assets/img/patissier/custom.png"
+                              src={custom}
                               alt="Brand Logo"
                             />
                           </a>
