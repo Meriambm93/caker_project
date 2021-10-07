@@ -1,13 +1,17 @@
+import Link from "next/link"
+
 const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light shadow">
       <div className="container d-flex justify-content-between align-items-center">
-        <a
-          className="navbar-brand text-success logo h1 align-self-center"
-          href="index.html"
-        >
-          Le Coin Des Gourmandises
-        </a>
+        <Link href="/">
+          <a
+            className="navbar-brand text-success logo h1 align-self-center"
+            href="index.html"
+          >
+            Le Coin Des Gourmandises
+          </a>
+        </Link>
 
         <button
           className="navbar-toggler border-0"
@@ -35,24 +39,30 @@ const Header = () => {
           <div className="flex-fill">
             <ul className="nav navbar-nav d-flex justify-content-between mx-lg-auto">
               <li className="nav-item">
-                <a className="nav-link" href="index.html">
+                <a className="nav-link fs-4" href="index.html">
                   Accueil
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="profil.html">
-                  Profil
-                </a>
+                <Link href="/profil">
+                  <a className="nav-link fs-4" href="profil.html">
+                    Profil
+                  </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="patissier.html">
-                  Trouver Mon Pâtissier
-                </a>
+                <Link href="/patissier">
+                  <a className="nav-link fs-4" href="patissier.html">
+                    Trouver Mon Pâtissier
+                  </a>
+                </Link>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="vends_tes_patisserie.html">
-                  Vends Tes Pâtisserie
-                </a>
+                <Link href="/patisserie">
+                  <a className="nav-link fs-4" href="vends_tes_patisserie.html">
+                    Vends Tes Pâtisserie
+                  </a>
+                </Link>
               </li>
             </ul>
           </div>
