@@ -1,3 +1,10 @@
+
+import Image from "next/image"
+import ramirez from "../assets/images/ramirez.png"
+import yummy from "../assets/images/yummy.png"
+import kristen from "../assets/images/kristen.png"
+
+
 const ContainerPatissier= () => {
   return (
     <div className="container py-5">
@@ -23,10 +30,9 @@ const ContainerPatissier= () => {
             <div className="col-md-4">
               <div className="card mb-4 product-wap rounded-0">
                 <div className="card rounded-0">
-                  <img
+                  <Image src={ramirez}
                     className="card-img rounded-0 img-fluid"
-                    src="assets/img/patissier/ramirez.png"
-                  />
+                                      />
                   <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                     <ul className="list-unstyled">
                       <li>
@@ -73,9 +79,9 @@ const ContainerPatissier= () => {
             <div className="col-md-4">
               <div className="card mb-4 product-wap rounded-0">
                 <div className="card rounded-0">
-                  <img
+                  <Image src={yummy}
                     className="card-img rounded-0 img-fluid"
-                    src="assets/img/patissier/yummy.png"
+                    
                   />
                   <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                     <ul className="list-unstyled">
@@ -123,9 +129,9 @@ const ContainerPatissier= () => {
             <div className="col-md-4">
               <div className="card mb-4 product-wap rounded-0">
                 <div className="card rounded-0">
-                  <img
+                  <Image
                     className="card-img rounded-0 img-fluid"
-                    src="assets/img/patissier/kristen.png"
+                    src={kristen}
                   />
                   <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                     <ul className="list-unstyled">
