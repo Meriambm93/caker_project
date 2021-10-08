@@ -22,7 +22,7 @@ ul {
   margin: 0;
 }
 
-img {
+.img {
   max-width: 100%;
 }
 
@@ -51,7 +51,6 @@ a:hover {
   align-items: center;
   background-color: rgb(233, 217, 188);
   background-size: cover;
-  margin-bottom: 12px;
 }
 
 .inner {
@@ -67,7 +66,7 @@ a:hover {
 }
 
 .image-holder {
-  width: 100%;
+  width: 50%;
   padding-right: 15px;
 }
 
