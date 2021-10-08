@@ -39,7 +39,7 @@ const Header = () => {
           <div className="flex-fill">
             <ul className="nav navbar-nav d-flex justify-content-between mx-lg-auto">
               <li className="nav-item">
-                <a className="nav-link fs-4" href="index.html">
+                <a className="nav-link" href="index.html">
                   Accueil
                 </a>
               </li>
