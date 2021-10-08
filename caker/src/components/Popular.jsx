@@ -10,7 +10,7 @@ const Popular = () => {
         <div className="col-lg-6 m-auto">
           <h1 className="h1">Gâteaux populaires</h1>
           <h2 className="h2">
-            <span>été 2021</span>
+            <span>Hiver 2021</span>
           </h2>
         </div>
       </div>
