@@ -1,11 +1,11 @@
-
 import Image from "next/image"
 import ramirez from "../assets/images/ramirez.png"
 import yummy from "../assets/images/yummy.png"
 import kristen from "../assets/images/kristen.png"
+import { faEye } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
-
-const ContainerPatissier= () => {
+const ContainerPatissier = () => {
   return (
     <div className="container py-5">
       <div className="row">
@@ -30,9 +30,11 @@ const ContainerPatissier= () => {
             <div className="col-md-4">
               <div className="card mb-4 product-wap rounded-0">
                 <div className="card rounded-0">
-                  <Image src={ramirez}
+                  <Image
+                    src={ramirez}
                     className="card-img rounded-0 img-fluid"
-                                      />
+                    alt="photo"
+                  />
                   <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                     <ul className="list-unstyled">
                       <li>
@@ -40,7 +42,7 @@ const ContainerPatissier= () => {
                           className="btn btn-success text-white mt-2"
                           href="shop_1.html"
                         >
-                          <i className="far fa-eye"></i>
+                          <FontAwesomeIcon icon={faEye} />
                         </a>
                       </li>
                     </ul>
@@ -79,9 +81,10 @@ const ContainerPatissier= () => {
             <div className="col-md-4">
               <div className="card mb-4 product-wap rounded-0">
                 <div className="card rounded-0">
-                  <Image src={yummy}
+                  <Image
+                    src={yummy}
                     className="card-img rounded-0 img-fluid"
-                    
+                    alt="yummy"
                   />
                   <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                     <ul className="list-unstyled">
@@ -90,7 +93,7 @@ const ContainerPatissier= () => {
                           className="btn btn-success text-white mt-2"
                           href="shop_2.html"
                         >
-                          <i className="far fa-eye"></i>
+                          <FontAwesomeIcon icon={faEye} />
                         </a>
                       </li>
                     </ul>
@@ -132,6 +135,7 @@ const ContainerPatissier= () => {
                   <Image
                     className="card-img rounded-0 img-fluid"
                     src={kristen}
+                    alt="kristen"
                   />
                   <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                     <ul className="list-unstyled">
@@ -140,7 +144,7 @@ const ContainerPatissier= () => {
                           className="btn btn-success text-white mt-2"
                           href="shop_3.html"
                         >
-                          <i className="far fa-eye"></i>
+                          <FontAwesomeIcon icon={faEye} />
                         </a>
                       </li>
                     </ul>
@@ -180,6 +184,6 @@ const ContainerPatissier= () => {
         </div>
       </div>
     </div>
-  );
-};
-export default ContainerPatissier;
+  )
+}
+export default ContainerPatissier

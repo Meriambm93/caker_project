@@ -1,15 +1,3 @@
-/*@font-face {
-  font-family: "ElMessiri-SemiBold";
-  src: url("/home/meriam/Desktop/Commande_de_gateau/assets/fonts/el_messiri");
-}
-@font-face {
-  font-family: "Montserrat-Regular";
-  src: url("/home/meriam/Desktop/Commande_de_gateau/assets/fonts/el_messiri");
-}
-@font-face {
-  font-family: "Montserrat-SemiBold";
-  src: url("/home/meriam/Desktop/Commande_de_gateau/assets/fonts/el_messiri");
-}*/
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -98,27 +86,7 @@ h3 {
   color: #5a4328;
 }
 
-/* .form-holder {
-  padding-left: 24px;
-  position: relative; }
-  .form-holder:before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    content: "";
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    border: 2px solid #141212;
-    position: absolute;
-    left: 1px;
-    top: 50%;
-    transform: translateY(-50%); }
-  .form-holder.active:before {
-    border: 2px solid transparent;
-    background: #332929; } */
-
-.form-control {
+*/ .form-control {
   display: block;
   width: 100%;
   border-radius: 23.5px;
@@ -326,7 +294,7 @@ label,
 input,
 div {
   font-family: "Cormorant SC", serif;
-  text-transform: lowercase;
+  text-transform: uppercase;
   font-size: 18px !important;
   font-weight: 300 !important;
 }
@@ -583,7 +551,6 @@ main {
 /* paragraphe */
 .justify {
   text-align: justify;
-  text-transform: lowercase !important;
   font-family: "Cormorant SC", serif;
 }
 

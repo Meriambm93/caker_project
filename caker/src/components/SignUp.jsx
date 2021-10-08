@@ -11,7 +11,7 @@ const ContentSignUp = () => {
         <form action="">
           <h3>S'inscrire</h3>
 
-          <div className="form-holder active">
+          <div className="form-holder ">
             <input type="text" placeholder="nom" className="form-control" />
           </div>
           <div className="form-holder active">
