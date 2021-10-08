@@ -1,7 +1,12 @@
+import Image from "next/image"
+import PatisserieCakeFramboise from "../assets/images/tarte-framboise.png"
+import Cakeissime from "../assets/images/LE_CAKISSIME__TOUT_CROUSTILLANT.png"
+import Framboiselait from "../assets/images/framboise-lait-amandes.png"
+import Fraisevanille from "../assets/images/le-fraise-vanille.png"
 const Patisserie = () => {
   return (
     <main>
-      <div className="container py-5 bg-danger">
+      <div className="container py-5">
         <div className="row">
           <div className="col-lg-3">
             <h1 className="h2 pb-4">Catégories</h1>
@@ -127,38 +132,42 @@ const Patisserie = () => {
                         <div className="row">
                           <div className="col-3 p-md-7">
                             <a href="#">
-                              <img
-                                className="img-fluid brand-img"
-                                src="assets/img/tarte-framboise.png"
-                                alt="Brand Logo"
-                              ></img>
+                              <Image
+                                src={PatisserieCakeFramboise}
+                                alt="Image"
+                                width={500}
+                                height={500}
+                              />
                             </a>
                           </div>
                           <div className="col-3 p-md-7">
                             <a href="#">
-                              <img
-                                className="img-fluid brand-img"
-                                src="assets/img/LE_CAKISSIME__TOUT_CROUSTILLANT.png"
-                                alt="Brand Logo"
-                              ></img>
+                              <Image
+                                src={Cakeissime}
+                                alt="Image"
+                                width={500}
+                                height={500}
+                              />
                             </a>
                           </div>
                           <div className="col-3 p-md-7">
                             <a href="#">
-                              <img
-                                className="img-fluid brand-img"
-                                src="assets/img/framboise-lait-amandes.png"
-                                alt="Brand Logo"
-                              ></img>
+                              <Image
+                                src={Framboiselait}
+                                alt="Image"
+                                width={500}
+                                height={500}
+                              />
                             </a>
                           </div>
                           <div className="col-3 p-md-7">
                             <a href="#">
-                              <img
-                                className="img-fluid brand-img"
-                                src="assets/img/le-fraise-vanille.png"
-                                alt="Brand Logo"
-                              ></img>
+                              <Image
+                                src={Fraisevanille}
+                                alt="Image"
+                                width={500}
+                                height={500}
+                              />
                             </a>
                           </div>
                         </div>
