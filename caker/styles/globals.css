@@ -8,7 +8,6 @@ label,
 input,
 div {
   font-family: "Cormorant SC", serif;
-  text-transform: lowercase;
   font-size: 18px !important;
   font-weight: 300 !important;
 }
