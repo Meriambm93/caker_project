@@ -2,6 +2,7 @@ import Image from "next/image"
 import ramirez from "../assets/images/ramirez.png"
 import yummy from "../assets/images/yummy.png"
 import kristen from "../assets/images/kristen.png"
+import Link from "next/link"
 import { faEye } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
@@ -33,18 +34,18 @@ const ContainerPatissier = () => {
                   <Image
                     src={ramirez}
                     className="card-img rounded-0 img-fluid"
-                    alt="photo"
+                    alt="ramirez"
                   />
                   <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                     <ul className="list-unstyled">
-                      <li>
+                      <Link href="/shop1" >
                         <a
                           className="btn btn-success text-white mt-2"
-                          href="shop_1.html"
+                          href="shop1.html"
                         >
                           <FontAwesomeIcon icon={faEye} />
                         </a>
-                      </li>
+                      </Link>
                     </ul>
                   </div>
                 </div>
@@ -88,14 +89,14 @@ const ContainerPatissier = () => {
                   />
                   <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                     <ul className="list-unstyled">
-                      <li>
+                      <Link href="/shop2">
                         <a
                           className="btn btn-success text-white mt-2"
                           href="shop_2.html"
                         >
                           <FontAwesomeIcon icon={faEye} />
                         </a>
-                      </li>
+                      </Link>
                     </ul>
                   </div>
                 </div>
@@ -139,14 +140,14 @@ const ContainerPatissier = () => {
                   />
                   <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
                     <ul className="list-unstyled">
-                      <li>
+                      <Link href="/shop3">
                         <a
                           className="btn btn-success text-white mt-2"
-                          href="shop_3.html"
+                          href="shop3.html"
                         >
                           <FontAwesomeIcon icon={faEye} />
                         </a>
-                      </li>
+                      </Link>
                     </ul>
                   </div>
                 </div>
@@ -187,3 +188,4 @@ const ContainerPatissier = () => {
   )
 }
 export default ContainerPatissier
+
