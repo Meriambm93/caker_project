@@ -1,6 +1,7 @@
 import Link from "next/link"
 import Image from "next/image"
 import avatar from "../assets/images/avatar.jpg"
+import FormInput from "./FormInput"
 
 const Profil = () => {
   return (
@@ -66,11 +67,7 @@ const Profil = () => {
                   </div>
                   <div className="form-group">
                     <label className="form-label">Prénom</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="rose"
-                    />
+                    <FormInput type="text" placeholder="rose" />
                   </div>
                   <div className="form-group">
                     <label className="form-label">E-mail</label>
@@ -82,35 +79,19 @@ const Profil = () => {
                   </div>
                   <div className="form-group">
                     <label className="form-label">Adresse</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="11 rue du chocolat"
-                    />
+                    <FormInput type="text" placeholder="11 rue du chocolat" />
                   </div>
                   <div className="form-group">
                     <label className="form-label">Ville</label>
-                    <input
-                      type="text"
-                      className="form-control"
-                      placeholder="paris"
-                    />
+                    <FormInput type="text" placeholder="paris" />
                   </div>
                   <div className="form-group">
                     <label className="form-label">Code postal</label>
-                    <input
-                      type="number"
-                      className="form-control"
-                      placeholder="75006"
-                    />
+                    <FormInput type="number" placeholder="75006" />
                   </div>
                   <div className="form-group">
                     <label className="form-label">Téléphone</label>
-                    <input
-                      type="number"
-                      className="form-control"
-                      placeholder="0623456789"
-                    />
+                    <FormInput type="number" placeholder="0623456789" />
                   </div>
                 </div>
                 <h1> Modifier Mot de passe</h1>
@@ -121,18 +102,18 @@ const Profil = () => {
                   <div className="card-body pb-2 bg-light">
                     <div className="form-group">
                       <label className="form-label">Mot de passe actuel</label>
-                      <input type="password" className="form-control" />
+                      <FormInput type="password" />
                     </div>
                     <div className="form-group">
                       <label className="form-label">Nouveau Mot de passe</label>
-                      <input type="password" className="form-control" />
+                      <FormInput type="password" />
                     </div>
 
                     <div className="form-group">
                       <label className="form-label">
                         Répéter le nouveau mot de passe
                       </label>
-                      <input type="password" className="form-control" />
+                      <FormInput type="password" />
                     </div>
                   </div>
                 </div>

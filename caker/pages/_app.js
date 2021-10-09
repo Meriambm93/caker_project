@@ -2,6 +2,7 @@ import "../styles/globals.css"
 import "bootstrap/dist/css/bootstrap.css"
 import "../styles/signUp.css"
 
+
 import { useEffect } from "react"
 
 function MyApp({ Component, pageProps }) {
