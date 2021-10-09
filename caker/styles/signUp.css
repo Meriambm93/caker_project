@@ -85,7 +85,7 @@ h3 {
   color: #5a4328;
 }
 
-*/ .form-control {
+.form-control {
   display: block;
   width: 100%;
   border-radius: 23.5px;
@@ -507,7 +507,6 @@ div {
 .univers {
   color: #000;
 }
-
 
 /* PAGE PATISSIER */
 /* HEADER */
