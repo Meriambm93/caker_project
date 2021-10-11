@@ -1,3 +1,12 @@
+import {
+  faFacebook,
+  faInstagram,
+  faLinkedin,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons"
+import Link from "next/link"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+
 const Footer = () => {
   return (
     <footer className="bg" id="tempaltemo_footer">
@@ -5,86 +14,88 @@ const Footer = () => {
         <div className="row">
           <div className="col-md-4 pt-5">
             <h2 className="footer h2 text-success border-bottom pb-3 border-light logo">
-              Le Coin Des Gourmandises
+              CAKER
             </h2>
             <ul className="list-unstyled text-light footer-link-list">
               <li>
                 <i className="fas fa-map-marker-alt fa-fw"></i>
-                123 Champs-Elysées Paris
+                <Link
+                  className="text-decoration-none"
+                  href="https://google.fr/maps"
+                >
+                  123 Champs-Elysées Paris
+                </Link>
               </li>
               <li>
                 <i className="fa fa-phone fa-fw"></i>
-                <a className="text-decoration-none" href="tel:010-020-0340">
+                <Link className="text-decoration-none" href="tel:010-020-0340">
                   010-020-0340
-                </a>
+                </Link>
               </li>
               <li>
                 <i className="fa fa-envelope fa-fw"></i>
-                <a
+                <Link
                   className="text-decoration-none"
-                  href="mailto:info@company.com"
+                  href="mailto:caker@company.com"
                 >
-                  lc-gourmandise@gmail.com
-                </a>
+                  caker@gmail.com
+                </Link>
               </li>
             </ul>
           </div>
 
           <div className="col-md-4 pt-5">
-            <h2 className="footer h2 text-light border-bottom pb-3 border-light">
+            <h2 className="footer h2 text-success border-bottom pb-3 border-light">
               Vends,Commande Tes Pâtisserie
             </h2>
             <ul className="list-unstyled text-light footer-link-list">
               <li>
-                <a className="text-decoration-none" href="patissier.html">
-                  Trouver mon Pâtissier
-                </a>
+                <Link href="/patissier">
+                  <a className="text-decoration-none">Trouver mon Pâtissier</a>
+                </Link>
               </li>
               <li>
-                <a
-                  className="text-decoration-none"
-                  href="vends_tes_patisserie.html"
-                >
-                  vends tes Pâtisserie
-                </a>
+                <Link href="/patisserie">
+                  <a className="text-decoration-none">vends tes Pâtisserie</a>
+                </Link>
               </li>
               <li>
-                <a className="text-decoration-none" href="profil.html">
-                  Profil
-                </a>
+                <Link href="/profil">
+                  <a className="text-decoration-none">Profil</a>
+                </Link>
               </li>
             </ul>
           </div>
 
           <div className="col-md-4 pt-5">
-            <h2 className="footer h2 text-light border-bottom pb-3 border-light">
+            <h2 className="footer h2 text-success border-bottom pb-3 border-light">
               Informations
             </h2>
             <ul className="list-unstyled text-light footer-link-list">
               <li>
-                <a className="text-decoration-none" href="index.html">
+                <Link className="text-decoration-none" href="/">
                   Accueil
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-decoration-none" href="patisserie.html">
+                <Link className="text-decoration-none" href="patisserie">
                   Comment ça marche
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-decoration-none" href="contact.html">
+                <Link className="text-decoration-none" href="contact">
                   Contact
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-decoration-none" href="sign-up.html">
+                <Link className="text-decoration-none" href="signUp">
                   s'inscrire
-                </a>
+                </Link>
               </li>
               <li>
-                <a className="text-decoration-none" href="sign-in.html">
+                <Link className="text-decoration-none" href="signIn">
                   s'indentifier
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -104,13 +115,16 @@ const Footer = () => {
                   text-center
                 "
               >
-                <a
+                <Link
                   className="text-light text-decoration-none"
                   target="_blank"
+                  passHref
                   href="http://facebook.com/"
                 >
-                  <i className="fab fa-facebook-f fa-lg fa-fw"></i>
-                </a>
+                  <a>
+                    <FontAwesomeIcon icon={faFacebook} className="text-dark" />
+                  </a>
+                </Link>
               </li>
               <li
                 className="
@@ -120,13 +134,16 @@ const Footer = () => {
                   text-center
                 "
               >
-                <a
+                <Link
                   className="text-light text-decoration-none"
                   target="_blank"
+                  passHref
                   href="https://www.instagram.com/"
                 >
-                  <i className="fab fa-instagram fa-lg fa-fw"></i>
-                </a>
+                  <a>
+                    <FontAwesomeIcon icon={faInstagram} className="text-dark" />
+                  </a>
+                </Link>
               </li>
               <li
                 className="
@@ -136,13 +153,16 @@ const Footer = () => {
                   text-center
                 "
               >
-                <a
+                <Link
                   className="text-light text-decoration-none"
                   target="_blank"
+                  passHref
                   href="https://twitter.com/"
                 >
-                  <i className="fab fa-twitter fa-lg fa-fw"></i>
-                </a>
+                  <a>
+                    <FontAwesomeIcon icon={faTwitter} className="text-dark" />
+                  </a>
+                </Link>
               </li>
               <li
                 className="
@@ -152,31 +172,17 @@ const Footer = () => {
                   text-center
                 "
               >
-                <a
+                <Link
                   className="text-light text-decoration-none"
-                  target="_blank"
+                  passHref
                   href="https://www.linkedin.com/"
                 >
-                  <i className="fab fa-linkedin fa-lg fa-fw"></i>
-                </a>
+                  <a>
+                    <FontAwesomeIcon icon={faLinkedin} className="text-dark" />
+                  </a>
+                </Link>
               </li>
             </ul>
-          </div>
-          <div className="col-auto">
-            <label className="sr-only" for="subscribeEmail">
-              Email address
-            </label>
-            <div className="input-group mb-2">
-              <input
-                type="text"
-                className="form-control bg-dark border-light"
-                id="subscribeEmail"
-                placeholder="Email address"
-              />
-              <div className="input-group-text btn-success text-light">
-                Subscribe
-              </div>
-            </div>
           </div>
         </div>
       </div>

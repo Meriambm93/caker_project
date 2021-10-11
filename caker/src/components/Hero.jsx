@@ -77,12 +77,6 @@ const Hero = () => {
                   width={500}
                   height={500}
                 />
-
-                <img
-                  className="img-fluid"
-                  src="./assets/img/framboise-lait-amandes.png"
-                  alt=""
-                />
               </div>
               <div className="col-lg-6 mb-0 d-flex align-items-center">
                 <div className="text-align-left">

@@ -2,6 +2,8 @@ import Image from "next/image"
 import cupCake from "../assets/images/cake.jpg"
 import FormInput from "./FormInput"
 import Button from "../../src/components/Button"
+import Link from "next/link"
+
 const ContentSignUp = () => {
   return (
     <div className="wrapper">
@@ -19,7 +21,10 @@ const ContentSignUp = () => {
           <div className="form-login">
             <Button type="button">Envoyer</Button>
             <p className="fs-6">
-              Vous avez déjà un compte ? <a href="sign-in.html">connexion</a>
+              Vous avez déjà un compte ?
+              <Link href="signIn" passHref>
+                <a className="text-decoration-underline">Connexion</a>
+              </Link>
             </p>
           </div>
         </form>

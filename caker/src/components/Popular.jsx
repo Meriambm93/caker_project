@@ -1,6 +1,6 @@
 import tarteFramboise from "../assets/images/tarte-framboise.png"
 import amandesLitchi from "../assets/images/cake_amandes_litchi.png"
-
+import fraiseVanille from "../assets/images/le-fraise-vanille.png"
 import Image from "next/image"
 
 const Popular = () => {
@@ -38,10 +38,7 @@ const Popular = () => {
         </div>
         <div className="col-12 col-md-4 p-5 mt-3">
           <a href="#">
-            <img
-              src="./assets/img/le-fraise-vanille.png"
-              className="rounded-circle img-fluid border"
-            />
+            <Image src={fraiseVanille} alt="Image" width={500} height={500} />
           </a>
           <h2 className="h5 text-center mt-3 mb-3">
             Le Gourmand Fraise Vanille
