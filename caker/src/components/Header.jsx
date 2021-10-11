@@ -1,18 +1,15 @@
 import Link from "next/link"
 import { faUser, faSearch } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import FormInput from "./FormInput"
+import Button from "./Button"
 
 const Header = () => {
   return (
     <div className="bg-light shadow">
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container d-flex justify-content-between align-items-center">
-          <Link href="/">
-            <a
-              className="navbar-brand text-success logo h1 align-self-center"
-              href="index.html"
-            >
+          <Link href="/" passHref>
+            <a className="navbar-brand text-success logo h1 align-self-center">
               <h1>CAKER</h1>
             </a>
           </Link>
@@ -43,42 +40,33 @@ const Header = () => {
             <div className="flex-fill">
               <ul className="nav navbar-nav d-flex justify-content-between mx-lg-auto">
                 <li className="nav-item">
-                  <a className="nav-link" href="index.html">
-                    Accueil
-                  </a>
-                </li>
-                <li className="nav-item">
-                  <Link href="/profil">
-                    <a className="nav-link" href="profil.html">
-                      Profil
-                    </a>
+                  <Link href="/" passHref>
+                    <a className="nav-link">Accueil</a>
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link href="/patissier">
-                    <a className="nav-link" href="patissier.html">
-                      Trouver Mon Pâtissier
-                    </a>
+                  <Link href="/profil" passhref>
+                    <a className="nav-link">Profil</a>
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link href="/patisserie">
-                    <a className="nav-link" href="vends_tes_patisserie.html">
-                      Vends Tes Pâtisserie
-                    </a>
+                  <Link href="/patissier" passHref>
+                    <a className="nav-link">Trouver Mon Pâtissier</a>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link href="/patisserie" passHref>
+                    <a className="nav-link">Vends Tes Pâtisserie</a>
                   </Link>
                 </li>
               </ul>
             </div>
 
             <div className="navbar align-self-center d-flex">
-              <div className="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3"></div>
+              <div className="d-lg-none flex-sm-fill"></div>
             </div>
-            <Link href="/signUp">
-              <a
-                className="nav-icon position-relative text-decoration-none"
-                href="signUp.html"
-              >
+            <Link href="/signUp" passHref>
+              <a className="nav-icon position-relative text-decoration-none">
                 <FontAwesomeIcon icon={faUser} className="text-dark mr-8" />
                 <span
                   className="
@@ -97,19 +85,13 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <div className="row px-3 d-flex align-items-center">
-        <div className="flex-sm-fill mb-1 w-25 pr-3 align-self-center">
-          <div className="input-group">
-            <FormInput
-              type="text"
-              id="inputMobileSearch"
-              placeholder="Recherche"
-            />
-            <p className="input-group-text">
-              <FontAwesomeIcon icon={faSearch} className="text-dark ml-5" />
-            </p>
-          </div>
+      <div className="d-flex justify-content-end px-5 input-group">
+        <div className="form-outline">
+          <input type="search" id="form1" className="form-control rounded-0" />
         </div>
+        <Button>
+          <FontAwesomeIcon icon={faSearch} className="text-dark" />
+        </Button>
       </div>
     </div>
   )
