@@ -8,10 +8,8 @@ const Popular = () => {
     <section className="container py-5">
       <div className="row text-center pt-3">
         <div className="col-lg-6 m-auto">
-          <h1 className="h1">Gâteaux populaires</h1>
-          <h2 className="h2">
-            <span>Hiver 2021</span>
-          </h2>
+          <h1 className="bestseller">Best-seller</h1>
+          <h2 className="signature">Signature Hiver 2021</h2>
         </div>
       </div>
       <div className="row">
@@ -19,20 +17,24 @@ const Popular = () => {
           <a href="#">
             <Image src={tarteFramboise} alt="Image" width={500} height={500} />
           </a>
-          <h5 className="text-center mt-3 mb-3">La Fondante tarte framboise</h5>
+          <h5 className="color text-center mt-3 mb-3 ">
+            La Fondante tarte framboise
+          </h5>
           <p className="text-center">
             <a href="shop-product-8.html" className="btn btn-success">
-              Je craque
+              Je fonds
             </a>
           </p>
         </div>
         <div className="col-12 col-md-4 p-5 mt-3">
           <Image src={amandesLitchi} alt="Image" width={500} height={500} />
 
-          <h2 className="h5 text-center mt-3 mb-3"> amandes litchi</h2>
+          <h5 className="color text-center mt-3 mb-3">
+            Le croquant amandes litchi
+          </h5>
           <p className="text-center">
             <a href="shop-product-1.html" className="btn btn-success">
-              Je découvre
+              Je croque
             </a>
           </p>
         </div>
@@ -40,12 +42,12 @@ const Popular = () => {
           <a href="#">
             <Image src={fraiseVanille} alt="Image" width={500} height={500} />
           </a>
-          <h2 className="h5 text-center mt-3 mb-3">
+          <h5 className="color text-center mt-3 mb-3">
             Le Gourmand Fraise Vanille
-          </h2>
+          </h5>
           <p className="text-center">
             <a href="shop-product-7.html" className="btn btn-success">
-              Je croque
+              Je craque
             </a>
           </p>
         </div>

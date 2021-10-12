@@ -35,7 +35,7 @@ const Hero = () => {
               <div className="col-lg-6 mb-0 d-flex align-items-center">
                 <div className="text-align-left align-self-center">
                   <h1 className="h1 text-success">
-                    <b>Le Coin Des Gourmandises</b>
+                    <b> Caker le Coin Des Gourmandises</b>
                     <span className="univers"> l'univers de la pâtisserie</span>
                   </h1>
                   <p>

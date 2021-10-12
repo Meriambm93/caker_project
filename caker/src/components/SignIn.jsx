@@ -25,7 +25,7 @@ const SignIn = () => {
             </p>
           </div>
           <br />
-          <Link href="/forgottenPassword" passHref>
+          <Link href="/forgotPassword" passHref>
             <a className="text-decoration-underline m-3">
               Mot de passe oublié?
             </a>
