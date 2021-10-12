@@ -2,6 +2,8 @@ import Link from "next/link"
 import Image from "next/image"
 import avatar from "../assets/images/avatar.jpg"
 import FormInput from "./FormInput"
+import FormLabel from "./FormLabel"
+import Button from "../../src/components/Button"
 
 const Profil = () => {
   return (
@@ -21,11 +23,8 @@ const Profil = () => {
               </a>
 
               <Link href="/">
-                <a
-                  className="deco list-group-item list-group-item-action"
-                  href="index.html"
-                >
-                  Se Déconnecter
+                <a className="deco list-group-item" href="index.html">
+                  <Button type="button">déconnexion</Button>
                 </a>
               </Link>
             </div>
@@ -58,7 +57,7 @@ const Profil = () => {
                 <hr className="border-light m-0" />
                 <div className="card-body bg-light">
                   <div className="form-group">
-                    <label className="form-label">Nom</label>
+                    <FormLabel>Nom</FormLabel>
                     <input
                       type="text"
                       className="form-control mb-1"
@@ -66,11 +65,11 @@ const Profil = () => {
                     />
                   </div>
                   <div className="form-group">
-                    <label className="form-label">Prénom</label>
+                    <FormLabel>Prénom</FormLabel>
                     <FormInput type="text" placeholder="rose" />
                   </div>
                   <div className="form-group">
-                    <label className="form-label">E-mail</label>
+                    <FormLabel>E-mail</FormLabel>
                     <input
                       type="text"
                       className="form-control mb-1"
@@ -78,41 +77,39 @@ const Profil = () => {
                     />
                   </div>
                   <div className="form-group">
-                    <label className="form-label">Adresse</label>
+                    <FormLabel>Adresse</FormLabel>
                     <FormInput type="text" placeholder="11 rue du chocolat" />
                   </div>
                   <div className="form-group">
-                    <label className="form-label">Ville</label>
+                    <FormLabel>Ville</FormLabel>
                     <FormInput type="text" placeholder="paris" />
                   </div>
                   <div className="form-group">
-                    <label className="form-label">Code postal</label>
+                    <FormLabel>Code postal</FormLabel>
                     <FormInput type="number" placeholder="75006" />
                   </div>
                   <div className="form-group">
-                    <label className="form-label">Téléphone</label>
+                    <FormLabel>Téléphone</FormLabel>
                     <FormInput type="number" placeholder="0623456789" />
                   </div>
                 </div>
-                <h1> Modifier Mot de passe</h1>
+                <h1 className="profil"> Modifier Mot de passe</h1>
                 <div
                   className="tab-pane active show"
                   id="account-change-password"
                 >
                   <div className="card-body pb-2 bg-light">
                     <div className="form-group">
-                      <label className="form-label">Mot de passe actuel</label>
+                      <FormLabel>Mot de passe actuel</FormLabel>
                       <FormInput type="password" />
                     </div>
                     <div className="form-group">
-                      <label className="form-label">Nouveau Mot de passe</label>
+                      <FormLabel>Nouveau Mot de passe</FormLabel>
                       <FormInput type="password" />
                     </div>
 
                     <div className="form-group">
-                      <label className="form-label">
-                        Répéter le nouveau mot de passe
-                      </label>
+                      <FormLabel>Répéter le nouveau mot de passe</FormLabel>
                       <FormInput type="password" />
                     </div>
                   </div>
@@ -124,13 +121,9 @@ const Profil = () => {
       </div>
 
       <div className="text-right mt-5 mb-5">
-        <button type="button" className="avatar btn btn-outline-primary">
-          Sauvegarder
-        </button>
+        <Button type="button">Sauvegarder</Button>
         &nbsp;
-        <button type="button" className="avatar btn btn-outline-primary">
-          Annuler
-        </button>
+        <Button type="button">Annuler</Button>
       </div>
     </div>
   )
