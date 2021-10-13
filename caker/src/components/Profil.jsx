@@ -8,23 +8,22 @@ import Button from "../../src/components/Button"
 const Profil = () => {
   return (
     <div className="container light-style flex-grow-1 container-p-y ">
-      <h4 className="font-weight-bold py-3 mb-4 text-warning">Profil</h4>
+      <h4 className="font-weight-bold py-3 mb-4 text-warning"> Mon Profil</h4>
 
       <div className="card overflow-hidden">
         <div className="row no-gutters row-bordered row-border-light">
           <div className="col-md-3 pt-0">
             <div className="list-group list-group-flush account-settings-links">
-              <a
-                className="list-group-item list-group-item-action active"
-                data-toggle="list"
-                href="#account-general"
-              >
-                <h2>Mon Profil</h2>
-              </a>
-
-              <Link href="/">
-                <a className="deco list-group-item" href="index.html">
+              <Link href="/" passHref>
+                <a className="deco list-group-item">
                   <Button type="button">déconnexion</Button>
+                </a>
+              </Link>
+            </div>
+            <div className="list-group list-group-flush account-settings-links">
+              <Link href="/" passHref>
+                <a className="deco list-group-item">
+                  <Button type="button">supprimer compte </Button>
                 </a>
               </Link>
             </div>
@@ -121,7 +120,9 @@ const Profil = () => {
       </div>
 
       <div className="text-right mt-5 mb-5">
-        <Button type="button">Sauvegarder</Button>
+        <Link href="/" passHref>
+          <Button type="button">Sauvegarder</Button>
+        </Link>
         &nbsp;
         <Button type="button">Annuler</Button>
       </div>

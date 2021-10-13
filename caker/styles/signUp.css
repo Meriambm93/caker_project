@@ -385,15 +385,22 @@ div {
   color: #333d4a;
 }
 
-/* Shop */
-/* .shop-top-menu a:hover { color: #a74ca2 !important;} */
-/* Product */
-/* .product-wap { box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.10);}
-.product-wap .product-color-dot.color-dot-red { background:#f71515;}
-.product-wap .product-color-dot.color-dot-blue { background:#6db4fe;}
-.product-wap .product-color-dot.color-dot-black { background:#000000;}
-.product-wap .product-color-dot.color-dot-light { background:#e0e0e0;}
-.product-wap .product-color-dot.color-dot-green { background:#0bff7e;} */
+/* POPULAR */
+.bestseller {
+  color: black;
+  font-size: 2rem;
+}
+.signature {
+  font-size: 1.9rem;
+  color: #666155;
+}
+h5.color {
+  color: #000000;
+  font-size: 1rem;
+}
+
+/* FIN POPULAR */
+
 .card.product-wap .card .product-overlay {
   background: rgba(0, 0, 0, 0.2);
   visibility: hidden;
