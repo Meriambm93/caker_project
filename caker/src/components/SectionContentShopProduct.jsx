@@ -1,10 +1,8 @@
+import Button from "./Button"
 import Image from "next/image"
 import cake_amandes_litchi from "../assets/images/cake_amandes_litchi.png"
 import litchi2 from "../assets/images/litchi2.png"
 import litchi3 from "../assets/images/litchi3.png"
-import Link from "next/link"
-import { faEye } from "@fortawesome/free-solid-svg-icons"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 const Sectioncontentshopproduct = () => {
   return (
@@ -13,9 +11,11 @@ const Sectioncontentshopproduct = () => {
         <div className="row">
           <div className="col-lg-5 mt-5">
             <div className="card mb-3">
-              <Image 
+              <Image
                 className="card-img img-fluid"
-                src={cake_amandes_litchi} width={300} height={300}
+                src={cake_amandes_litchi}
+                width={300}
+                height={300}
                 alt="cake_amandes_litchi"
                 id="product-detail"
               />
@@ -36,8 +36,10 @@ const Sectioncontentshopproduct = () => {
                         <a href="#">
                           <Image
                             className="card-img img-fluid"
-                            src={cake_amandes_litchi} width={300} height={300}
-                            alt="Product Image 1"
+                            src={cake_amandes_litchi}
+                            width={300}
+                            height={300}
+                            alt="Product Image cake_amandes_litchi"
                           />
                         </a>
                       </div>
@@ -45,8 +47,10 @@ const Sectioncontentshopproduct = () => {
                         <a href="#">
                           <Image
                             className="card-img img-fluid"
-                            src={litchi2} width={300} height={300}
-                            alt="Product Image 2"
+                            src={litchi2}
+                            width={300}
+                            height={300}
+                            alt="Product Image cake_amandes_litchi_2"
                           />
                         </a>
                       </div>
@@ -54,8 +58,10 @@ const Sectioncontentshopproduct = () => {
                         <a href="#">
                           <Image
                             className="card-img img-fluid"
-                            src={litchi3} width={300} height={300}
-                            alt="Product Image 3"
+                            src={litchi3}
+                            width={300}
+                            height={300}
+                            alt="Product Image "
                           />
                         </a>
                       </div>
@@ -97,44 +103,16 @@ const Sectioncontentshopproduct = () => {
                   </li>
                 </ul>
 
-                <form action="" method="GET">
+                <form className="container" action="" method="GET">
                   <input
                     type="hidden"
                     name="product-title"
                     value="Activewear"
                   />
                   <div className="row">
-                    <div className="col-auto">
-                      <ul className="list-inline pb-3">
-                        <li className="list-inline-item">
-                          Taille :
-                          <input
-                            type="hidden"
-                            name="product-size"
-                            id="product-size"
-                            value="S"
-                          />
-                        </li>
-                        <li className="list-inline-item">
-                          <span className="btn btn-success btn-size">
-                            6 parts
-                          </span>
-                        </li>
-                        <li className="list-inline-item">
-                          <span className="btn btn-success btn-size">
-                            12 parts
-                          </span>
-                        </li>
-                        <li className="list-inline-item">
-                          <span className="btn btn-success btn-size">
-                            24 parts
-                          </span>
-                        </li>
-                      </ul>
-                    </div>
-                    <div className="col-auto">
-                      <ul className="list-inline pb-3">
-                        <li className="list-inline-item text-right">
+                    <div className="col-auto me-auto ">
+                      <ul className="list-group list-group-horizontal pb-3">
+                        <li className="list-group-item border-0 text-right fs-4">
                           Quantity
                           <input
                             type="hidden"
@@ -143,44 +121,31 @@ const Sectioncontentshopproduct = () => {
                             value="1"
                           />
                         </li>
-                        <li className="list-inline-item">
+                        <li className="list-group-item border-0">
                           <span className="btn btn-success" id="btn-minus">
                             -
                           </span>
                         </li>
-                        <li className="list-inline-item">
+                        <li className="list-group-item border-0 fs-4">
                           <span className="badge bg-secondary" id="var-value">
                             1
                           </span>
                         </li>
-                        <li className="list-inline-item">
+                        <li className="list-group-item border-0">
                           <span className="btn btn-success" id="btn-plus">
                             +
                           </span>
                         </li>
                       </ul>
                     </div>
-                  </div>
-                  <div className="row pb-3">
-                    <div className="col d-grid">
-                      <button
+                    <div className="col-auto me-auto">
+                      <Button
                         type="submit"
                         className="btn btn-success btn-lg"
                         name="submit"
-                        value="buy"
                       >
-                        Envoyer un email
-                      </button>
-                    </div>
-                    <div className="col d-grid">
-                      <button
-                        type="submit"
-                        className="btn btn-success btn-lg"
-                        name="submit"
-                        value="addtocard"
-                      >
-                        Echanger par Whatsapp
-                      </button>
+                        Ajouter au panier
+                      </Button>
                     </div>
                   </div>
                 </form>
@@ -190,6 +155,6 @@ const Sectioncontentshopproduct = () => {
         </div>
       </div>
     </section>
-  );
-};
-export default Sectioncontentshopproduct;
+  )
+}
+export default Sectioncontentshopproduct
