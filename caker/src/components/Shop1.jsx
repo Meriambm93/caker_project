@@ -1,25 +1,43 @@
-import Image from "next/image"
 import shopImage from "../assets/images/tropezienne.png"
 import shopImage1 from "../assets/images/cake_amandes_litchi.png"
 import shopImage2 from "../assets/images/framboise-lait-amandes.png"
-import { faCartPlus } from "@fortawesome/free-solid-svg-icons"
 import { faChevronCircleDown } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Link from "./Link"
+import Card from "./Card"
+
 const ContentShop1 = () => {
   return (
     <div className="container py-5">
       <div className="row">
         <div className="col-lg-3 ">
-          <br />
           <h1 className="h2 pb-4">Ramirez</h1>
           <div className="accordion">
-            <ul className="list-unstyled templatemo-accordion">
-              <li className="pb-3">
-                <a className="orshop collapsed d-flex justify-content-between h3 text-decoration-none">
-                  Voir le profil
-                  <FontAwesomeIcon icon={faChevronCircleDown} />
-                  <i className="fa fa-fw fa-chevron-circle-down mt-1"></i>
-                </a>
+            <div className="accordion" id="accordionExample">
+              <div className="accordion-item">
+                <h2 className="accordion-header" id="headingOne">
+                  <a
+                    className="accordion"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#collapseOne"
+                    aria-expanded="true"
+                    aria-controls="collapseOne"
+                  >
+                    <a className="orshop collapsed d-flex justify-content-between h3 text-decoration-none">
+                      Voir le profil
+                      <FontAwesomeIcon icon={faChevronCircleDown} />
+                    </a>
+                  </a>
+                </h2>
+              </div>
+            </div>
+            <div
+              id="collapseOne"
+              className="accordion-collapse collapse"
+              aria-labelledby="headingOne"
+              data-bs-parent="#accordionExample"
+            >
+              <div className="accordion-body">
                 <ul className="collapse show list-unstyled pl-3">
                   <li>
                     <p className="profilshop">
@@ -32,25 +50,46 @@ const ContentShop1 = () => {
                     </p>
                   </li>
                 </ul>
-              </li>
-              <li className="pb-3">
-                <a className="orshop collapsed d-flex justify-content-between h3 text-decoration-none">
-                  Me conctater
-                  <FontAwesomeIcon icon={faChevronCircleDown} />
-                  <i className="pull-right fa fa-fw fa-chevron-circle-down mt-1"></i>
+              </div>
+            </div>
+          </div>
+          <div className="accordion" id="accordionExample">
+            <div className="accordion-item">
+              <h2 className="accordion-header" id="headingOne">
+                <a
+                  className="accordion"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#collapseTwo"
+                  aria-expanded="true"
+                  aria-controls="collapseOne"
+                >
+                  <a className="orshop collapsed d-flex justify-content-between h3 text-decoration-none">
+                    Me conctater
+                    <FontAwesomeIcon icon={faChevronCircleDown} />
+                  </a>
                 </a>
-                <ul id="collapseTwo" className="collapse list-unstyled pl-3">
-                  <li>
-                    <p className="profilshop">ramirez@gmail.com</p>
-                  </li>
-                  <li>
-                    <p className="profilshop">Whatsapp: 06.56.89.09.09</p>
-                  </li>
-                </ul>
-              </li>
-            </ul>
+              </h2>
+            </div>
+          </div>
+          <div
+            id="collapseTwo"
+            className="accordion-collapse collapse"
+            aria-labelledby="headingOne"
+            data-bs-parent="#accordionExample"
+          >
+            <div className="accordion-body">
+              <ul>
+                <li className="text-decoration-none">
+                  <p className="profilshop">ramirez@gmail.com</p>
+                </li>
+                <li>
+                  <p className="profilshop">Whatsapp: 06.56.89.09.09</p>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
+
         <div className="col-lg-9">
           <div className="row">
             <div className="col-md-6"></div>
@@ -61,160 +100,18 @@ const ContentShop1 = () => {
             </div>
           </div>
           <div className="row">
-            <div className="col-md-4">
-              <div className="card mb-4 product-wap rounded-0">
-                <div className="card rounded-0">
-                  <Image
-                    className="card-img rounded-0 img-fluid"
-                    src={shopImage}
-                    alt="image"
-                  />
-                  <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                    <ul className="list-unstyled">
-                      <li>
-                        <a
-                          className="btn btn-success text-white mt-2"
-                          href="shop-product.html"
-                        >
-                          <FontAwesomeIcon icon={faCartPlus} />
-
-                          <i className="fas fa-cart-plus"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="card-body">
-                  <a
-                    href="shop-product.html"
-                    className="h3 text-decoration-none"
-                  >
-                    Tropezienne
-                  </a>
-                  <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
-                    <li className="pt-2">
-                      <span className="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                      <span className="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                      <span className="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                      <span className="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                      <span className="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                    </li>
-                  </ul>
-                  <ul className="list-unstyled d-flex justify-content-center mb-1">
-                    <li>
-                      <i className="text-warning fa fa-star"></i>
-                      <i className="text-warning fa fa-star"></i>
-                      <i className="text-warning fa fa-star"></i>
-                      <i className="text-muted fa fa-star"></i>
-                      <i className="text-muted fa fa-star"></i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="card mb-4 product-wap rounded-0">
-                <div className="card rounded-0">
-                  <Image
-                    className="card-img rounded-0 img-fluid"
-                    src={shopImage1}
-                    alt="image"
-                  />
-                  <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                    <ul className="list-unstyled">
-                      <li>
-                        <a
-                          className="btn btn-success text-white mt-2"
-                          href="shop-product-1.html"
-                        >
-                          <FontAwesomeIcon icon={faCartPlus} />
-
-                          <i className="fas fa-cart-plus"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="card-body">
-                  <a
-                    href="shop-product-1.html"
-                    className="h3 text-decoration-none"
-                  >
-                    Cake amandes litchi
-                  </a>
-                  <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
-                    <li className="pt-2">
-                      <span className="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                      <span className="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                      <span className="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                      <span className="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                      <span className="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                    </li>
-                  </ul>
-                  <ul className="list-unstyled d-flex justify-content-center mb-1">
-                    <li>
-                      <i className="text-warning fa fa-star"></i>
-                      <i className="text-warning fa fa-star"></i>
-                      <i className="text-warning fa fa-star"></i>
-                      <i className="text-muted fa fa-star"></i>
-                      <i className="text-muted fa fa-star"></i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-4">
-              <div className="card mb-4 product-wap rounded-0">
-                <div className="card rounded-0">
-                  <Image
-                    className="card-img rounded-0 img-fluid"
-                    src={shopImage2}
-                    alt="image"
-                  />
-                  <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
-                    <ul className="list-unstyled">
-                      <li>
-                        <a
-                          className="btn btn-success text-white mt-2"
-                          href="shop-product-2.html"
-                        >
-                          <FontAwesomeIcon icon={faCartPlus} />
-
-                          <i className="fas fa-cart-plus"></i>
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="card-body">
-                  <a
-                    href="shop-product-2.html"
-                    className="h3 text-decoration-none"
-                  >
-                    framboise au lait d'amandes
-                  </a>
-                  <ul className="w-100 list-unstyled d-flex justify-content-between mb-0">
-                    <li className="pt-2">
-                      <span className="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
-                      <span className="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
-                      <span className="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
-                      <span className="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
-                      <span className="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
-                    </li>
-                  </ul>
-                  <ul className="list-unstyled d-flex justify-content-center mb-1">
-                    <li>
-                      <i className="text-warning fa fa-star"></i>
-                      <i className="text-warning fa fa-star"></i>
-                      <i className="text-warning fa fa-star"></i>
-                      <i className="text-muted fa fa-star"></i>
-                      <i className="text-muted fa fa-star"></i>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-            </div>
+            <Card src={shopImage}>Tropezienne</Card>
+            <Card src={shopImage1}>Cake amandes litchi</Card>
+            <Card src={shopImage2}>Framboise au lait d'amandes</Card>
           </div>
+        </div>
+      </div>
+      <div className="row">
+        <hr />
+        <div className="col-lg-3 ">
+          <h5>Commentaires client</h5>
+          <h6 className="h6 pt-4">Évaluer ce patissier</h6>
+          <Link href="/signIn">commentaire</Link>
         </div>
       </div>
     </div>
