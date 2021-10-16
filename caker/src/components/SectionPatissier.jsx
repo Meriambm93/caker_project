@@ -1,8 +1,6 @@
 import Image from "next/image"
 import custom from "../assets/images/custom.png"
 
-
-
 const SectionPatissier = () => {
   return (
     <section className="bg-light py-5">
@@ -25,39 +23,21 @@ const SectionPatissier = () => {
               reste plus qu’à récuperer vos gâteaux le jour J.
             </p>
           </div>
-          <div className="col-lg-9 m-auto tempaltemo-carousel">
-            <div className="row d-flex flex-row">
-              <div className="col">
-                <div
-                  className="carousel slide carousel-multi-item pt-2 pt-md-0"
-                  id="multi-item-example"
-                  data-bs-ride="carousel"
-                >
-                  <div
-                    className="carousel-inner product-links-wap"
-                    role="listbox"
-                  >
-                    <div className="carousel-item active">
-                      <div className="row">
-                        <div className="col-12 p-md-5">
-                          <a href="#">
-                            <Image 
-                              className="img-fluid brand-img"
-                              src={custom}
-                              alt="Brand Logo"
-                            />
-                          </a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+          <div className="row">
+            <div className="col-12 p-md-5">
+              <a href="#">
+                <Image
+                  className="img-fluid brand-img"
+                  src={custom}
+                  alt="Brand Logo"
+                />
+              </a>
             </div>
           </div>
         </div>
       </div>
     </section>
-  );
-};
-export default SectionPatissier;
+  )
+}
+
+export default SectionPatissier
