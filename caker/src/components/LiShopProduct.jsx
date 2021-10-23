@@ -1,10 +1,6 @@
 const LiShopProduct = (props) => {
-  const { children, ...otherPors } = props
+  const { children } = props
 
-  return (
-    <ul className="list-group" {...otherPors}>
-      <li className="list-group-item border-0 fs-4">{children}</li>
-    </ul>
-  )
+  return <li className="list-group-item border-0 fs-4">{children}</li>
 }
 export default LiShopProduct
