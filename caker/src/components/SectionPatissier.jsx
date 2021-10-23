@@ -3,7 +3,7 @@ import custom from "../assets/images/custom.png"
 
 const SectionPatissier = () => {
   return (
-    <section className="bg-light py-5">
+    <section className="p-0">
       <div className="container my-4">
         <div className="row text-center py-3">
           <div className="col-lg-6 m-auto">
