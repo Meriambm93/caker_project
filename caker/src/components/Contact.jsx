@@ -1,55 +1,56 @@
+import FormInput from "./FormInput"
+import FormLabel from "./FormLabel"
+import Button from "../../src/components/Button"
+import FormContact from "./FormContact"
+
 const Contact = () => {
   return (
     <div className="container py-5">
-      <div className="container-fluid bg-light py-5">
+      <div
+        className="container-fluid
+       py-5"
+      >
         <div className="col-md-6 m-auto text-center">
-          <h1 className="h1">Contact Us</h1>
-          <p>
-            Proident, sunt in culpa qui officia deserunt mollit anim id est
-            laborum. Lorem ipsum dolor sit amet.
-          </p>
+          <h1 className="h1">Contacter Nous</h1>
         </div>
       </div>
-
-      <h1>Inset Map</h1>
-
-      <div className="container py-5">
-        <div className="row py-5">
+      <div className="container py-1">
+        <div className="card-body bg-light">
           <form className="col-md-9 m-auto" method="post" role="form">
             <div className="row">
               <div className="form-group col-md-6 mb-3">
-                <label for="inputname">Name</label>
-                <input
+                <FormLabel for="inputname">Nom</FormLabel>
+                <FormInput
                   type="text"
                   className="form-control mt-1"
                   id="name"
                   name="name"
-                  placeholder="Name"
-                ></input>
+                  placeholder="Charlotte"
+                ></FormInput>
               </div>
               <div className="form-group col-md-6 mb-3">
-                <label for="inputemail">Email</label>
-                <input
+                <FormLabel for="inputemail">Email</FormLabel>
+                <FormInput
                   type="email"
                   className="form-control mt-1"
                   id="email"
                   name="email"
-                  placeholder="Email"
-                ></input>
+                  placeholder="Charlotteframboise@gmail.com"
+                ></FormInput>
               </div>
             </div>
             <div className="mb-3">
-              <label for="inputsubject">Subject</label>
-              <input
+              <FormLabel for="inputsubject">Sujet</FormLabel>
+              <FormInput
                 type="text"
                 className="form-control mt-1"
                 id="subject"
                 name="subject"
-                placeholder="Subject"
-              ></input>
+                placeholder="La Patisserie Au Fraise"
+              ></FormInput>
             </div>
             <div className="mb-3">
-              <label for="inputmessage">Message</label>
+              <FormLabel for="inputmessage">Message</FormLabel>
               <textarea
                 className="form-control mt-1"
                 id="message"
@@ -60,13 +61,25 @@ const Contact = () => {
             </div>
             <div className="row">
               <div className="col text-end mt-2">
-                <button type="submit" className="btn btn-success btn-lg px-3">
-                  Let’s Talk
-                </button>
+                <Button type="button">Let's Talk</Button>
               </div>
             </div>
           </form>
         </div>
+      </div>
+      <div className="row">
+        <FormContact>
+          <h2 className="text-center">Telephone</h2>
+          <p className="text-center">0651452123</p>
+        </FormContact>
+        <FormContact>
+          <h2 className="text-center">Adresse</h2>
+          <p className="text-center">123 Avenue des Champs Elysées</p>
+        </FormContact>
+        <FormContact>
+          <h2 className="text-center">Email</h2>
+          <p className="text-center">Caker@gmail.com</p>
+        </FormContact>
       </div>
     </div>
   )
