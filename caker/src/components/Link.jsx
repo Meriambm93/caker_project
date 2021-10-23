@@ -4,7 +4,7 @@ const Link = (props) => {
 
   return (
     <NextLink href={href}>
-      <a className="btn btn-success text-white mt-2" {...otherProps} />
+      <a {...otherProps} />
     </NextLink>
   )
 }

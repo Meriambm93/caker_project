@@ -27,7 +27,7 @@ const ContentVends = () => {
               </div>
 
               <div className="card-footer text-muted">
-                <p>Ajoute jusqu'à 20 photos.</p>
+                <p>Ajoute jusqu'à 2 photos.</p>
               </div>
             </div>
             <div className="row">
@@ -55,16 +55,7 @@ const ContentVends = () => {
                       <div className="col-4">
                         <a href="#">
                           <Image
-                            className="card-img img-fluid"
-                            src={cake}
-                            alt=""
-                          />
-                        </a>
-                      </div>
-                      <div className="col-4">
-                        <a href="#">
-                          <Image
-                            className="card-img img-fluid"
+                            className="card-img img-fluid text-center"
                             src={cake}
                             alt=""
                           />
@@ -101,27 +92,28 @@ const ContentVends = () => {
               <div className="form-group mx-3">
                 <label className="form-label d-block">Titre</label>
                 <FormInput
-                  type="name"
+                  type="text"
                   className="form-control"
-                  aria-describedby="name"
+                  aria-describedby="text"
                   placeholder="ex: charlotte aux fraises"
                 />
                 <label className="form-label d-block">Prix</label>
                 <FormInput
-                  type="name"
+                  type="number"
+                  min="0"
+                  step=".01"
                   className="form-control d-block"
-                  aria-describedby="name"
-                  placeholder=""
+                  aria-describedby="number"
+                  placeholder="Prix"
+                  id="setPrice"
+                  pattern="^\d*(\.\d{0,2})?$"
                 />
                 <label className="form-label d-block">
                   Décris ta pâtisserie
                 </label>
-                <FormInput
-                  type="text"
-                  className="form-control"
-                  aria-describedby="text"
-                  placeholder="ex: un biscuit imbibé de sirop de fraise"
-                />
+                <textarea className="form-control fs-6" rows="5">
+                  ex: un biscuit imbibé de sirop de fraise
+                </textarea>
                 <label className="form-label d-block">
                   Conseils de dégustation:
                 </label>

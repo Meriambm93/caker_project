@@ -6,10 +6,16 @@ import Link from "next/link"
 
 const ContentSignUp = () => {
   return (
-    <div className="wrapper">
+    <div className="py-5">
       <div className="inner">
         <div className="image-holder">
-          <Image src={cupCake} alt="Image" className="img" />
+          <Image
+            src={cupCake}
+            alt="Image"
+            className=""
+            width={500}
+            height={800}
+          />
         </div>
         <form action="">
           <h3>S'inscrire</h3>
