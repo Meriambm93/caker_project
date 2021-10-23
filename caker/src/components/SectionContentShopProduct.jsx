@@ -3,69 +3,100 @@ import Image from "next/image"
 import cake_amandes_litchi from "../assets/images/cake_amandes_litchi.png"
 import litchi2 from "../assets/images/litchi2.png"
 import litchi3 from "../assets/images/litchi3.png"
+import LiShopProduct from "./LiShopProduct"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import {
+  faChevronCircleLeft,
+  faChevronCircleRight,
+} from "@fortawesome/free-solid-svg-icons"
 
 const Sectioncontentshopproduct = () => {
   return (
-    <section className="bg-light">
+    <section className="">
       <div className="container pb-5">
         <div className="row">
           <div className="col-lg-5 mt-5">
-            <div className="card mb-3">
-              <Image
-                className="card-img img-fluid"
-                src={cake_amandes_litchi}
-                width={300}
-                height={300}
-                alt="cake_amandes_litchi"
-                id="product-detail"
-              />
-            </div>
             <div className="row">
-              <div
-                id="multi-item-example"
-                className="col-10 carousel slide carousel-multi-item"
-                data-bs-ride="carousel"
-              >
-                <div
-                  className="carousel-inner product-links-wap"
-                  role="listbox"
-                >
-                  <div className="carousel-item active">
-                    <div className="row">
-                      <div className="col-4">
-                        <a href="#">
-                          <Image
-                            className="card-img img-fluid"
-                            src={cake_amandes_litchi}
-                            width={300}
-                            height={300}
-                            alt="Product Image cake_amandes_litchi"
-                          />
-                        </a>
-                      </div>
-                      <div className="col-4">
-                        <a href="#">
-                          <Image
-                            className="card-img img-fluid"
-                            src={litchi2}
-                            width={300}
-                            height={300}
-                            alt="Product Image cake_amandes_litchi_2"
-                          />
-                        </a>
-                      </div>
-                      <div className="col-4">
-                        <a href="#">
-                          <Image
-                            className="card-img img-fluid"
-                            src={litchi3}
-                            width={300}
-                            height={300}
-                            alt="Product Image "
-                          />
-                        </a>
+              <div className="col-lg-10 m-auto tempaltemo-carousel">
+                <div className="row d-flex flex-row">
+                  <div className="col-1 align-self-center">
+                    <a
+                      className="h1"
+                      href="#multi-item-example"
+                      role="button"
+                      data-bs-slide="prev"
+                    >
+                      <span className="btn btn-success">
+                        <FontAwesomeIcon icon={faChevronCircleLeft} />
+                      </span>
+                    </a>
+                  </div>
+                  <div className="col">
+                    <div
+                      className="carousel slide carousel-multi-item pt-2 pt-md-0"
+                      id="multi-item-example"
+                      data-bs-ride="carousel"
+                    >
+                      <div
+                        className="carousel-inner product-links-wap"
+                        role="listbox"
+                      >
+                        <div className="carousel-item active">
+                          <div className="row">
+                            <div className="card mb-3">
+                              <Image
+                                className="card-img img-fluid"
+                                src={cake_amandes_litchi}
+                                width={500}
+                                height={500}
+                                alt="cake_amandes_litchi"
+                                id="product-detail"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="carousel-item">
+                          <div className="row">
+                            <div className="card mb-3">
+                              <Image
+                                className="card-img img-fluid"
+                                src={litchi2}
+                                width={500}
+                                height={500}
+                                alt="cake_amandes_litchi"
+                                id="product-detail"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="carousel-item">
+                          <div className="row">
+                            <div className="card mb-3">
+                              <Image
+                                className="card-img img-fluid"
+                                src={litchi3}
+                                width={500}
+                                height={500}
+                                alt="cake_amandes_litchi"
+                                id="product-detail"
+                              />
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
+                  </div>
+                  <div className="col-1 align-self-center">
+                    <a
+                      className="h1"
+                      href="#multi-item-example"
+                      role="button"
+                      data-bs-slide="next"
+                    >
+                      <span className="btn btn-success">
+                        <FontAwesomeIcon icon={faChevronCircleRight} />
+                      </span>
+                    </a>
                   </div>
                 </div>
               </div>
@@ -112,7 +143,7 @@ const Sectioncontentshopproduct = () => {
                   <div className="row">
                     <div className="col-auto me-auto ">
                       <ul className="list-group list-group-horizontal pb-3">
-                        <li className="list-group-item border-0 text-right fs-4">
+                        <LiShopProduct>
                           Quantity
                           <input
                             type="hidden"
@@ -120,22 +151,22 @@ const Sectioncontentshopproduct = () => {
                             id="product-quanity"
                             value="1"
                           />
-                        </li>
-                        <li className="list-group-item border-0">
+                        </LiShopProduct>
+                        <LiShopProduct>
                           <span className="btn btn-success" id="btn-minus">
                             -
                           </span>
-                        </li>
-                        <li className="list-group-item border-0 fs-4">
+                        </LiShopProduct>
+                        <LiShopProduct>
                           <span className="badge bg-secondary" id="var-value">
                             1
                           </span>
-                        </li>
-                        <li className="list-group-item border-0">
+                        </LiShopProduct>
+                        <LiShopProduct>
                           <span className="btn btn-success" id="btn-plus">
                             +
                           </span>
-                        </li>
+                        </LiShopProduct>
                       </ul>
                     </div>
                     <div className="col-auto me-auto">
