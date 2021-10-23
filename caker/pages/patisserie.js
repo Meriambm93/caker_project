@@ -3,7 +3,7 @@ import Patisserie from "../src/components/Patisserie"
 
 const patisserie = () => {
   return (
-    <Page title="Pattiseries">
+    <Page title="Patisserie">
       <Patisserie></Patisserie>
     </Page>
   )

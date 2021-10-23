@@ -334,6 +334,9 @@ div {
 .bg-light {
   background-color: #f6f2e6 !important;
 }
+.bgcontactus {
+  background-color: #770c0d !important;
+}
 .bg-black {
   background-color: #c49e42 !important;
 }
@@ -530,8 +533,9 @@ a.nav-link:hover {
   color: white;
 }
 /* MAIN */
-main {
-  background: #000;
+main .accordion-item {
+  background: #f5f4db00;
+
   color: #f5f4db;
 }
 /* COMMANDE DE GATEAU */
@@ -551,9 +555,12 @@ main {
 }
 
 /* paragraphe */
-.justify {
+.justifypat {
   text-align: justify;
-  font-family: "Cormorant SC", serif;
+  font-family: "Cormorant SC"!important;
+  text-transform: none !important;
+  font-size: 1.3rem !important;
+  line-height: 2;
 }
 
 /* FOOTER */
@@ -569,7 +576,7 @@ h2.footer {
   color: #000;
 }
 .orshop {
-  color: #c49e42 !important;
+  color: #000000 !important;
 }
 
 /* PAGE PROFIL */
