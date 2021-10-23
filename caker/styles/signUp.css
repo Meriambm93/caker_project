@@ -44,6 +44,11 @@ a:hover {
 :focus {
   outline: none;
 }
+#setPrice::-webkit-outer-spin-button,
+#setPrice::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 .wrapper {
   min-height: 100vh;

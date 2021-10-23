@@ -5,6 +5,8 @@ import { faChevronCircleDown } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Link from "./Link"
 import Card from "./Card"
+import avatar from "../assets/images/avatar.jpg"
+import Image from "next/dist/client/image"
 
 const ContentShop1 = () => {
   return (
@@ -78,7 +80,7 @@ const ContentShop1 = () => {
             data-bs-parent="#accordionExample"
           >
             <div className="accordion-body">
-              <ul>
+              <ul className="list-unstyled">
                 <li className="text-decoration-none">
                   <p className="profilshop">ramirez@gmail.com</p>
                 </li>
@@ -106,12 +108,61 @@ const ContentShop1 = () => {
           </div>
         </div>
       </div>
-      <div className="row">
+      <div className="row mt-5">
         <hr />
-        <div className="col-lg-3 ">
+        <div className="col-lg-3 mt-5">
           <h5>Commentaires client</h5>
           <h6 className="h6 pt-4">Évaluer ce patissier</h6>
-          <Link href="/signIn">commentaire</Link>
+          <Link href="/commentaire" className="btn btn-success text-white mt-2">
+            Ecrire un commentaire
+          </Link>
+        </div>
+        <div className="col-lg-9 mt-5">
+          <div className="row">
+            <h5 className="fs-5">Meilleures évaluations de France</h5>
+            <div className="col-lg-1 mt-3">
+              <Image
+                src={avatar}
+                width={30}
+                height={30}
+                alt="avatar"
+                className="d-block ui-w-80 "
+              />
+            </div>
+            <div className="col-lg-6">
+              <h5 className="h5 fs-6 mt-3">client caker</h5>
+              <p className="text-dark">Commenté en France le 6 octobre 2021</p>
+              <hr />
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
+                ipsum omnis cupiditate neque ea ut non distinctio culpa, itaque
+                voluptate in voluptatum quibusdam unde reiciendis quos,
+                voluptates quidem odio tempore?
+              </p>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-lg-1 mt-3">
+              <Image
+                src={avatar}
+                width={30}
+                height={30}
+                alt="avatar"
+                className="d-block ui-w-80 "
+              />
+            </div>
+            <div className="col-lg-6">
+              <h5 className="h5 fs-6 mt-3">greg W</h5>
+              <p className="text-dark">Commenté en France le 1 mars 2021</p>
+              <hr />
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
+                ipsum omnis cupiditate neque ea ut non distinctio culpa, itaque
+                voluptate in voluptatum quibusdam unde reiciendis quos,
+                voluptates quidem odio tempore?
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
