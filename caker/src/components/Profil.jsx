@@ -47,7 +47,7 @@ const Profil = () => {
                       modifier la photo profil
                       <input
                         type="file"
-                        className="account-settings-fileinput"
+                        className="account-settings-fileinput bg-transparent borde-0"
                       />
                     </label>{" "}
                     &nbsp;

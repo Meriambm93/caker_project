@@ -15,7 +15,10 @@ const CardShopProduct = (props) => {
             <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
               <ul className="list-unstyled">
                 <li>
-                  <Link href="/shop1">
+                  <Link
+                    href="/shop1"
+                    className="btn btn-success text-white mt-2"
+                  >
                     <FontAwesomeIcon icon={faEye} />
                   </Link>
                 </li>

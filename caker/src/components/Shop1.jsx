@@ -16,7 +16,7 @@ const ContentShop1 = () => {
           <h1 className="h2 pb-4">Ramirez</h1>
           <div className="accordion">
             <div className="accordion" id="accordionExample">
-              <div className="accordion-item">
+              <div className="accordion-item bg-transparent border-0">
                 <h2 className="accordion-header" id="headingOne">
                   <a
                     className="accordion"
@@ -25,7 +25,7 @@ const ContentShop1 = () => {
                     aria-expanded="true"
                     aria-controls="collapseOne"
                   >
-                    <a className="orshop collapsed d-flex justify-content-between h3 text-decoration-none">
+                    <a className="orshop collapsed d-flex justify-content-between h3">
                       Voir le profil
                       <FontAwesomeIcon icon={faChevronCircleDown} />
                     </a>
@@ -56,17 +56,17 @@ const ContentShop1 = () => {
             </div>
           </div>
           <div className="accordion" id="accordionExample">
-            <div className="accordion-item">
+            <div className="accordion-item bg-transparent border-0">
               <h2 className="accordion-header" id="headingOne">
                 <a
-                  className="accordion"
+                  className="accordion bg-dark"
                   data-bs-toggle="collapse"
                   data-bs-target="#collapseTwo"
                   aria-expanded="true"
                   aria-controls="collapseOne"
                 >
                   <a className="orshop collapsed d-flex justify-content-between h3 text-decoration-none">
-                    Me conctater
+                    Me contacter
                     <FontAwesomeIcon icon={faChevronCircleDown} />
                   </a>
                 </a>

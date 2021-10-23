@@ -538,11 +538,11 @@ a.nav-link:hover {
   color: white;
 }
 /* MAIN */
-main .accordion-item {
-  background: #f5f4db00;
-
+main {
+  background: #000;
   color: #f5f4db;
 }
+
 /* COMMANDE DE GATEAU */
 /* TITRE */
 .or {
@@ -560,9 +560,17 @@ main .accordion-item {
 }
 
 /* paragraphe */
+.justify {
+  text-align: justify;
+  font-family: "Cormorant SC", serif;
+  text-transform: none !important;
+  font-size: 1.3rem !important;
+  line-height: 2;
+}
+
 .justifypat {
   text-align: justify;
-  font-family: "Cormorant SC"!important;
+  font-family: "Cormorant SC" !important;
   text-transform: none !important;
   font-size: 1.3rem !important;
   line-height: 2;
@@ -581,7 +589,7 @@ h2.footer {
   color: #000;
 }
 .orshop {
-  color: #000000 !important;
+  color: #c49e42 !important;
 }
 
 /* PAGE PROFIL */
