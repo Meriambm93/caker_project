@@ -21,7 +21,7 @@ const Profil = () => {
               </Link>
             </div>
             <div className="list-group list-group-flush account-settings-links">
-              <Link href="/" passHref>
+              <Link href="/deleteYourAccount" passHref>
                 <a className="deco list-group-item">
                   <Button type="button">supprimer compte </Button>
                 </a>
