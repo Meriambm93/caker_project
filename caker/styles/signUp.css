@@ -127,58 +127,6 @@ h3 {
   font-family: "Montserrat-Regular";
 }
 
-/*@-webkit-keyframes hvr-wobble-horizontal {
-  16.65% {
-    -webkit-transform: translateX(8px);
-    transform: translateX(8px);
-  }
-  33.3% {
-    -webkit-transform: translateX(-6px);
-    transform: translateX(-6px);
-  }
-  49.95% {
-    -webkit-transform: translateX(4px);
-    transform: translateX(4px);
-  }
-  66.6% {
-    -webkit-transform: translateX(-2px);
-    transform: translateX(-2px);
-  }
-  83.25% {
-    -webkit-transform: translateX(1px);
-    transform: translateX(1px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-}
-@keyframes hvr-wobble-horizontal {
-  16.65% {
-    -webkit-transform: translateX(8px);
-    transform: translateX(8px);
-  }
-  33.3% {
-    -webkit-transform: translateX(-6px);
-    transform: translateX(-6px);
-  }
-  49.95% {
-    -webkit-transform: translateX(4px);
-    transform: translateX(4px);
-  }
-  66.6% {
-    -webkit-transform: translateX(-2px);
-    transform: translateX(-2px);
-  }
-  83.25% {
-    -webkit-transform: translateX(1px);
-    transform: translateX(1px);
-  }
-  100% {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-}*/
 button {
   letter-spacing: 1px;
   border: none;
@@ -645,44 +593,30 @@ label.btn {
   color: #c49e42;
   font-size: 30px !important;
 }
-
-/* MOBILE */
-@media (min-width: 576px) {
-  .tempaltemo-carousel .h1 {
-    font-size: 1em !important;
-  }
+/*supprimer compte définitivement*/
+.centerSupp {
+  width: 45%;
+  margin: auto;
+  text-align: center;
+}
+.deleteAcc p {
+  text-transform: lowercase;
+  font-family: "Cormorant SC", serif;
+  font-size: 17px !important;
+  font-weight: 300 !important;
+  color: #232a30;
+}
+.buttonDelete {
+  text-align: center;
+}
+.deleteButton {
+  font-size: 17px !important;
+  width: 29%;
+  height: 42px;
+  text-transform: lowercase;
+  text-align: start;
 }
 
-/*// Medium devices (tablets, 768px and up)*/
-@media (min-width: 768px) {
-  #templatemo_main_nav .navbar-nav {
-    max-width: 450px;
-  }
-}
-
-/* Large devices (desktops, 992px and up)*/
-@media (min-width: 992px) {
-  #templatemo_main_nav .navbar-nav {
-    max-width: 600px;
-  }
-  #template-mo-zay-hero-carousel .carousel-item {
-    min-height: 30rem !important;
-  }
-  .product-wap .h3,
-  .product-wap li,
-  .product-wap i,
-  .product-wap p {
-    font-size: 18px !important;
-  }
-  .product-wap .product-color-dot {
-    width: 12px;
-    height: 12px;
-  }
-}
-
-/* Extra large devices (large desktops, 1200px and up)*/
-@media (min-width: 1200px) {
-}
 /* PANIER*/
 
 .cartBody {
@@ -856,4 +790,42 @@ hr {
 
   font-weight: 600;
   color: #ffffff;
+}
+
+/* MOBILE */
+@media (min-width: 576px) {
+  .tempaltemo-carousel .h1 {
+    font-size: 1em !important;
+  }
+}
+
+/*// Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) {
+  #templatemo_main_nav .navbar-nav {
+    max-width: 450px;
+  }
+}
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) {
+  #templatemo_main_nav .navbar-nav {
+    max-width: 600px;
+  }
+  #template-mo-zay-hero-carousel .carousel-item {
+    min-height: 30rem !important;
+  }
+  .product-wap .h3,
+  .product-wap li,
+  .product-wap i,
+  .product-wap p {
+    font-size: 18px !important;
+  }
+  .product-wap .product-color-dot {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
 }
