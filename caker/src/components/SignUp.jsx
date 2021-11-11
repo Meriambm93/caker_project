@@ -2,9 +2,63 @@ import Image from "next/image"
 import cupCake from "../assets/images/cake.jpg"
 import FormInput from "./FormInput"
 import Button from "../../src/components/Button"
-import Link from "next/link"
+import Link from "./Link"
+import { Field, Formik } from "formik"
+import { useCallback } from "react"
+import * as yup from "yup"
+import FormField from "./FormField"
+import axios from "axios"
+import { useRouter } from "next/router"
 
+const validationSchema = yup.object().shape({
+  firstName: yup.string().required().min(1).max(120),
+  lastName: yup.string().required().min(1).max(120),
+  email: yup.string().email().required(),
+  password: yup.string().min(8).required(),
+  address: yup.string().min(1).required(),
+  city: yup.string().min(1).max(120).required(),
+  zipCode: yup.number().integer().min(1).required(),
+  profilePicture: yup.string().max(125),
+  role_id: yup.number().integer().min(1).required(),
+})
 const ContentSignUp = () => {
+  const router = useRouter()
+  const initialValues = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    password: "",
+    address: "09 route",
+    city: "Paris",
+    zipCode: 93160,
+    profilePicture: "",
+    role_id: 3,
+  }
+  /*const handleFormSubmit = useCallback((values) => {
+    console.log("submited", values)
+  }, [])*/
+  const handleFormSubmit = useCallback(
+    async (values, actions) => {
+      try {
+        await axios.post("http://localhost:5000/sign-up", {
+          firstName: values.firstName,
+          lastName: values.lastName,
+          email: values.email,
+          password: values.password,
+          address: values.address,
+          city: values.city,
+          zipCode: values.zipCode,
+          profilePicture: values.profilePicture,
+          role_id: values.role_id,
+        })
+        router.push("/signIn")
+      } catch (err) {
+        actions.setErrors({ form: "une erreur" })
+      }
+    },
+    [router],
+  )
+
   return (
     <div className="py-5">
       <div className="inner">
@@ -14,26 +68,96 @@ const ContentSignUp = () => {
             alt="Image"
             className=""
             width={500}
-            height={800}
+            height={1050}
           />
         </div>
-        <form action="">
-          <h3>S'inscrire</h3>
-          <FormInput type="text" placeholder="nom" />
-          <FormInput type="text" placeholder="prenom" />
-          <FormInput type="text" placeholder="e-mail" />
-          <FormInput type="password" placeholder="mot de passe" />
-          <FormInput type="password" placeholder="confirme mot de passe" />
-          <div className="form-login">
-            <Button type="button">Envoyer</Button>
-            <p className="fs-6">
-              Vous avez déjà un compte ?
-              <Link href="signIn" passHref>
-                <a className="text-decoration-underline">Connexion</a>
-              </Link>
-            </p>
-          </div>
-        </form>
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleFormSubmit}
+          validationSchema={validationSchema}
+        >
+          {({ handleSubmit, errors }) =>
+            console.log(errors) || (
+              <form onSubmit={handleSubmit}>
+                <h3>S'inscrire</h3>
+                <div id="my-radio-group">Vous êtes:</div>
+                <div role="group" aria-labelledby="my-radio-group">
+                  <label>
+                    <Field type="radio" name="role_id" value="2" />
+                    Je suis patissier
+                  </label>
+                  <label>
+                    <Field type="radio" name="role_id" value="3" />
+                    Je suis client
+                  </label>
+                </div>
+                <FormField
+                  as={FormInput}
+                  type="text"
+                  placeholder="nom *"
+                  name="firstName"
+                />
+                <FormField
+                  as={FormInput}
+                  type="text"
+                  placeholder="prenom *"
+                  name="lastName"
+                />
+                <FormField
+                  as={FormInput}
+                  type="text"
+                  placeholder="e-mail *"
+                  name="email"
+                />
+                <FormField
+                  as={FormInput}
+                  type="password"
+                  placeholder="mot de passe *"
+                  name="password"
+                />
+                <FormField
+                  as={FormInput}
+                  type="password"
+                  placeholder="confirme mot de passe"
+                  name="password2"
+                />
+                <FormField
+                  as={FormInput}
+                  type="text"
+                  placeholder="adresse *"
+                  name="address"
+                />
+                <FormField
+                  as={FormInput}
+                  type="text"
+                  placeholder="ville *"
+                  name="city"
+                />
+                <FormField
+                  as={FormInput}
+                  type="number"
+                  pattern="[0-9]{5}"
+                  placeholder="code postal *"
+                  name="zipCode"
+                  min="1"
+                  max="99999"
+                />
+                <span className="text-danger">* ces champs sont requis</span>
+                <div className="form-login">
+                  <Button type="submit" className="my-4">
+                    Envoyer
+                  </Button>
+                  <p className="fs-7">
+                    Vous avez déjà un compte ?
+                    <Link href="/signIn" className="text-decoration-underline">
+                      Connexion
+                    </Link>
+                  </p>
+                </div>
+              </form>
+            )
+          }
+        </Formik>
       </div>
     </div>
   )
