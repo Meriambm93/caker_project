@@ -61,7 +61,7 @@ const Contact = () => {
             </div>
             <div className="row">
               <div className="col text-end mt-2">
-                <Button type="button">Let's Talk</Button>
+                <Button type="button">Envoyer</Button>
               </div>
             </div>
           </form>
