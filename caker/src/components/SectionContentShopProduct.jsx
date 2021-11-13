@@ -106,29 +106,31 @@ const Sectioncontentshopproduct = () => {
           <div className="col-lg-7 mt-5">
             <div className="card">
               <div className="card-body">
-                <h1 className="h2">cake amandes litchi</h1>
+                <h1 className="modify-h2">cake amandes litchi</h1>
                 <p className="h3 py-2">25.00 €</p>
 
-                <h6>Description:</h6>
-                <p>
+                <h6 className="modify-h6">Description:</h6>
+                <p className="modify-p">
                   Le Cake litchi ou la rencontre entre un délicieux biscuit aux
                   amandes à la rose et des éclats de framboises et litchis. A
                   déguster accompagné d’une tasse de thé Ispahan pour un goûter
                   parfumé.
                 </p>
 
-                <h6>CONSEILS DE DÉGUSTATION:</h6>
+                <h6 className="modify-h6">CONSEILS DE DÉGUSTATION:</h6>
                 <ul className="list-unstyled pb-3">
-                  <li>Produit à conserver entre 0 et 3 °C</li>
-                  <li>
+                  <li className="modify-li">
+                    Produit à conserver entre 0 et 3 °C
+                  </li>
+                  <li className="modify-li">
                     Il est préférable de sortir ce gâteau du réfrigérateur 30
                     min avant la dégustation.
                   </li>
-                  <li>
+                  <li className="modify-li">
                     Pour profiter pleinement des saveurs de nos pâtisseries
                     artisanales
                   </li>
-                  <li>
+                  <li className="modify-li">
                     nous vous recommandons de les déguster dans les 48h suivant
                     l’achat.
                   </li>
@@ -144,7 +146,7 @@ const Sectioncontentshopproduct = () => {
                     <div className="col-auto me-auto ">
                       <ul className="list-group list-group-horizontal pb-3">
                         <LiShopProduct>
-                          Quantity
+                          Quantité
                           <input
                             type="hidden"
                             name="product-quanity"

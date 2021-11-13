@@ -24,7 +24,7 @@ const Patisserie = () => {
             <h1 className="h3 pb-4">Catégories</h1>
             <div className="accordion">
               <div className="accordion" id="accordionExample">
-                <div className="accordion-item">
+                <div className="accordion-item bg-transparent">
                   <h2 className="accordion-header" id="headingOne">
                     <a
                       className="accordion"
@@ -57,7 +57,7 @@ const Patisserie = () => {
               </div>
             </div>
             <div className="accordion" id="accordionExample">
-              <div className="accordion-item">
+              <div className="accordion-item bg-transparent">
                 <h2 className="accordion-header" id="headingOne">
                   <a
                     className="accordion"

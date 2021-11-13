@@ -539,6 +539,27 @@ h2.footer {
 .orshop {
   color: #c49e42 !important;
 }
+/* PAGE SHOPPRODUCT MODIFICATION*/
+.modify-h2 {
+  font-family: "Cormorant SC", serif;
+  font-size: 30px !important;
+  font-weight: 300;
+  color: #9a2d2d;
+}
+.modify-h6 {
+  font-family: "Cormorant SC", serif;
+  font-size: 20px !important;
+  font-weight: 300;
+  color: #9a2d2d;
+}
+.modify-p {
+  text-transform: none;
+  font-size: 17px !important;
+}
+.modify-li {
+  text-transform: none;
+  font-size: 17px !important;
+}
 
 /* PAGE PROFIL */
 /* BOUTON DÉCONNECTION */

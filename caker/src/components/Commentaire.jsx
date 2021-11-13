@@ -3,8 +3,43 @@ import FormLabel from "./FormLabel"
 import Button from "../../src/components/Button"
 import Image from "next/dist/client/image"
 import avatar from "../assets/images/avatar.jpg"
+import { Field, Formik } from "formik"
+import { useCallback } from "react"
+import * as yup from "yup"
+import FormField from "./FormField"
+import axios from "axios"
+import { useRouter } from "next/router"
 
-const Commentaire = () => {
+const validationSchema = yup.object().shape({
+  message: yup.string().required().min(1).max(120),
+  score: yup.number().integer().min(1).max(5).required(),
+})
+const ContentCommentaire = () => {
+  const router = useRouter()
+  const initialValues = {
+    message: "",
+    score: 1,
+    user_id: 1,
+    shop_id: 1,
+  }
+
+  const handleFormSubmit = useCallback(
+    async (values, actions) => {
+      try {
+        await axios.post("http://localhost:5000/comment", {
+          message: values.messages,
+          score: values.score,
+          user_id: values.user_id,
+          shop_id: values.shop_id,
+        })
+        router.push("/")
+      } catch (err) {
+        actions.setErrors({ form: "une erreur" })
+      }
+    },
+    [router],
+  )
+
   return (
     <div className="container py-5">
       <div className="row">
@@ -26,41 +61,41 @@ const Commentaire = () => {
           </div>
         </div>
         <hr />
+        <Formik
+          initialValues={initialValues}
+          onSubmit={handleFormSubmit}
+          validationSchema={validationSchema}
+        >
+          {({ handleSubmit, errors }) =>
+            console.log(errors) || (
+              <form onSubmit={handleSubmit}>
+                <FormField
+                  as={FormInput}
+                  type="text"
+                  placeholder="Votre Message *"
+                  name="message"
+                />
 
-        <div className="card-body pb-2 bg-white">
-          <div className="form-group">
-            <FormLabel>Ajouter un titre</FormLabel>
-            <FormInput
-              type="text"
-              value="Qu'est-ce qui est le plus important à savoir ?"
-            />
-          </div>
-          <hr />
-          <div className="form-group">
-            <FormLabel>Ajouter une photo </FormLabel>
-            <p>Les acheteurs trouvent les images plus utiles q'un texte seul</p>
-            <Button type="file" className="mt-3">
-              Ajouter la photo
-            </Button>
-          </div>
-          <hr />
-
-          <div className="form-group">
-            <FormLabel>Ajouter un commentaire écrit</FormLabel>
-            <div className="mb-3">
-              <textarea className="form-control fs-6" rows="5">
-                Qu'est-ce que vous avez aimé ou n'avez pas aimé ?
-              </textarea>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="text-right mt-5 mb-5">
-        &nbsp;
-        <Button type="button">Envoyer</Button>
+                <FormField
+                  as={FormInput}
+                  type="number"
+                  placeholder="Votre Score *"
+                  name="score"
+                  min="1"
+                  max="5"
+                />
+                <div className="form-login">
+                  <Button type="submit" className="my-4">
+                    Envoyer
+                  </Button>
+                </div>
+              </form>
+            )
+          }
+        </Formik>
       </div>
     </div>
   )
 }
 
-export default Commentaire
+export default ContentCommentaire
