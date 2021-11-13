@@ -1,14 +1,24 @@
 import shopImage from "../assets/images/tropezienne.png"
-import shopImage1 from "../assets/images/cake_amandes_litchi.png"
-import shopImage2 from "../assets/images/framboise-lait-amandes.png"
 import { faChevronCircleDown } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Link from "./Link"
 import Card from "./Card"
 import avatar from "../assets/images/avatar.jpg"
 import Image from "next/dist/client/image"
+import axios from "axios"
+import { useEffect, useState } from "react"
 
 const ContentShop1 = () => {
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    ;(async () => {
+      const { data } = await axios("http://localhost:5000/product")
+
+      setProducts(data)
+    })()
+  }, [])
+
   return (
     <div className="container py-5">
       <div className="row">
@@ -93,18 +103,12 @@ const ContentShop1 = () => {
         </div>
 
         <div className="col-lg-9">
-          <div className="row">
-            <div className="col-md-6"></div>
-            <div className="col-md-6 pb-4">
-              <div className="d-flex">
-                <div className="col-md-8 pb-6"></div>
-              </div>
-            </div>
-          </div>
-          <div className="row">
-            <Card src={shopImage}>Tropezienne</Card>
-            <Card src={shopImage1}>Cake amandes litchi</Card>
-            <Card src={shopImage2}>Framboise au lait d'amandes</Card>
+          <div className="d-flex flex-wrap flex-row">
+            {products.map((product) => (
+              <Card src={shopImage} key={product} className="">
+                {product.name}
+              </Card>
+            ))}
           </div>
         </div>
       </div>

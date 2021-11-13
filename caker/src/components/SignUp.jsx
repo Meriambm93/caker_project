@@ -11,10 +11,13 @@ import axios from "axios"
 import { useRouter } from "next/router"
 
 const validationSchema = yup.object().shape({
-  firstName: yup.string().required().min(1).max(120),
+  firstName: yup.string().required("Champ obligatoire").min(1).max(120),
   lastName: yup.string().required().min(1).max(120),
-  email: yup.string().email().required(),
+  email: yup.string().email("email non valide").required(),
   password: yup.string().min(8).required(),
+  password2: yup
+    .string()
+    .oneOf([yup.ref("password"), null], "Passwords must match"),
   address: yup.string().min(1).required(),
   city: yup.string().min(1).max(120).required(),
   zipCode: yup.number().integer().min(1).required(),
@@ -53,6 +56,7 @@ const ContentSignUp = () => {
         })
         router.push("/signIn")
       } catch (err) {
+        alert("Invalid")
         actions.setErrors({ form: "une erreur" })
       }
     },
@@ -94,13 +98,13 @@ const ContentSignUp = () => {
                 <FormField
                   as={FormInput}
                   type="text"
-                  placeholder="nom *"
+                  placeholder="prenom *"
                   name="firstName"
                 />
                 <FormField
                   as={FormInput}
                   type="text"
-                  placeholder="prenom *"
+                  placeholder="nom *"
                   name="lastName"
                 />
                 <FormField
@@ -118,7 +122,7 @@ const ContentSignUp = () => {
                 <FormField
                   as={FormInput}
                   type="password"
-                  placeholder="confirme mot de passe"
+                  placeholder="confirme mot de passe *"
                   name="password2"
                 />
                 <FormField
