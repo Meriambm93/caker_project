@@ -9,6 +9,7 @@ import {
   faChevronCircleLeft,
   faChevronCircleRight,
 } from "@fortawesome/free-solid-svg-icons"
+import CounterShopProduct from "./CounterShopProduct"
 
 const Sectioncontentshopproduct = () => {
   return (
@@ -153,19 +154,7 @@ const Sectioncontentshopproduct = () => {
                           />
                         </LiShopProduct>
                         <LiShopProduct>
-                          <span className="btn btn-success" id="btn-minus">
-                            -
-                          </span>
-                        </LiShopProduct>
-                        <LiShopProduct>
-                          <span className="badge bg-secondary" id="var-value">
-                            1
-                          </span>
-                        </LiShopProduct>
-                        <LiShopProduct>
-                          <span className="btn btn-success" id="btn-plus">
-                            +
-                          </span>
+                          <CounterShopProduct />
                         </LiShopProduct>
                       </ul>
                     </div>
