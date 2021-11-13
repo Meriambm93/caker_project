@@ -8,7 +8,7 @@ const Card = (props) => {
 
   return (
     <div className="col-md-4">
-      <div className="card mb-4 product-wap rounded-0">
+      <div className="card mb-4 product-wap rounded-0 mx-1">
         <div className="card rounded-0">
           <Image src={src} alt="image" {...otherProps} />
           <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">

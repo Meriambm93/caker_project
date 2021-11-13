@@ -81,6 +81,9 @@ form {
   padding-right: 60px;
   padding-left: 15px;
 }
+.form-v100 {
+  width: 100%;
+}
 
 h3 {
   font-size: 35px;
