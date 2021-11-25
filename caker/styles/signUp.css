@@ -146,7 +146,7 @@ button {
   font-size: 14px;
   color: #fff;
   text-transform: uppercase;
-  font-family: "Montserrat-SemiBold";
+  font-family: "Cormorant SC";
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
   box-shadow: 0 0 1px rgba(221, 182, 182, 0);
@@ -320,28 +320,24 @@ div {
   min-height: 40px;
 }
 #templatemo_nav_top * {
-  font-size: 0.9em !important;
+  font-size: 1em;
 }
 #templatemo_main_nav a {
-  color: #dab618;
+  color: #020202;
 }
 #templatemo_main_nav a:hover {
-  color: #993a3a !important;
+  color: rgb(75, 55, 7) !important;
 }
 #templatemo_main_nav .navbar .nav-icon {
   margin-right: 20px;
 }
 
-/* Hero Carousel */
-#template-mo-zay-hero-carousel {
-  background: #ffffff !important;
-}
 /* Accordion */
 .templatemo-accordion a {
   color: #000;
 }
 .templatemo-accordion a:hover {
-  color: #333d4a;
+  color: #213a5c;
 }
 
 /* POPULAR */
@@ -380,16 +376,7 @@ h5.color {
   font-size: 15px;
   margin-top: 20px;
 }
-/* Brand */
-/* .brand-img {
-  filter: grayscale(100%);
-  opacity: 0.5 ;
-  transition: .5s;
-}
-.brand-img:hover {
-  filter: grayscale(0%);
-  opacity: 1;
-} */
+
 /* Carousel Hero */
 #template-mo-zay-hero-carousel .carousel-indicators li {
   margin-top: -50px;
@@ -467,6 +454,46 @@ h5.color {
 .product-wap .product-color-dot {
   width: 6px;
   height: 6px;
+}
+
+body {
+  background: #eeede9;
+}
+/*HEADER SITE*/
+#template-mo-zay-hero-carousel {
+  background: center !important;
+}
+.input-group {
+  width: 100%;
+}
+.form-control.search {
+  border-bottom: 1px solid black !important;
+  border: 1px solid transparent;
+  background-color: #f6f2e6;
+}
+.searchbtn {
+  background-color: #f6f2e6 !important;
+  width: 23px;
+  border-color: transparent !important;
+}
+.text-dark.search {
+  margin-top: 12px;
+}
+.btnCompte {
+  border-color: #c49e42 !important;
+
+  color: #0e0303 !important;
+  background-color: whitesmoke !important;
+  border-radius: 1em !important;
+  font-size: 12px;
+}
+.btnCompte:hover {
+  background-color: #f3e5c6 !important;
+  color: whitesmoke !important;
+}
+
+.btn {
+  cursor: pointer;
 }
 /* TITRE PAGE HOME*/
 /* MAIN */
@@ -570,10 +597,6 @@ h2.footer {
 .deco {
   color: red;
 }
-body {
-  background: #f5f5f5;
-  margin-top: 20px;
-}
 
 .profil {
   color: #c49e42 !important;
@@ -612,6 +635,9 @@ label.btn {
 }
 .form-label {
   color: #232a30;
+}
+.photoProfil {
+  display: flex;
 }
 .h1 profil {
   color: #c49e42;
@@ -852,4 +878,207 @@ hr {
 
 /* Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
+}
+/*dashboard*/
+
+.fa {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 20px;
+}
+
+.main-menu:hover,
+nav.main-menu.expanded {
+  width: 250px;
+  overflow: visible;
+}
+
+.main-menu {
+  background: linear-gradient(to bottom right, rgb(243, 223, 182), #fafcff);
+  border-right: 1px solid rgb(243, 223, 182);
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  height: 100%;
+  left: 0;
+  width: 60px;
+  height: 615px;
+  overflow: hidden;
+  -webkit-transition: width 0.05s linear;
+  transition: width 0.05s linear;
+  -webkit-transform: translateZ(0) scale(1, 1);
+  z-index: 1000;
+}
+
+.main-menu > ul {
+  margin: 7px 0;
+}
+
+.main-menu li {
+  position: relative;
+  display: block;
+  width: 250px;
+}
+
+.main-menu li > a {
+  position: relative;
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+
+  font-family: arial;
+  font-size: 14px;
+  text-decoration: none;
+  -webkit-transform: translateZ(0) scale(1, 1);
+  -webkit-transition: all 0.1s linear;
+  transition: all 0.1s linear;
+}
+.iconeDashboard {
+  color: rgb(209, 167, 89);
+  margin-left: 23px;
+}
+.iconeDashboard2 {
+  color: rgb(185, 118, 63);
+  margin-left: 23px;
+}
+.iconeDashboard3 {
+  color: rgb(238, 98, 98);
+  margin-left: 23px;
+}
+.main-menu .nav-icon {
+  position: relative;
+  display: table-cell;
+  width: 60px;
+  height: 36px;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 56px;
+}
+
+.main-menu .nav-text {
+  position: relative;
+  display: table-cell;
+  vertical-align: middle;
+  width: 190px;
+}
+
+.main-menu > ul.logout {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.no-touch .scrollable.hover {
+  overflow-y: hidden;
+}
+
+.no-touch .scrollable.hover:hover {
+  overflow-y: auto;
+  overflow: visible;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+nav {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+nav ul,
+nav li {
+  outline: 0;
+  margin: 0;
+  padding: 0;
+}
+.main-menu li:hover > a,
+nav.main-menu li.active > a,
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus,
+.dropdown-menu > .active > a,
+.dropdown-menu > .active > a:hover,
+.dropdown-menu > .active > a:focus,
+.no-touch .dashboard-page nav.dashboard-menu ul li:hover a,
+.dashboard-page nav.dashboard-menu ul li.active a {
+  color: #c49e42;
+  background-color: #f5f4db;
+}
+.area {
+  float: left;
+  background: white;
+  width: 100%;
+  height: 100%;
+}
+.fondDashboard {
+  background: white;
+}
+.tableDashboard {
+  margin-left: 200px;
+  background: white;
+}
+.colorDash {
+  color: rgb(141, 37, 96);
+}
+.colorDashb1 {
+  color: #490d0d;
+  text-transform: uppercase !important;
+}
+.colorDashb2 {
+  color: #774308;
+  text-transform: uppercase !important;
+}
+.dashboardtable {
+  font-size: 12px !important;
+  color: #333d4a;
+}
+.dashboardAdd {
+  border-color: #c49e42;
+  border: solid#e2d1a9;
+  background: transparent;
+  color: #c49e42;
+  background-color: whitesmoke;
+  font-weight: 900;
+  font-size: 12px;
+}
+.dashboardAdd:hover {
+  border-color: rgb(243, 223, 182);
+  background: linear-gradient(to bottom right, rgb(243, 223, 182), #fafcff);
+  color: rgb(185, 63, 89);
+}
+.dashboardUp {
+  border-color: #c49e42;
+  border: solid#e2d1a9;
+  background: transparent;
+  color: #c49e42;
+  background-color: whitesmoke;
+  font-weight: 900;
+  font-size: 12px;
+}
+.dashboardUp:hover {
+  border-color: rgb(243, 223, 182);
+  background: linear-gradient(to bottom right, rgb(243, 223, 182), #fafcff);
+  color: rgb(228, 167, 210);
+}
+.dashboardDelete {
+  border-color: #c49e42;
+  border: solid#e2d1a9;
+  background: transparent;
+  color: #c49e42;
+  background-color: whitesmoke;
+  font-weight: 900;
+  font-size: 12px;
+}
+.dashboardDelete:hover {
+  border-color: rgb(243, 223, 182);
+  background: linear-gradient(to bottom right, rgb(243, 223, 182), #fafcff);
+  color: rgb(238, 98, 98);
 }

@@ -1,7 +1,21 @@
-import Link from "next/link"
+import axios from "axios"
+
+import router from "next/router"
+
 import Button from "../../src/components/Button"
 
 const DeleteYourAccount = () => {
+  const handleClickDelete = async () => {
+    const id = "3"
+
+    try {
+      await axios.delete(`http://localhost:5000/user/profil/${id}`)
+      router.push("/")
+    } catch (err) {
+      console.log("une erreur")
+    }
+  }
+
   return (
     <div className="container light-style flex-grow-1 container-p-y ">
       <h3 className="font-weight-bold py-3 mb-4 text-warning">
@@ -20,11 +34,13 @@ const DeleteYourAccount = () => {
         </div>
       </div>
       <div className="buttonDelete text-right mt-5 mb-5">
-        <Link href="/" passHref>
-          <Button className="deleteButton" type="button">
-            Supprimer définitivement mon compte
-          </Button>
-        </Link>
+        <Button
+          onClick={handleClickDelete}
+          className="deleteButton"
+          type="button"
+        >
+          Supprimer définitivement mon compte
+        </Button>
       </div>
     </div>
   )

@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { faUser, faSearch } from "@fortawesome/free-solid-svg-icons"
+import { faSearch, faShoppingCart } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Button from "./Button"
 import { useContext } from "react"
@@ -17,18 +17,6 @@ const Header = () => {
               <h1>CAKER</h1>
             </a>
           </Link>
-
-          <button
-            className="navbar-toggler border-0"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#templatemo_main_nav"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
 
           <div
             className="
@@ -67,13 +55,24 @@ const Header = () => {
                 </li>
               </ul>
             </div>
-
-            <div className="navbar align-self-center d-flex">
-              <div className="d-lg-none flex-sm-fill"></div>
+            <div>
+              <Button className="avatar btn btn-outline-primary btnCompte">
+                <Link href="/signUp" passHref>
+                  <a>s'inscrire</a>
+                </Link>
+              </Button>
+              <Button className="avatar btn btn-outline-primary btnCompte">
+                <Link href="/signIn" passHref>
+                  <a>s'indentifier</a>
+                </Link>
+              </Button>
             </div>
-            <Link href="/signUp" passHref>
+            <Link href="/shoppingCart" passHref>
               <a className="nav-icon position-relative text-decoration-none">
-                <FontAwesomeIcon icon={faUser} className="text-dark mr-8" />
+                <FontAwesomeIcon
+                  icon={faShoppingCart}
+                  className="text-dark mr-8"
+                />
                 <span
                   className="
                   position-absolute
@@ -91,12 +90,12 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <div className="d-flex justify-content-end px-5 input-group">
-        <div className="form-outline">
-          <input type="search" id="form1" className="form-control rounded-0" />
-        </div>
-        <Button>
-          <FontAwesomeIcon icon={faSearch} className="text-dark" />
+      <div>
+        {" "}
+        <Button className="avatar btn btn-outline-primary btnCompte">
+          <Link href="/signIn" passHref>
+            <a> déconnecter</a>
+          </Link>
         </Button>
       </div>
     </div>
