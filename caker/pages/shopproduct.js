@@ -1,12 +1,10 @@
 import Page from "../src/components/Page"
-import SectionContentShopProduct from "../src/components/SectionContentShopProduct"
-import SectionArticleShopProduct from "../src/components/SectionArticleShopProduct"
+import ShopProduct from "../src/components/ShopProduct"
 
 const shopproduct = () => {
   return (
     <Page title="Shop Products">
-      <SectionContentShopProduct />
-      <SectionArticleShopProduct />
+      <ShopProduct />
     </Page>
   )
 }
