@@ -4,28 +4,37 @@ import FormInput from "./FormInput"
 import Button from "../../src/components/Button"
 import Link from "./Link"
 import { Field, Formik } from "formik"
-import { useCallback } from "react"
+import { useCallback, useContext } from "react"
 import * as yup from "yup"
 import FormField from "./FormField"
-import axios from "axios"
 import { useRouter } from "next/router"
+import AppContext from "./AppContext"
 
 const validationSchema = yup.object().shape({
   firstName: yup.string().required("Champ obligatoire").min(1).max(120),
-  lastName: yup.string().required().min(1).max(120),
-  email: yup.string().email("email non valide").required(),
-  password: yup.string().min(8).required(),
+  lastName: yup.string().required("Champ obligatoire").min(1).max(120),
+  email: yup.string().email("email non valide").required("Champ obligatoire"),
+  password: yup
+    .string()
+    .min(8)
+    .required(
+      "Veuillez compléter votre mot de passe, il doit comporter au moins 8 caractères.",
+    ),
   password2: yup
     .string()
-    .oneOf([yup.ref("password"), null], "Passwords must match"),
-  address: yup.string().min(1).required(),
-  city: yup.string().min(1).max(120).required(),
-  zipCode: yup.number().integer().min(1).required(),
+    .oneOf(
+      [yup.ref("password"), null],
+      "Les mots de passe doivent correspondre",
+    ),
+  address: yup.string().min(1).required("Champ obligatoire"),
+  city: yup.string().min(1).max(120).required("Champ obligatoire"),
+  zipCode: yup.number().integer().min(1).required("Champ obligatoire"),
   profilePicture: yup.string().max(125),
   role_id: yup.number().integer().min(1).required(),
 })
 const ContentSignUp = () => {
   const router = useRouter()
+  const { api } = useContext(AppContext)
   const initialValues = {
     firstName: "",
     lastName: "",
@@ -35,7 +44,7 @@ const ContentSignUp = () => {
     city: "Paris",
     zipCode: 93160,
     profilePicture: "",
-    role_id: 3,
+    role_id: "",
   }
   /*const handleFormSubmit = useCallback((values) => {
     console.log("submited", values)
@@ -43,7 +52,7 @@ const ContentSignUp = () => {
   const handleFormSubmit = useCallback(
     async (values, actions) => {
       try {
-        await axios.post("http://localhost:5000/sign-up", {
+        await api.post("/sign-up", {
           firstName: values.firstName,
           lastName: values.lastName,
           email: values.email,
@@ -60,7 +69,7 @@ const ContentSignUp = () => {
         actions.setErrors({ form: "une erreur" })
       }
     },
-    [router],
+    [api, router],
   )
 
   return (
@@ -72,7 +81,7 @@ const ContentSignUp = () => {
             alt="Image"
             className=""
             width={500}
-            height={1050}
+            height={1100}
           />
         </div>
         <Formik
@@ -87,7 +96,12 @@ const ContentSignUp = () => {
                 <div id="my-radio-group">Vous êtes:</div>
                 <div role="group" aria-labelledby="my-radio-group">
                   <label>
-                    <Field type="radio" name="role_id" value="2" />
+                    <Field
+                      type="radio"
+                      name="role_id"
+                      value="2"
+                      className="mb-3"
+                    />
                     Je suis patissier
                   </label>
                   <label>
@@ -148,7 +162,7 @@ const ContentSignUp = () => {
                 />
                 <span className="text-danger">* ces champs sont requis</span>
                 <div className="form-login">
-                  <Button type="submit" className="my-4">
+                  <Button type="submit" className="my-2">
                     Envoyer
                   </Button>
                   <p className="fs-7">

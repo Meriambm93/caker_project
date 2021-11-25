@@ -2,8 +2,12 @@ import Link from "next/link"
 import { faUser, faSearch } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Button from "./Button"
+import { useContext } from "react"
+import AppContext from "./AppContext"
 
 const Header = () => {
+  const { session } = useContext(AppContext)
+
   return (
     <div className="bg-light shadow">
       <nav className="navbar navbar-expand-lg navbar-light">
@@ -44,11 +48,13 @@ const Header = () => {
                     <a className="nav-link">Accueil</a>
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link href="/profil" passhref>
-                    <a className="nav-link">Profil</a>
-                  </Link>
-                </li>
+                {session ? (
+                  <li className="nav-item">
+                    <Link href="/profil" passhref>
+                      <a className="nav-link">Profil</a>
+                    </Link>
+                  </li>
+                ) : null}
                 <li className="nav-item">
                   <Link href="/patissier" passHref>
                     <a className="nav-link">Trouver Mon Pâtissier</a>
