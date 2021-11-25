@@ -5,19 +5,22 @@ import Link from "./Link"
 import Card from "./Card"
 import avatar from "../assets/images/avatar.jpg"
 import Image from "next/dist/client/image"
-import axios from "axios"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
+import AppContext from "./AppContext"
 
 const ContentShop1 = () => {
+  const { api } = useContext(AppContext)
   const [products, setProducts] = useState([])
 
   useEffect(() => {
     ;(async () => {
-      const { data } = await axios("http://localhost:5000/product")
+      const { data } = await api.get("/product", {
+        params: { shop_id: 2 },
+      })
 
       setProducts(data)
     })()
-  }, [])
+  }, [api])
 
   return (
     <div className="container py-5">

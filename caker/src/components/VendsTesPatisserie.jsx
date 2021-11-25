@@ -4,50 +4,73 @@ import cake from "../assets/images/cake.png"
 //import FormInput from "./FormInput"
 import { Field, Formik } from "formik"
 import * as yup from "yup"
-import { useCallback } from "react"
-import axios from "axios"
+import { useCallback, useContext } from "react"
+import FormField from "./FormField"
+import FormInput from "./FormInput"
+import { useEffect, useState } from "react"
+import { useRouter } from "next/router"
+import AppContext from "./AppContext"
 
 const validationSchema = yup.object().shape({
-  name: yup.string().required().min(1).max(120),
+  name: yup.string().required("Champ obligatoire").min(1).max(120),
   price: yup
     .number()
+    .required("Champ obligatoire")
     .test(
       "maxDigitsAfterDecimal",
-      "number field must have 2 digits after decimal or less",
+      "le champ numérique doit avoir 2 chiffres après la virgule ou moins",
       (number) => /^\d+(\.\d{1,2})?$/.test(number),
     )
-    .min(1)
-    .required(),
-  mainPicture: yup.string().max(125).required(),
-  secondaryPicture: yup.string().max(125),
-  shop_id: yup.number().integer().min(1).required(),
+    .min(1),
+  description: yup.string().max(125),
+  shop_id: yup.number().integer().min(1).required("Champ obligatoire"),
 })
 const ContentVends = () => {
+  const { api } = useContext(AppContext)
+  const {
+    query: { id },
+  } = useRouter()
   const initialValues = {
     name: "",
-    price: 25,
-    mainPicture: "",
-    secondaryPicture: "",
-    shop_id: 2,
+    price: "",
+    description: "",
+    avatar: "",
+    shop_id: "",
   }
   /*const handleFormSubmit = useCallback((values) => {
     console.log("submited", values)
   }, [])*/
-  const handleFormSubmit = useCallback(async (values, actions) => {
-    try {
-      await axios.post("http://localhost:5000/product", {
-        name: values.name,
-        price: values.price,
-        mainPicture: values.mainPicture,
-        secondaryPicture: values.secndaryPicture,
-        shop_id: values.shop_id,
-      })
-      actions.resetForm()
-      alert("success!")
-    } catch (err) {
-      actions.setErrors({ form: "une erreur" })
-    }
-  }, [])
+  /*const handleFormSubmit = useCallback(async (values) => {
+    console.log(values)
+    const formData = new FormData()
+    formData.set("image", values.image)
+    await axios.post("http://localhost:5000/upload-image/id", formData, {
+    headers: { "Content-Type": "multipart/form-data" },
+    })
+  }, [])*/
+  const handleFormSubmit = useCallback(
+    async (values, actions) => {
+      try {
+        await api.post("/product", {
+          name: values.name,
+          price: values.price,
+          description: values.description,
+          shop_id: values.shop_id,
+        })
+        actions.resetForm()
+      } catch (err) {
+        actions.setErrors({ form: "une erreur" })
+      }
+    },
+    [api],
+  )
+  const [product, setProduct] = useState(null)
+  useEffect(() => {
+    ;(async () => {
+      const { data } = await api.get(`/product/${id}`)
+      setProduct(data)
+    })()
+  }, [api, id])
 
   return (
     <section className="bg-white">
@@ -60,17 +83,28 @@ const ContentVends = () => {
               </div>
               <div className="card-body media align-items-center">
                 <Image className="card-img img-fluid" src={cake} alt="" />
-                <div className="media-body ml-4">
-                  <label className="avatar btn btn-outline-primary">
-                    ajouter la photo
-                    <a
-                      href=""
-                      type="file"
-                      className="account-settings-fileinput"
-                    />
-                  </label>
-                  &nbsp;
-                </div>
+
+                <div className="media-body ml-4"></div>
+                <Formik
+                  initialValues={{ avatar: "" }}
+                  onSubmit={handleFormSubmit}
+                >
+                  {({ handleSubmit }) => (
+                    <form onSubmit={handleSubmit} className="form-v100 pt-0">
+                      <FormField
+                        as={FormInput}
+                        type="file"
+                        name="avatar"
+                        label="Choisir une image"
+                        className="form-control d-block"
+                        accept="image/*"
+                      />
+                      <Button type="submit" name="submit">
+                        +
+                      </Button>
+                    </form>
+                  )}
+                </Formik>
               </div>
 
               <div className="card-footer text-muted">
@@ -112,54 +146,59 @@ const ContentVends = () => {
               >
                 {({ handleSubmit }) => (
                   <form onSubmit={handleSubmit} className="form-v100">
-                    <div className="form-group mx-3">
-                      <label className="form-label d-block">Titre</label>
-                      <Field
-                        type="text"
-                        name="name"
-                        className="form-control d-block"
-                        placeholder="ex: charlotte aux fraises"
-                      />
-                      <label className="form-label d-block">Prix</label>
-                      <Field
-                        name="price"
-                        type="number"
-                        min="0"
-                        step=".01"
-                        className="form-control d-block"
-                        placeholder="Prix"
-                        id="setPrice"
-                        pattern="^\d*(\.\d{0,2})?$"
-                      />
-                      <label className="form-label d-block">photo</label>
-                      <Field
-                        type="text"
-                        name="mainPicture"
-                        className="form-control d-block"
-                        placeholder="ex: charlotte aux fraises"
-                      />
-                      <label className="form-label d-block">
-                        Décris ta pâtisserie
-                      </label>
-                      <textarea className="form-control fs-6" rows="5">
-                        ex: un biscuit imbibé de sirop de fraise
-                      </textarea>
-                      <label className="form-label d-block">
-                        Conseils de dégustation:
-                      </label>
-                      <textarea className="form-control fs-6" row="5">
-                        ex: Produit à conserver entre 0 et 3 °C....
-                      </textarea>
-                    </div>
-                    <Field type="hidden" name="shop_id" />
-                    <div className="row"></div>
-                    <div className="row pb-3">
-                      <div className="col-10 text-center ">
-                        <Button type="submit" name="submit">
-                          Ajouter
-                        </Button>
+                    {product ? (
+                      <div key={product.id}>
+                        <div className="form-group mx-3">
+                          <FormField
+                            as={FormInput}
+                            label="Titre"
+                            type="text"
+                            name="name"
+                            className="form-control d-block"
+                            placeholder="ex: charlotte aux fraises"
+                            value={product.name}
+                          />
+                          <FormField
+                            as={FormInput}
+                            label="Prix"
+                            name="price"
+                            type="number"
+                            min="0"
+                            step=".01"
+                            className="form-control d-block"
+                            placeholder="Prix"
+                            id="setPrice"
+                            pattern="^\d*(\.\d{0,2})?$"
+                            value={product.price}
+                          />
+                          <FormField
+                            as={(FormInput, "textarea")}
+                            className="form-control fs-6"
+                            rows="5"
+                            type="text"
+                            label="Décris ta pâtisserie"
+                            name="description"
+                            placeholder="ex:un biscuit imbibé de sirop de fraise"
+                            value={product.description}
+                          />
+
+                          <FormField
+                            as={FormInput}
+                            name="shop_id"
+                            label="Magasin"
+                            className="border-gray d-block mb-3"
+                            value={product.shop.name}
+                          />
+                        </div>
+                        <div className="row pb-3">
+                          <div className="col-10 text-center ">
+                            <Button type="submit" name="submit">
+                              Ajouter
+                            </Button>
+                          </div>
+                        </div>
                       </div>
-                    </div>
+                    ) : null}
                   </form>
                 )}
               </Formik>
