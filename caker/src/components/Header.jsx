@@ -90,11 +90,14 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <Button className="avatar btn btn-outline-primary btnCompte d-flex justify-content-center">
-        <Link href="/signIn" passHref>
-          <a>se déconnecter</a>
-        </Link>
-      </Button>
+      <div>
+        {" "}
+        <Button className="avatar btn btn-outline-primary btnCompte">
+          <Link href="/signIn" passHref>
+            <a> déconnecter</a>
+          </Link>
+        </Button>
+      </div>
     </div>
   )
 }
