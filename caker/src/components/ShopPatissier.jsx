@@ -2,7 +2,7 @@ import Button from "./Button"
 import Image from "next/dist/client/image"
 import ramirez from "../assets/images/ramirez.png"
 import FormInput from "./FormInput"
-import { Formik } from "formik"
+import { Field, Formik } from "formik"
 import { useCallback } from "react"
 import * as yup from "yup"
 import FormField from "./FormField"
@@ -21,10 +21,10 @@ const ContentShopPatissier = () => {
   const initialValues = {
     name: "",
     address: "",
-    city: "Paris",
-    zipCode: 95100,
+    city: "",
+    zipCode: "",
     picture: "",
-    user_id: 3,
+    user_id: "",
   }
   const handleFormSubmit = useCallback(
     async (values, actions) => {
@@ -37,6 +37,8 @@ const ContentShopPatissier = () => {
           picture: values.picture,
           user_id: values.user_id,
         })
+        actions.resetForm()
+        alert("success!")
         router.push("/patissier")
       } catch (err) {
         actions.setErrors({ form: "une erreur" })
@@ -76,48 +78,59 @@ const ContentShopPatissier = () => {
                 onSubmit={handleFormSubmit}
                 validationSchema={validationSchema}
               >
-                {({ handleSubmit, errors }) =>
-                  console.log(errors) || (
-                    <form onSubmit={handleSubmit} className="form-v100">
-                      <div className="form-group mx-3">
-                        <FormField
-                          as={FormInput}
-                          type="text"
-                          placeholder="name *"
-                          name="name"
-                        />
-                        <FormField
-                          as={FormInput}
-                          placeholder="adresse *"
-                          name="address"
-                        />
-                        <FormField
-                          as={FormInput}
-                          type="text"
-                          placeholder="City *"
-                          name="city"
-                        />
-                        <FormField
-                          as={FormInput}
-                          type="number"
-                          pattern="[0-9]{5}"
-                          placeholder="code postal"
-                          name="zipCode"
-                          min="1"
-                          max="99999"
-                        />
-                        <span className="text-danger">
-                          * ces champs sont requis
-                        </span>
-                        <div className="form-login">
-                          <Button type="submit" className="my-4">
-                            Submit
-                          </Button>
-                        </div>
+                {({ handleSubmit }) => (
+                  <form onSubmit={handleSubmit} className="form-v100">
+                    <div className="form-group mx-3">
+                      <p>
+                        <Field className="form-control d-block" name="name">
+                          {({ field }) => (
+                            <label>
+                              Name <FormInput type="Name" {...field} />
+                            </label>
+                          )}
+                        </Field>
+                      </p>
+                      <p>
+                        <Field className="form-control d-block" name="address">
+                          {({ field }) => (
+                            <label>
+                              Address <FormInput type="Address" {...field} />
+                            </label>
+                          )}
+                        </Field>
+                      </p>
+                      <p>
+                        <Field className="form-control d-block" name="city">
+                          {({ field }) => (
+                            <label>
+                              City <FormInput type="City" {...field} />
+                            </label>
+                          )}
+                        </Field>
+                      </p>
+
+                      <FormField
+                        as={FormInput}
+                        type="number"
+                        pattern="[0-9]{5}"
+                        placeholder="code postal"
+                        name="zipCode"
+                        min="1"
+                        max="99999"
+                        label="Code Postal"
+                        className="form-control d-block"
+                      />
+                      <span className="text-danger">
+                        * ces champs sont requis
+                      </span>
+                      <div className="form-login">
+                        <Button type="submit" className="my-4">
+                          Submit
+                        </Button>
                       </div>
-                    </form>
-                  )
-                }
+                    </div>
+                  </form>
+                )}
               </Formik>
             </div>
           </div>
