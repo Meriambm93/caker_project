@@ -8,4 +8,5 @@ const profil = () => {
     </Page>
   )
 }
+profil.options = { private: true }
 export default profil

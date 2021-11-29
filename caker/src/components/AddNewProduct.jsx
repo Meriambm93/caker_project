@@ -66,87 +66,94 @@ const AddNewProduct = () => {
   }, [api])
 
   return (
-    <section className="bg-white">
-      <div className="container pb-5">
-        <div className="row">
-          <div className="col-lg-9 mt-5">
-            <h3>Ajouter un produit</h3>
-            <div className="card mx-3">
-              <Formik
-                validationSchema={validationSchema}
-                initialValues={initialValues}
-                onSubmit={handleFormSubmit}
-              >
-                {({ handleSubmit }) => (
-                  <form onSubmit={handleSubmit} className="form-v100">
-                    <div className="form-group mx-3">
-                      <FormField
-                        as={FormInput}
-                        label="Titre"
-                        type="text"
-                        name="name"
-                        className="form-control d-block"
-                        placeholder="ex: charlotte aux fraises"
-                      />
-                      <FormField
-                        as={FormInput}
-                        label="Prix"
-                        name="price"
-                        type="number"
-                        min="0"
-                        step=".01"
-                        className="form-control d-block"
-                        placeholder="Prix"
-                        id="setPrice"
-                        pattern="^\d*(\.\d{0,2})?$"
-                      />
-                      <FormField
-                        as={(FormInput, "textarea")}
-                        className="form-control fs-6"
-                        rows="5"
-                        type="text"
-                        label="Décris ta pâtisserie"
-                        name="description"
-                        placeholder="ex:un biscuit imbibé de sirop de fraise"
-                      />
-                      <FormField
-                        as={(FormInput, "textarea")}
-                        className="form-control fs-6"
-                        rows="5"
-                        type="text"
-                        label="Conseil de dégustation"
-                        name="advice"
-                        placeholder=" ex:produit à conserver entre 0 et 3 °C...."
-                      />
-                      <FormField
-                        as={(FormInput, "select")}
-                        name="shop_id"
-                        label="Magasin"
-                        className="form-select border-gray d-block mb-3"
-                      >
-                        <option selected>Ouvrir ce menu de magasin</option>
-                        {shops.map(({ name, id }) => (
-                          <option value={id} key={id}>
-                            {name}
-                          </option>
-                        ))}
-                      </FormField>
-                    </div>
-                    <div className="row pb-3">
-                      <div className="col-10 text-center ">
-                        <Button type="submit" name="submit">
-                          Ajouter
-                        </Button>
-                      </div>
-                    </div>
-                  </form>
-                )}
-              </Formik>
+    <div className="container py-5 ">
+      <div className="row">
+        <div className="formAddProduct col-lg-9 ">
+          <div className="cartAddProduct card mx-3">
+            <div className="headerCart mt-5">
+              <h3 className="Heading">Ajouter une pâtisserie</h3>
             </div>
+            <Formik
+              validationSchema={validationSchema}
+              initialValues={initialValues}
+              onSubmit={handleFormSubmit}
+            >
+              {({ handleSubmit }) => (
+                <form
+                  onSubmit={handleSubmit}
+                  className="cartAddProduct form-v100"
+                >
+                  <div className="form-group mx-3">
+                    <FormField
+                      as={FormInput}
+                      label="Titre"
+                      type="text"
+                      name="name"
+                      className="form-control d-block"
+                      placeholder="ex: charlotte aux fraises"
+                    />
+                    <FormField
+                      as={FormInput}
+                      label="Prix"
+                      name="price"
+                      type="number"
+                      min="0"
+                      step=".01"
+                      className="form-control d-block"
+                      placeholder="Prix"
+                      id="setPrice"
+                      pattern="^\d*(\.\d{0,2})?$"
+                    />
+                    <FormField
+                      as={(FormInput, "textarea")}
+                      className="form-control fs-6"
+                      rows="5"
+                      type="text"
+                      label="Décris ta pâtisserie"
+                      name="description"
+                      placeholder="ex:un biscuit imbibé de sirop de fraise"
+                    />
+                    <FormField
+                      as={(FormInput, "textarea")}
+                      className="form-control fs-6"
+                      rows="5"
+                      type="text"
+                      label="Conseil de dégustation"
+                      name="advice"
+                      placeholder=" ex:produit à conserver entre 0 et 3 °C...."
+                    />
+                    <FormField
+                      as={(FormInput, "select")}
+                      name="shop_id"
+                      label="Magasin"
+                      className="form-select border-gray d-block mb-3"
+                    >
+                      <option selected>Ouvrir ce menu de magasin</option>
+                      {shops.map(({ name, id }) => (
+                        <option value={id} key={id}>
+                          {name}
+                        </option>
+                      ))}
+                    </FormField>
+                  </div>
+                  <div className="row pb-3">
+                    <div className="col-10 text-center mx-auto ">
+                      <Button
+                        className="avatar btn btn-outline-primary btnCompteAdd"
+                        type="submit"
+                        name="submit"
+                      >
+                        Ajouter
+                      </Button>
+                    </div>
+                  </div>
+                </form>
+              )}
+            </Formik>
           </div>
         </div>
       </div>
-    </section>
+    </div>
   )
 }
 export default AddNewProduct

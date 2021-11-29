@@ -1,6 +1,5 @@
-import "../styles/globals.css"
 import "bootstrap/dist/css/bootstrap.css"
-import "../styles/signUp.css"
+import "../styles/style.css"
 import { AppContextProvider } from "../src/components/AppContext"
 
 import { useEffect } from "react"

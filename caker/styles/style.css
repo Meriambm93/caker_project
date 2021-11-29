@@ -5,10 +5,11 @@
 }
 
 body {
-  font-family: "Montserrat-Regular";
+  /* font-family: "Cormorant SC" !important; */
   color: #999;
   font-size: 6px;
   margin: 0;
+  font-weight: 300 !important;
 }
 
 p,
@@ -380,11 +381,11 @@ h5.color {
 /* Carousel Hero */
 #template-mo-zay-hero-carousel .carousel-indicators li {
   margin-top: -50px;
-  background-color: #dab618;
+  background-color: #c49e42;
 }
 #template-mo-zay-hero-carousel .carousel-control-next i,
 #template-mo-zay-hero-carousel .carousel-control-prev i {
-  color: #dab618 !important;
+  color: #c49e42 !important;
   font-size: 2.8em !important;
 }
 /* Carousel Brand */
@@ -495,6 +496,10 @@ body {
 .btn {
   cursor: pointer;
 }
+.hDeco {
+  margin-right: 23px;
+  padding: 0px;
+}
 /* TITRE PAGE HOME*/
 /* MAIN */
 .univers {
@@ -590,7 +595,33 @@ h2.footer {
   text-transform: none;
   font-size: 17px !important;
 }
+/*PAGE ADDPRODUCT */
+.formAddProduct {
+  margin: auto;
+}
+.btnCompteAdd {
+  border-color: #c49e42 !important;
+  color: #0e0303 !important;
+  background-color: whitesmoke !important;
+  border-radius: 1em !important;
+  font-size: 12px;
+  font-weight: 800;
+}
+.btnCompteAdd:hover {
+  background-color: #f3e5c6 !important;
+  color: black !important;
+}
 
+.cartAddProduct {
+  border-radius: 3%;
+  border-color: #fff8ea;
+  font-weight: 900;
+  color: #202020;
+}
+
+.btn {
+  cursor: pointer;
+}
 /* PAGE PROFIL */
 /* BOUTON DÉCONNECTION */
 
@@ -745,6 +776,7 @@ label.btn {
   justify-content: space-between;
   align-items: center;
 }
+
 .btnCartShop {
   width: 40px;
   height: 40px;

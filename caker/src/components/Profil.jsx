@@ -5,38 +5,41 @@ import FormField from "./FormField"
 import FormInput from "./FormInput"
 import Button from "../../src/components/Button"
 import { Formik } from "formik"
-import { useCallback } from "react"
+import { useCallback, useContext, useState } from "react"
 import * as yup from "yup"
 import axios from "axios"
 import { useRouter } from "next/router"
+import AppContext from "./AppContext"
+import { useEffect } from "react"
 
 const validationSchema = yup.object().shape({
   firstName: yup.string().required().min(1).max(120),
   lastName: yup.string().required().min(1).max(120),
-  email: yup.string().email().required(),
-  password: yup.string().min(8).required(),
-  address: yup.string().min(1).required(),
-  city: yup.string().min(1).max(120).required(),
-  zipCode: yup.number().integer().min(1).required(),
-  role_id: yup.number().integer().min(1).required(),
+  email: yup.string().required().email(),
+  address: yup.string().required().min(1),
+  city: yup.string().required().min(1).max(120),
+  zipCode: yup.number().integer().min(1),
+  new_password: yup.string().min(8),
 })
 const Profil = () => {
   const router = useRouter()
+  const [user, setUser] = useState(null)
+  const { api, session } = useContext(AppContext)
+  const { userId } = session
   const initialValues = {
-    firstName: "",
-    lastName: "",
-    email: "",
-    password: "",
-    address: "09 route",
-    city: "Paris",
-    zipCode: 93160,
-    profilePicture: "",
-    role_id: 3,
+    firstName: user?.firstName,
+    lastName: user?.lastName,
+    email: user?.email,
+    password: user?.password,
+    address: user?.address,
+    city: user?.city,
+    zipCode: user?.zipCode,
+    profilePicture: user?.profilePicture,
   }
   const handleFormSubmit = useCallback(
     async (values, actions) => {
       try {
-        await axios.get("http://localhost:5000/user/profil/1", {
+        await api.put(`/user/profil/${userId}`, {
           firstName: values.firstName,
           lastName: values.lastName,
           email: values.email,
@@ -45,15 +48,21 @@ const Profil = () => {
           city: values.city,
           zipCode: values.zipCode,
           profilePicture: values.profilePicture,
-          role_id: values.role_id,
         })
         router.push("/")
       } catch (err) {
+        console.log(err)
         actions.setErrors({ form: "une erreur" })
       }
     },
-    [router],
+    [api, router],
   )
+  useEffect(() => {
+    ;(async () => {
+      const { data } = await api.get(`/user/profil/${userId}`)
+      setUser(data)
+    })()
+  }, [api])
 
   return (
     <div className="container light-style flex-grow-1 container-p-y ">
@@ -91,16 +100,13 @@ const Profil = () => {
                     className="d-block ui-w-80 "
                   />
                   <div className="media-body ml-4">
-                    <label className="avatar btn btn-outline-primary">
-                      modifier la photo profil
-                      <Button
-                        type="file"
-                        className="account-settings-fileinput bg-transparent borde-0"
-                      />
+                    <label>
+                      <Button type="file">modifier la photo profil</Button>
                     </label>
                   </div>
                 </div>
                 <Formik
+                  enableReinitialize
                   initialValues={initialValues}
                   onSubmit={handleFormSubmit}
                   validationSchema={validationSchema}
@@ -108,101 +114,90 @@ const Profil = () => {
                   {({ handleSubmit, errors }) =>
                     console.log(errors) || (
                       <form onSubmit={handleSubmit} className="form-v100">
-                        <hr className="border-light m-0" />
-                        <div className="card-body bg-light">
-                          <div className="form-group">
-                            <FormField
-                              as={FormInput}
-                              type="text"
-                              className="form-control mb-1"
-                              placeholder="amandine"
-                              name="firstName"
-                            />
-                          </div>
-                          <div className="form-group">
-                            <FormField
-                              as={FormInput}
-                              type="text"
-                              placeholder="rose"
-                              name="lastName"
-                            />
-                          </div>
-                          <div className="form-group">
-                            <FormField
-                              as={FormInput}
-                              type="text"
-                              className="form-control mb-1"
-                              placeholder="patisserie@mail.com"
-                              name="email"
-                            />
-                          </div>
-                          <div className="form-group">
-                            <FormField
-                              as={FormInput}
-                              type="text"
-                              placeholder="11 rue du chocolat"
-                              name="address"
-                            />
-                          </div>
-                          <div className="form-group">
-                            <FormField
-                              as={FormInput}
-                              type="text"
-                              placeholder="paris"
-                              name="city"
-                            />
-                          </div>
-                          <div className="form-group">
-                            <FormField
-                              as={FormInput}
-                              type="number"
-                              pattern="[0-9]{5}"
-                              placeholder="75006"
-                              name="zipCode"
-                              min="1"
-                              max="99999"
-                            />
-                          </div>
-                        </div>
-                        <h1 className="profil"> Modifier Mot de passe</h1>
-                        <div
-                          className="tab-pane active show"
-                          id="account-change-password"
-                        >
-                          <div className="card-body pb-2 bg-light">
-                            <div className="form-group">
-                              <FormField
-                                as={FormInput}
-                                type="password"
-                                placeholder="mot de passe actuel"
-                                name="password"
-                              />
+                        {user ? (
+                          <div key={user.id}>
+                            <hr className="border-light m-0" />
+                            <div className="card-body bg-light">
+                              <div className="form-group">
+                                <FormField
+                                  as={FormInput}
+                                  type="text"
+                                  className="form-control mb-1"
+                                  placeholder="Prénom"
+                                  name="firstName"
+                                />
+                              </div>
+                              <div className="form-group">
+                                <FormField
+                                  as={FormInput}
+                                  type="text"
+                                  name="lastName"
+                                />
+                              </div>
+                              <div className="form-group">
+                                <FormField
+                                  as={FormInput}
+                                  type="text"
+                                  className="form-control mb-1"
+                                  name="email"
+                                />
+                              </div>
+                              <div className="form-group">
+                                <FormField
+                                  as={FormInput}
+                                  type="text"
+                                  name="address"
+                                />
+                              </div>
+                              <div className="form-group">
+                                <FormField
+                                  as={FormInput}
+                                  type="text"
+                                  name="city"
+                                />
+                              </div>
+                              <div className="form-group">
+                                <FormField
+                                  as={FormInput}
+                                  type="number"
+                                  pattern="[0-9]{5}"
+                                  name="zipCode"
+                                  min="1"
+                                  max="99999"
+                                />
+                              </div>
                             </div>
-                            <div className="form-group">
-                              <FormField
-                                as={FormInput}
-                                type="password"
-                                placeholder="nouveau mot de passe"
-                                name="password2"
-                              />
+                            <h1 className="profil"> Modifier Mot de passe</h1>
+                            <div
+                              className="tab-pane active show"
+                              id="account-change-password"
+                            >
+                              <div className="card-body pb-2 bg-light">
+                                <div className="form-group">
+                                  <FormField
+                                    as={FormInput}
+                                    type="password"
+                                    placeholder="nouveau mot de passe"
+                                    name="new_password"
+                                  />
+                                </div>
+                                <div className="form-group">
+                                  <FormField
+                                    as={FormInput}
+                                    type="password"
+                                    placeholder="répeter le nouveau mot de passe"
+                                    name="retype_password"
+                                  />
+                                </div>
+                              </div>
                             </div>
-                            <div className="form-group">
-                              <FormField
-                                as={FormInput}
-                                type="password"
-                                placeholder="répeter le nouveau mot de passe"
-                                name="password2"
-                              />
+                            <div className="text-right mt-5 mb-5">
+                              <Button type="submit">Sauvegarder</Button>
+                              &nbsp;
+                              <Button type="button">Annuler</Button>
                             </div>
                           </div>
-                        </div>
-                        <div className="text-right mt-5 mb-5">
-                          <Link href="/" passHref>
-                            <Button type="button">Sauvegarder</Button>
-                          </Link>
-                          &nbsp;
-                          <Button type="button">Annuler</Button>
-                        </div>
+                        ) : null}
                       </form>
                     )
                   }
