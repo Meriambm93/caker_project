@@ -1,12 +1,18 @@
 import Link from "next/link"
-import { faSearch, faShoppingCart } from "@fortawesome/free-solid-svg-icons"
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Button from "./Button"
-import { useContext } from "react"
+import { useCallback, useContext } from "react"
 import AppContext from "./AppContext"
+import router, { useRouter } from "next/router"
 
 const Header = () => {
   const { session } = useContext(AppContext)
+  const { api } = useContext(AppContext)
+  const handleClickDisconnect = useCallback(async () => {
+    await api.delete("/session")
+    router.push("/signIn")
+  }, [api])
 
   return (
     <div className="bg-light shadow">
@@ -17,7 +23,17 @@ const Header = () => {
               <h1>CAKER</h1>
             </a>
           </Link>
-
+          <button
+            className="navbar-toggler border-0"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#templatemo_main_nav"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span className="navbar-toggler-icon"></span>
+          </button>
           <div
             className="
             align-self-center
@@ -30,7 +46,7 @@ const Header = () => {
             id="templatemo_main_nav"
           >
             <div className="flex-fill">
-              <ul className="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+              <ul className="nav navbar-nav d-flex justify-content-around mx-lg-auto">
                 <li className="nav-item">
                   <Link href="/" passHref>
                     <a className="nav-link">Accueil</a>
@@ -48,25 +64,53 @@ const Header = () => {
                     <a className="nav-link">Trouver Mon Pâtissier</a>
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <Link href="/patisserie" passHref>
-                    <a className="nav-link">Vends Tes Pâtisserie</a>
-                  </Link>
-                </li>
+                {session ? null : (
+                  <li className="nav-item">
+                    <Link href="/contact" passHref>
+                      <a className="nav-link">Contact</a>
+                    </Link>
+                  </li>
+                )}
+                {(session && session.roleId === 2) || session.roleId === 1 ? (
+                  <li className="nav-item">
+                    <Link href="/addNewProduct" passHref>
+                      <a className="nav-link">Vends Tes Pâtisserie</a>
+                    </Link>
+                  </li>
+                ) : null}
               </ul>
             </div>
-            <div>
-              <Button className="avatar btn btn-outline-primary btnCompte">
-                <Link href="/signUp" passHref>
-                  <a>s'inscrire</a>
+            {session ? null : (
+              <div>
+                <Button className="avatar btn btn-outline-primary btnCompte">
+                  <Link href="/signUp" passHref>
+                    <a>s'inscrire</a>
+                  </Link>
+                </Button>
+                <Button className="avatar btn btn-outline-primary btnCompte p-1">
+                  <Link href="/signIn" passHref>
+                    <a>s'indentifier</a>
+                  </Link>
+                </Button>
+              </div>
+            )}
+            {session && session.roleId === 1 ? (
+              <Button className="avatar btn btn-outline-primary btnCompte hDeco">
+                <Link href="/dashboard" passHref>
+                  <a className="nav-link">Admin</a>
                 </Link>
               </Button>
-              <Button className="avatar btn btn-outline-primary btnCompte">
-                <Link href="/signIn" passHref>
-                  <a>s'indentifier</a>
+            ) : null}
+            {session ? (
+              <Button
+                onClick={handleClickDisconnect}
+                className="avatar btn btn-outline-primary btnCompte hDeco"
+              >
+                <Link href="/" passHref>
+                  <a>deconnexion</a>
                 </Link>
               </Button>
-            </div>
+            ) : null}
             <Link href="/shoppingCart" passHref>
               <a className="nav-icon position-relative text-decoration-none">
                 <FontAwesomeIcon
@@ -90,14 +134,6 @@ const Header = () => {
           </div>
         </div>
       </nav>
-      <div>
-        {" "}
-        <Button className="avatar btn btn-outline-primary btnCompte">
-          <Link href="/signIn" passHref>
-            <a> déconnecter</a>
-          </Link>
-        </Button>
-      </div>
     </div>
   )
 }

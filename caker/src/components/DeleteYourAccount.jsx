@@ -1,16 +1,16 @@
-import axios from "axios"
-
 import router from "next/router"
-
+import { useContext } from "react"
 import Button from "../../src/components/Button"
+import AppContext from "./AppContext"
 
 const DeleteYourAccount = () => {
+  const { api, session } = useContext(AppContext)
+  // const { userId } = session
+  const id = "6"
   const handleClickDelete = async () => {
-    const id = "3"
-
     try {
-      await axios.delete(`http://localhost:5000/user/profil/${id}`)
-      router.push("/")
+      await api.delete(`/user/profil/${id}`)
+      router.push("/signUp")
     } catch (err) {
       console.log("une erreur")
     }
