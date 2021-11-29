@@ -7,39 +7,93 @@ import avatar from "../assets/images/avatar.jpg"
 import Image from "next/dist/client/image"
 import { useContext, useEffect, useState } from "react"
 import AppContext from "./AppContext"
+import { useRouter } from "next/router"
 
 const ContentShop1 = () => {
+  const {
+    query: { shop_id, user_id },
+  } = useRouter()
   const { api } = useContext(AppContext)
   const [products, setProducts] = useState([])
 
   useEffect(() => {
     ;(async () => {
       const { data } = await api.get("/product", {
-        params: { shop_id: 2 },
+        params: { shop_id },
       })
-
       setProducts(data)
     })()
-  }, [api])
+  }, [api, shop_id])
+  const [user, setUser] = useState([])
+  useEffect(() => {
+    ;(async () => {
+      const { data } = await api.get(`/user/profil/${user_id}`)
+      setUser(data)
+    })()
+  }, [api, user_id])
 
   return (
     <div className="container py-5">
       <div className="row">
         <div className="col-lg-3 ">
-          <h1 className="h2 pb-4">Ramirez</h1>
-          <div className="accordion">
+          <div>
+            <h1 className="h2 pb-4">{user.firstName}</h1>
+
+            <div className="accordion">
+              <div className="accordion" id="accordionExample">
+                <div className="accordion-item bg-transparent border-0">
+                  <h2 className="accordion-header" id="headingOne">
+                    <a
+                      className="accordion"
+                      data-bs-toggle="collapse"
+                      data-bs-target="#collapseOne"
+                      aria-expanded="true"
+                      aria-controls="collapseOne"
+                    >
+                      <a className="orshop collapsed d-flex justify-content-between h3">
+                        Voir le profil
+                        <FontAwesomeIcon icon={faChevronCircleDown} />
+                      </a>
+                    </a>
+                  </h2>
+                </div>
+              </div>
+              <div
+                id="collapseOne"
+                className="accordion-collapse collapse"
+                aria-labelledby="headingOne"
+                data-bs-parent="#accordionExample"
+              >
+                <div className="accordion-body">
+                  <ul className="collapse show list-unstyled pl-3">
+                    <li>
+                      <p className="profilshop">
+                        {user.address}
+                        Je m'appelle Ramirez, passionné par la pâtisserie je
+                        vous propose mes gâteaux qui sont élaborés à partir de
+                        produits de bonne qualité. n'hésitez pas à me contacter
+                        ,toutes les garnitures et décors peuvent être modifiés
+                        sur demande... alors n'hésitez plus... pas de
+                        livraison..... les commandes sont a récupérer sur
+                        noisy-le-sec (93)
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
             <div className="accordion" id="accordionExample">
               <div className="accordion-item bg-transparent border-0">
                 <h2 className="accordion-header" id="headingOne">
                   <a
-                    className="accordion"
+                    className="accordion bg-dark"
                     data-bs-toggle="collapse"
-                    data-bs-target="#collapseOne"
+                    data-bs-target="#collapseTwo"
                     aria-expanded="true"
                     aria-controls="collapseOne"
                   >
-                    <a className="orshop collapsed d-flex justify-content-between h3">
-                      Voir le profil
+                    <a className="orshop collapsed d-flex justify-content-between h3 text-decoration-none">
+                      Me contacter
                       <FontAwesomeIcon icon={faChevronCircleDown} />
                     </a>
                   </a>
@@ -47,60 +101,21 @@ const ContentShop1 = () => {
               </div>
             </div>
             <div
-              id="collapseOne"
+              id="collapseTwo"
               className="accordion-collapse collapse"
               aria-labelledby="headingOne"
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <ul className="collapse show list-unstyled pl-3">
+                <ul className="list-unstyled">
+                  <li className="text-decoration-none">
+                    <p className="profilshop">{user.email}</p>
+                  </li>
                   <li>
-                    <p className="profilshop">
-                      Je m'appelle Ramirez, passionné par la pâtisserie je vous
-                      propose mes gâteaux qui sont élaborés à partir de produits
-                      de bonne qualité. n'hésitez pas à me contacter ,toutes les
-                      garnitures et décors peuvent être modifiés sur demande...
-                      alors n'hésitez plus... pas de livraison..... les
-                      commandes sont a récupérer sur noisy-le-sec (93)
-                    </p>
+                    <p className="profilshop">{user.address}</p>
                   </li>
                 </ul>
               </div>
-            </div>
-          </div>
-          <div className="accordion" id="accordionExample">
-            <div className="accordion-item bg-transparent border-0">
-              <h2 className="accordion-header" id="headingOne">
-                <a
-                  className="accordion bg-dark"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#collapseTwo"
-                  aria-expanded="true"
-                  aria-controls="collapseOne"
-                >
-                  <a className="orshop collapsed d-flex justify-content-between h3 text-decoration-none">
-                    Me contacter
-                    <FontAwesomeIcon icon={faChevronCircleDown} />
-                  </a>
-                </a>
-              </h2>
-            </div>
-          </div>
-          <div
-            id="collapseTwo"
-            className="accordion-collapse collapse"
-            aria-labelledby="headingOne"
-            data-bs-parent="#accordionExample"
-          >
-            <div className="accordion-body">
-              <ul className="list-unstyled">
-                <li className="text-decoration-none">
-                  <p className="profilshop">ramirez@gmail.com</p>
-                </li>
-                <li>
-                  <p className="profilshop">Whatsapp: 06.56.89.09.09</p>
-                </li>
-              </ul>
             </div>
           </div>
         </div>

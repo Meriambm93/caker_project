@@ -1,7 +1,28 @@
 import { faHome, faPowerOff, faTable } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Link from "./Link"
+import { useCallback, useContext, useEffect, useState } from "react"
+import AppContext from "./AppContext"
 
 const Dashboard = () => {
+  const { api } = useContext(AppContext)
+  const [products, setProducts] = useState([])
+  const handleClickDelete = useCallback(
+    async (event) => {
+      const id = Number(event.target.getAttribute("data-id"))
+      await api.delete(`/product/${id}`)
+      setProducts(products.filter((product) => product.id !== id))
+    },
+    [products, api],
+  )
+
+  useEffect(() => {
+    ;(async () => {
+      const { data } = await api.get("/product")
+      setProducts(data)
+    })()
+  }, [api])
+
   return (
     <div>
       <div>
@@ -11,11 +32,11 @@ const Dashboard = () => {
         <nav className="main-menu">
           <ul>
             <li>
-              <a href="">
+              <Link href="/">
                 <FontAwesomeIcon icon={faHome} className="iconeDashboard" />
                 <i className="fa fa-home fa-2x"></i>
                 <span className="nav-text">Accueil</span>
-              </a>
+              </Link>
             </li>
 
             <li>
@@ -48,90 +69,45 @@ const Dashboard = () => {
             <thead className="thead-dark">
               <tr className="colorDash">
                 <th scope="col">#</th>
-                <th scope="col">Prénom</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Email</th>
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Desctiption</th>
+                <th scope="col">Magasin</th>
                 <th scope="col">Ajouter</th>
                 <th scope="col">Modifier</th>
                 <th scope="col">Supprimer</th>
               </tr>
             </thead>
             <tbody>
-              <tr className="colorDashb1">
-                <th scope="row">1</th>
-                <td>Mériam</td>
-                <td>MB</td>
-                <td>mb@gmail.com</td>
-                <td>
-                  <button className="dashboardAdd">Ajouter</button>
-                </td>
-                <td>
-                  <button className="dashboardUp">Modifier</button>
-                </td>
-                <td>
-                  <button className="dashboardDelete">Supprimer</button>
-                </td>
-              </tr>
-              <tr className="colorDashb2">
-                <th scope="row">2</th>
-                <td>Abir</td>
-                <td>AA</td>
-                <td>abirA@gmail.com</td>
-                <td>
-                  <button className="dashboardAdd">Ajouter</button>
-                </td>
-                <td>
-                  <button className="dashboardUp">Modifier</button>
-                </td>
-                <td>
-                  <button className="dashboardDelete">Supprimer</button>
-                </td>
-              </tr>
-              <tr className="colorDashb1">
-                <th scope="row">3</th>
-                <td>Youssef</td>
-                <td>BOUG</td>
-                <td>boug@gmail.fr</td>
-                <td>
-                  <button className="dashboardAdd">Ajouter</button>
-                </td>
-                <td>
-                  <button className="dashboardUp">Modifier</button>
-                </td>
-                <td>
-                  <button className="dashboardDelete">Supprimer</button>
-                </td>
-              </tr>
-              <tr className="colorDashb2">
-                <th scope="row">4</th>
-                <td>Ignacio</td>
-                <td>EE</td>
-                <td>ignacioe@gmail.com</td>
-                <td>
-                  <button className="dashboardAdd">Ajouter</button>
-                </td>
-                <td>
-                  <button className="dashboardUp">Modifier</button>
-                </td>
-                <td>
-                  <button className="dashboardDelete">Supprimer</button>
-                </td>
-              </tr>
-              <tr className="colorDashb1">
-                <th scope="row">5</th>
-                <td>Léa</td>
-                <td>wW</td>
-                <td>lea@gmail.fr</td>
-                <td>
-                  <button className="dashboardAdd">Ajouter</button>
-                </td>
-                <td>
-                  <button className="dashboardUp">Modifier</button>
-                </td>
-                <td>
-                  <button className="dashboardDelete">Supprimer</button>
-                </td>
-              </tr>
+              {products.map((product) => (
+                <tr className="colorDashb1" key={product.id}>
+                  <th scope="row">{product.id}</th>
+                  <td className="pe-3">{product.name}</td>
+                  <td>{product.price}</td>
+                  <td>{product.description}</td>
+                  <td>{product.shop.name}</td>
+
+                  <td>
+                    <button className="dashboardAdd">
+                      <Link href="/addNewProduct">Ajouter</Link>
+                    </button>
+                  </td>
+                  <td>
+                    <button className="dashboardUp">
+                      <Link href="">Modifier</Link>
+                    </button>
+                  </td>
+                  <td>
+                    <button
+                      className="dashboardDelete"
+                      onClick={handleClickDelete}
+                      data-id={product.id}
+                    >
+                      Supprimer
+                    </button>
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
