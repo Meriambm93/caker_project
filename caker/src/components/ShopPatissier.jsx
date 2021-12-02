@@ -2,21 +2,22 @@ import Button from "./Button"
 import Image from "next/dist/client/image"
 import ramirez from "../assets/images/ramirez.png"
 import FormInput from "./FormInput"
-import { Field, Formik } from "formik"
-import { useCallback } from "react"
+import { Formik } from "formik"
+import { useContext, useCallback } from "react"
 import * as yup from "yup"
 import FormField from "./FormField"
-import axios from "axios"
 import { useRouter } from "next/router"
+import AppContext from "./AppContext"
 
 const validationSchema = yup.object().shape({
-  name: yup.string().required().min(1).max(120),
-  address: yup.string().min(1).required(),
-  city: yup.string().min(1).max(120).required(),
-  zipCode: yup.number().integer().min(1).required(),
+  name: yup.string().required("Champ obligatoire").min(1).max(120),
+  address: yup.string().min(1).required("Champ obligatoire"),
+  city: yup.string().min(1).max(120).required("Champ obligatoire"),
+  zipCode: yup.number().integer().min(1).required("Champ obligatoire"),
   picture: yup.string().max(125),
 })
 const ContentShopPatissier = () => {
+  const { api } = useContext(AppContext)
   const router = useRouter()
   const initialValues = {
     name: "",
@@ -24,27 +25,23 @@ const ContentShopPatissier = () => {
     city: "",
     zipCode: "",
     picture: "",
-    user_id: "",
   }
   const handleFormSubmit = useCallback(
     async (values, actions) => {
       try {
-        await axios.post("http://localhost:5000/shop", {
+        await api.post("/shop", {
           name: values.name,
           address: values.address,
           city: values.city,
           zipCode: values.zipCode,
           picture: values.picture,
-          user_id: values.user_id,
         })
-        actions.resetForm()
-        alert("success!")
         router.push("/patissier")
       } catch (err) {
         actions.setErrors({ form: "une erreur" })
       }
     },
-    [router],
+    [api, router],
   )
 
   return (
@@ -78,59 +75,57 @@ const ContentShopPatissier = () => {
                 onSubmit={handleFormSubmit}
                 validationSchema={validationSchema}
               >
-                {({ handleSubmit }) => (
-                  <form onSubmit={handleSubmit} className="form-v100">
-                    <div className="form-group mx-3">
-                      <p>
-                        <Field className="form-control d-block" name="name">
-                          {({ field }) => (
-                            <label>
-                              Name <FormInput type="Name" {...field} />
-                            </label>
-                          )}
-                        </Field>
-                      </p>
-                      <p>
-                        <Field className="form-control d-block" name="address">
-                          {({ field }) => (
-                            <label>
-                              Address <FormInput type="Address" {...field} />
-                            </label>
-                          )}
-                        </Field>
-                      </p>
-                      <p>
-                        <Field className="form-control d-block" name="city">
-                          {({ field }) => (
-                            <label>
-                              City <FormInput type="City" {...field} />
-                            </label>
-                          )}
-                        </Field>
-                      </p>
-
-                      <FormField
-                        as={FormInput}
-                        type="number"
-                        pattern="[0-9]{5}"
-                        placeholder="code postal"
-                        name="zipCode"
-                        min="1"
-                        max="99999"
-                        label="Code Postal"
-                        className="form-control d-block"
-                      />
-                      <span className="text-danger">
-                        * ces champs sont requis
-                      </span>
-                      <div className="form-login">
-                        <Button type="submit" className="my-4">
-                          Submit
-                        </Button>
+                {({ handleSubmit, errors }) =>
+                  console.log(errors) || (
+                    <form onSubmit={handleSubmit} className="form-v100">
+                      <div className="form-group mx-3">
+                        <FormField
+                          as={FormInput}
+                          label="Name"
+                          type="text"
+                          name="name"
+                          className="form-control d-block"
+                          placeholder="ex: Lily"
+                        />
+                        <FormField
+                          as={FormInput}
+                          label="Address"
+                          type="text"
+                          name="address"
+                          className="form-control d-block"
+                          placeholder="ex: 09 rue de la paix "
+                        />
+                        <FormField
+                          as={FormInput}
+                          label="City"
+                          type="text"
+                          name="city"
+                          className="form-control d-block"
+                          placeholder="ex:77040 "
+                        />
+                        <FormField
+                          as={FormInput}
+                          type="number"
+                          pattern="[0-9]{5}"
+                          placeholder="code postal"
+                          name="zipCode"
+                          min="1"
+                          max="99999"
+                          label="Code Postal"
+                          className="form-control d-block"
+                        />
+                        <span className="text-danger">
+                          * ces champs sont requis
+                        </span>
+                        <div className="form-login">
+                          <Button type="submit" className="my-4">
+                            Submit
+                          </Button>
+                        </div>
                       </div>
-                    </div>
-                  </form>
-                )}
+                    </form>
+                  )
+                }
               </Formik>
             </div>
           </div>

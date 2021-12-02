@@ -120,5 +120,57 @@ export default ContentPatissier
                 Fatima
                 <h6>Noisy-le-sec</h6>
                 <h6>Fatima Cupcakes</h6>
-              </CardShopProduct>{" "}
-              */
+              </CardShopProduct>
+              
+              {products.map((product) => (
+                <div className="card-body">
+                href={`/user/${product.user.id}/shop/${product.id}`}
+                  src={litchi}
+                  key={product}
+                  className=""
+                >
+                  <h1 className="modify-h2">{product.name}</h1>
+                  <p>{product.price}</p>
+                  <h6>{product.description}</h6>
+                 ))}
+
+
+                 <ul className="p-5">
+            {comments.map((comment) => (
+              <li className="mb-3" key={comment.id}>
+                <p>Message:{comment.message}</p>
+                <p>Score:{comment.score}</p>
+                <p>
+                  <Button
+                    className="mt-2"
+                    onClick={handleClickDelete}
+                    data-id={comment.id}
+                  >
+                    Delete
+                  </Button> 
+                  
+                  <FormField
+                          as={FormInput}
+                          label="Name"
+                          type="text"
+                          name="name"
+                          className="form-control d-block"
+                          placeholder="ex: Lily"
+                        />
+                        <FormField
+                          as={FormInput}
+                          label="Address"
+                          type="text"
+                          name="address"
+                          className="form-control d-block"
+                          placeholder="ex: 09 rue de la paix "
+                        />
+                        <FormField
+                          as={FormInput}
+                          label="City"
+                          type="text"
+                          name="city"
+                          className="form-control d-block"
+                          placeholder="ex:77040 "
+                        />
+                        */
