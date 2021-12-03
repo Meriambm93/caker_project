@@ -7,4 +7,6 @@ const addNewProduct = () => {
     </Page>
   )
 }
+addNewProduct.options = { private: true }
+
 export default addNewProduct
