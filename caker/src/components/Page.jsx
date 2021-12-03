@@ -3,7 +3,7 @@ import Footer from "./Footer"
 import Header from "./Header"
 
 const Page = (props) => {
-  const { title } = props
+  const { title, hideHeader, hideFooter } = props
 
   return (
     <>
@@ -11,9 +11,10 @@ const Page = (props) => {
         <title>{title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-      <Header />
+      {hideHeader ? null : <Header />}
+
       <div {...props}></div>
-      <Footer />
+      {hideFooter ? null : <Footer />}
     </>
   )
 }

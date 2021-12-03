@@ -89,14 +89,14 @@ const Header = () => {
                 </Button>
                 <Button className="avatar btn btn-outline-primary btnCompte p-1">
                   <Link href="/signIn" passHref>
-                    <a>s'indentifier</a>
+                    <a>s'identifier</a>
                   </Link>
                 </Button>
               </div>
             )}
             {session && session.roleId === 1 ? (
               <Button className="avatar btn btn-outline-primary btnCompte hDeco">
-                <Link href="/dashboard" passHref>
+                <Link href="/welcomeDashboard" passHref>
                   <a className="nav-link">Admin</a>
                 </Link>
               </Button>
