@@ -4,7 +4,7 @@ import Link from "./Link"
 import Image from "next/dist/client/image"
 
 const CardShopProduct = (props) => {
-  const { src, children, ...otherProps } = props
+  const { src, children, href, ...otherProps } = props
 
   return (
     <div className="col-4 p-md-7">
@@ -15,10 +15,7 @@ const CardShopProduct = (props) => {
             <div className="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
               <ul className="list-unstyled">
                 <li>
-                  <Link
-                    href="/shop1"
-                    className="btn btn-success text-white mt-2"
-                  >
+                  <Link href={href} className="btn btn-success text-white mt-2">
                     <FontAwesomeIcon icon={faEye} />
                   </Link>
                 </li>

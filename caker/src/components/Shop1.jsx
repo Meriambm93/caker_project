@@ -68,6 +68,7 @@ const ContentShop1 = () => {
                   <ul className="collapse show list-unstyled pl-3">
                     <li>
                       <p className="profilshop">
+
                         Je m'appelle
                         <span className="fs-5">"{user.firstName}"</span>,
                         passionné par la pâtisserie je vous propose mes gâteaux
@@ -75,6 +76,16 @@ const ContentShop1 = () => {
                         n'hésitez pas à me contacter ,toutes les garnitures et
                         décors peuvent être modifiés sur demande... alors
                         n'hésitez plus.
+
+                        {user.address}
+                        Je m'appelle Ramirez, passionné par la pâtisserie je
+                        vous propose mes gâteaux qui sont élaborés à partir de
+                        produits de bonne qualité. n'hésitez pas à me contacter
+                        ,toutes les garnitures et décors peuvent être modifiés
+                        sur demande... alors n'hésitez plus... pas de
+                        livraison..... les commandes sont a récupérer sur
+                        noisy-le-sec (93)
+
                       </p>
                     </li>
                   </ul>

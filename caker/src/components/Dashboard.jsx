@@ -11,6 +11,7 @@ import Link from "./Link"
 import { useCallback, useContext, useEffect, useState } from "react"
 import AppContext from "./AppContext"
 
+
 const WelcomeDashboard = () => {
   const { api } = useContext(AppContext)
   const [products, setProducts] = useState([])
@@ -29,6 +30,28 @@ const WelcomeDashboard = () => {
       setProducts(data)
     })()
   }, [api])
+
+
+
+const Dashboard = () => {
+  const { api } = useContext(AppContext)
+  const [products, setProducts] = useState([])
+  const handleClickDelete = useCallback(
+    async (event) => {
+      const id = Number(event.target.getAttribute("data-id"))
+      await api.delete(`/product/${id}`)
+      setProducts(products.filter((product) => product.id !== id))
+    },
+    [products, api],
+  )
+
+  useEffect(() => {
+    ;(async () => {
+      const { data } = await api.get("/product")
+      setProducts(data)
+    })()
+  }, [api])
+
 
   return (
     <div>
@@ -110,9 +133,15 @@ const WelcomeDashboard = () => {
             <thead className="thead-dark">
               <tr className="colorDash">
                 <th scope="col">#</th>
+
                 <th scope="col">Nom</th>
                 <th scope="col">Prix</th>
                 <th scope="col">Description</th>
+
+                <th scope="col">Name</th>
+                <th scope="col">Price</th>
+                <th scope="col">Desctiption</th>
+
                 <th scope="col">Magasin</th>
                 <th scope="col">Ajouter</th>
                 <th scope="col">Modifier</th>
@@ -135,7 +164,11 @@ const WelcomeDashboard = () => {
                   </td>
                   <td>
                     <button className="dashboardUp">
+
                       <Link href="/">Modifier</Link>
+
+                      <Link href="">Modifier</Link>
+
                     </button>
                   </td>
                   <td>

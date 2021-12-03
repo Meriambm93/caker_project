@@ -1,22 +1,21 @@
 import ramirez from "../assets/images/ramirez.png"
-import yummy from "../assets/images/yummy.png"
-import kristen from "../assets/images/kristen.png"
 import Image from "next/image"
 import custom from "../assets/images/custom.png"
-import axios from "axios"
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import CardShopProduct from "./CardShopProduct"
+import AppContext from "./AppContext"
 
 const ContentPatissier = () => {
   const [shops, setShops] = useState([])
+  const { api } = useContext(AppContext)
 
   useEffect(() => {
     ;(async () => {
-      const { data } = await axios("http://localhost:5000/shop")
+      const { data } = await api.get("/shop")
 
       setShops(data)
     })()
-  }, [])
+  }, [api])
 
   return (
     <div>
@@ -41,7 +40,12 @@ const ContentPatissier = () => {
             </div>
             <div className="row">
               {shops.map((shop) => (
-                <CardShopProduct src={ramirez} key={shop} className="">
+                <CardShopProduct
+                  href={`/user/${shop.user.id}/shop/${shop.id}`}
+                  src={ramirez}
+                  key={shop}
+                  className=""
+                >
                   <p>{shop.name}</p>
                   <p>{shop.city}</p>
                   <p>{shop.address}</p>
