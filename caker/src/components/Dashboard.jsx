@@ -11,28 +11,6 @@ import Link from "./Link"
 import { useCallback, useContext, useEffect, useState } from "react"
 import AppContext from "./AppContext"
 
-
-const WelcomeDashboard = () => {
-  const { api } = useContext(AppContext)
-  const [products, setProducts] = useState([])
-  const handleClickDelete = useCallback(
-    async (event) => {
-      const id = Number(event.target.getAttribute("data-id"))
-      await api.delete(`/product/${id}`)
-      setProducts(products.filter((product) => product.id !== id))
-    },
-    [products, api],
-  )
-
-  useEffect(() => {
-    ;(async () => {
-      const { data } = await api.get("/product")
-      setProducts(data)
-    })()
-  }, [api])
-
-
-
 const Dashboard = () => {
   const { api } = useContext(AppContext)
   const [products, setProducts] = useState([])
@@ -51,7 +29,6 @@ const Dashboard = () => {
       setProducts(data)
     })()
   }, [api])
-
 
   return (
     <div>
@@ -164,11 +141,9 @@ const Dashboard = () => {
                   </td>
                   <td>
                     <button className="dashboardUp">
-
-                      <Link href="/">Modifier</Link>
-
-                      <Link href="">Modifier</Link>
-
+                      <Link href={`product/${product.id}/updateProduct`}>
+                        Modifier
+                      </Link>
                     </button>
                   </td>
                   <td>
@@ -190,4 +165,4 @@ const Dashboard = () => {
   )
 }
 
-export default WelcomeDashboard
+export default Dashboard
