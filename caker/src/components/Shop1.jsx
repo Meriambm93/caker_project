@@ -1,13 +1,13 @@
-import shopImage from "../assets/images/tropezienne.png"
 import { faChevronCircleDown } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import Link from "./Link"
-import Card from "./Card"
-import avatar from "../assets/images/avatar.jpg"
 import Image from "next/dist/client/image"
-import { useContext, useEffect, useState } from "react"
-import AppContext from "./AppContext"
 import { useRouter } from "next/router"
+import { useContext, useEffect, useState } from "react"
+import avatar from "../assets/images/avatar.jpg"
+import shopImage from "../assets/images/tropezienne.png"
+import AppContext from "./AppContext"
+import CardShopProduct from "./CardShopProduct"
+import Link from "./Link"
 
 const ContentShop1 = () => {
   const {
@@ -133,14 +133,13 @@ const ContentShop1 = () => {
         <div className="col-lg-9">
           <div className="d-flex flex-wrap flex-row">
             {products.map((product) => (
-              <Card
+              <CardShopProduct
                 src={shopImage}
                 key={product}
-                className=""
-                href={"/shopproduct"}
+                href={`/product/${product.id}`}
               >
                 {product.name}
-              </Card>
+              </CardShopProduct>
             ))}
           </div>
         </div>
@@ -148,7 +147,7 @@ const ContentShop1 = () => {
       <div className="row mt-5">
         <hr />
         <div className="col-lg-3 mt-5">
-          <h5>Commentaires client</h5>
+          <h5>Commentaire client</h5>
           <h6 className="h6 pt-4">Évaluer ce patissier</h6>
           <Link href="/commentaire" className="btn btn-success text-white mt-2">
             Ecrire un commentaire

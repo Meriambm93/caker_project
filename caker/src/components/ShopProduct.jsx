@@ -19,9 +19,24 @@ import tartecitron from "../assets/images/tarte-citron.png"
 import tarteframboise from "../assets/images/tarte-framboise.png"
 import lefraisevanille from "../assets/images/le-fraise-vanille.png"
 import montblanc from "../assets/images/montblanc.png"
-import CardShopProduct from "./CardShopProduct"
+import Card from "./Card"
+import AppContext from "./AppContext"
+import { useContext, useEffect, useState } from "react"
+import { useRouter } from "next/router"
 
-const ContentShopproduct = () => {
+const ContentShopProduct = () => {
+  const { api } = useContext(AppContext)
+  const {
+    query: { id },
+  } = useRouter()
+  const [product, setProduct] = useState()
+  useEffect(() => {
+    ;(async () => {
+      const { data } = await api.get(`/product/${id}`)
+      setProduct(data)
+    })()
+  }, [api, id])
+
   return (
     <div>
       <section className="">
@@ -114,22 +129,19 @@ const ContentShopproduct = () => {
                 </div>
               </div>
             </div>
-
             <div className="col-lg-7 mt-5">
               <div className="card">
                 <div className="card-body">
-                  <h1 className="modify-h2">cake amandes litchi</h1>
-                  <p className="h3 py-2">25.00 €</p>
+                  {product ? (
+                    <div key={product.id}>
+                      <h1 className="modify-h2">{product.name}</h1>
+                      <h6 className="modify-h6">{product.price} €</h6>
 
-                  <h6 className="modify-h6">Description:</h6>
-                  <p className="modify-p">
-                    Le Cake litchi ou la rencontre entre un délicieux biscuit
-                    aux amandes à la rose et des éclats de framboises et
-                    litchis. A déguster accompagné d’une tasse de thé Ispahan
-                    pour un goûter parfumé.
-                  </p>
-
-                  <h6 className="modify-h6">CONSEILS DE DÉGUSTATION:</h6>
+                      <h6 className="modify-h6">Description:</h6>
+                      <p className="modify-p">{product.description}</p>
+                    </div>
+                  ) : null}
+                  <h6 className="modify-h6">CONSEIL DE DÉGUSTATION:</h6>
                   <ul className="list-unstyled pb-3">
                     <li className="modify-li">
                       Produit à conserver entre 0 et 3 °C
@@ -188,7 +200,7 @@ const ContentShopproduct = () => {
           </div>
         </div>
       </section>
-      <section className="py-5">
+      <section className="py-1">
         <div className="container">
           <div className="row text-left p-2 pb-3">
             <h4>Catalogue</h4>
@@ -202,43 +214,29 @@ const ContentShopproduct = () => {
               <div className="carousel-item active">
                 <div className="container">
                   <div className="row p-5">
-                    <CardShopProduct src={tropezienne}>
-                      Tropezienne
-                    </CardShopProduct>
-                    <CardShopProduct src={cakeamandeslitchi}>
-                      Cake amandes litchi
-                    </CardShopProduct>
-                    <CardShopProduct src={framboiseLaitAmandes}>
+                    <Card src={tropezienne}>Tropezienne</Card>
+                    <Card src={cakeamandeslitchi}>Cake amandes litchi</Card>
+                    <Card src={framboiseLaitAmandes}>
                       Framboise au lait d'amandes
-                    </CardShopProduct>
+                    </Card>
                   </div>
                 </div>
               </div>
               <div className="carousel-item">
                 <div className="container">
                   <div className="row p-5">
-                    <CardShopProduct src={royalchocolat}>
-                      Royal chocolat
-                    </CardShopProduct>
-                    <CardShopProduct src={equinoxe}>Equinoxe</CardShopProduct>
-                    <CardShopProduct src={tartecitron}>
-                      Tarte citron
-                    </CardShopProduct>
+                    <Card src={royalchocolat}>Royal chocolat</Card>
+                    <Card src={equinoxe}>Equinoxe</Card>
+                    <Card src={tartecitron}>Tarte citron</Card>
                   </div>
                 </div>
               </div>
               <div className="carousel-item">
                 <div className="container">
                   <div className="row p-5">
-                    <CardShopProduct src={tarteframboise}>
-                      Tarte framboise
-                    </CardShopProduct>
-                    <CardShopProduct src={lefraisevanille}>
-                      Le Fraise Vanille
-                    </CardShopProduct>
-                    <CardShopProduct src={montblanc}>
-                      mont Blanc
-                    </CardShopProduct>
+                    <Card src={tarteframboise}>Tarte framboise</Card>
+                    <Card src={lefraisevanille}>Le Fraise Vanille</Card>
+                    <Card src={montblanc}>mont Blanc</Card>
                   </div>
                 </div>
               </div>
@@ -269,4 +267,4 @@ const ContentShopproduct = () => {
     </div>
   )
 }
-export default ContentShopproduct
+export default ContentShopProduct

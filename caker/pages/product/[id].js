@@ -1,5 +1,5 @@
-import Page from "../src/components/Page"
-import ShopProduct from "../src/components/ShopProduct"
+import Page from "../../src/components/Page"
+import ShopProduct from "../../src/components/ShopProduct"
 
 const shopproduct = () => {
   return (

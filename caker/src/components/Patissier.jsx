@@ -120,5 +120,53 @@ export default ContentPatissier
                 Fatima
                 <h6>Noisy-le-sec</h6>
                 <h6>Fatima Cupcakes</h6>
-              </CardShopProduct>{" "}
-              */
+              </CardShopProduct>
+              
+              {products.map((product) => (
+                <div className="card-body">
+                href={`/user/${product.user.id}/shop/${product.id}`}
+                  src={litchi}
+                  key={product}
+                  className=""
+                >
+                  <h1 className="modify-h2">{product.name}</h1>
+                  <p>{product.price}</p>
+                  <h6>{product.description}</h6>
+                 ))}
+
+
+                 <ul className="p-5">
+            {comments.map((comment) => (
+              <li className="mb-3" key={comment.id}>
+                <p>Message:{comment.message}</p>
+                <p>Score:{comment.score}</p>
+                <p>
+                  <Button
+                    className="mt-2"
+                    onClick={handleClickDelete}
+                    data-id={comment.id}
+                  >
+                    Delete
+                  </Button> 
+                  
+                /* const {
+    query: { product_id, shop_id },
+  } = useRouter()
+  const { api } = useContext(AppContext)
+  const [product, setProduct] = useState([])
+
+  useEffect(() => {
+    ;(async () => {
+      const { data } = await api.get(`/product`, {
+        params: { shop_id, product_id },
+      })
+      setProduct(data)
+    })()
+  }, [api, product_id, shop_id])
+    const [user, setUser] = useState([])
+  useEffect(() => {
+    ;(async () => {
+      const { data } = await api.get(`/user/profil/${user_id}`)
+      setUser(data)
+    })()
+  }, [api, user_id])*/
