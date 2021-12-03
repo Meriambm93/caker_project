@@ -39,8 +39,8 @@ const Hero = () => {
                     <span className="univers"> l'univers de la pâtisserie</span>
                   </h1>
                   <p>
-                    Au menu des pâtissiers passionnés qui vendent leurs gâteaux
-                    faits maison pour satisfaire les becs sucrés !
+                    Au menu des pâtissiers passionnés qui vendent leurs
+                    pâtisseries pour satisfaire les becs sucrés !
                   </p>
                 </div>
               </div>

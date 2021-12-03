@@ -75,7 +75,7 @@ const ContentSignUp = () => {
   return (
     <div className="py-5">
       <div className="inner">
-        <div className="image-holder">
+        <div className="signUpimg image-holder">
           <Image
             src={cupCake}
             alt="Image"

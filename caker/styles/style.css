@@ -911,6 +911,13 @@ hr {
 /* Extra large devices (large desktops, 1200px and up)*/
 @media (min-width: 1200px) {
 }
+
+/*SIGNUP*/
+.signUpimg {
+  width: 90%;
+  padding-left: 15px;
+  padding-top: 16px;
+}
 /*dashboard*/
 
 .fa {
@@ -938,12 +945,13 @@ nav.main-menu.expanded {
   height: 100%;
   left: 0;
   width: 60px;
-  height: 615px;
+  height: 640px;
   overflow: hidden;
   -webkit-transition: width 0.05s linear;
   transition: width 0.05s linear;
   -webkit-transform: translateZ(0) scale(1, 1);
   z-index: 1000;
+  padding-top: 15px;
 }
 
 .main-menu > ul {
@@ -970,15 +978,25 @@ nav.main-menu.expanded {
   transition: all 0.1s linear;
 }
 .iconeDashboard {
-  color: rgb(209, 167, 89);
+  color: #c6c09c;
   margin-left: 23px;
 }
 .iconeDashboard2 {
-  color: rgb(185, 118, 63);
+  color: #ffb284;
   margin-left: 23px;
 }
 .iconeDashboard3 {
-  color: rgb(238, 98, 98);
+  color: #e79796;
+
+  margin-left: 23px;
+}
+.iconeDashboard4 {
+  color: #ffc98b;
+  margin-left: 23px;
+}
+.iconeDashboard5 {
+  color: #d68a88;
+
   margin-left: 23px;
 }
 .main-menu .nav-icon {
@@ -1045,23 +1063,23 @@ nav.main-menu li.active > a,
   background-color: #f5f4db;
 }
 .area {
-  float: left;
-  background: white;
+  background: center;
   width: 100%;
   height: 100%;
 }
 .fondDashboard {
-  background: white;
+  background: center;
+  width: 90%;
 }
 .tableDashboard {
   margin-left: 200px;
   background: white;
 }
 .colorDash {
-  color: rgb(141, 37, 96);
+  color: #aca893;
 }
 .colorDashb1 {
-  color: #490d0d;
+  color: #4b4444;
   text-transform: uppercase !important;
 }
 .colorDashb2 {
@@ -1113,4 +1131,31 @@ nav.main-menu li.active > a,
   border-color: rgb(243, 223, 182);
   background: linear-gradient(to bottom right, rgb(243, 223, 182), #fafcff);
   color: rgb(238, 98, 98);
+}
+
+.welcome {
+  width: 63%;
+  margin: auto;
+  height: 234px;
+  padding-top: 50px;
+  border-radius: 34px;
+  border: 4mm ridge rgba(228, 223, 199, 0.055);
+  background: linear-gradient(to bottom right, rgb(243, 223, 182), #fafcff);
+}
+.dashTitle {
+  color: #d68a88;
+  font-size: 1.7rem;
+  font-weight: bold;
+  padding-bottom: 34px;
+  padding-top: 23px;
+}
+.welcome span {
+  color: #c49e42;
+  font-size: 1.7rem;
+  font-weight: bold;
+}
+.welcomep span {
+  color: #aca689;
+  font-size: 1.2rem;
+  font-weight: bold;
 }

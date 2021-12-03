@@ -15,6 +15,7 @@ import {
   faChevronCircleDown,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Link from "./Link"
 const Patisserie = () => {
   return (
     <main>
@@ -50,7 +51,9 @@ const Patisserie = () => {
                 <div className="accordion-body">
                   <ul className="collapse show list-unstyled pl-3">
                     <li>
-                      <p>Patissier</p>
+                      <Link href="/patissier" passHref>
+                        <a>Patissier</a>
+                      </Link>
                     </li>
                   </ul>
                 </div>
@@ -81,7 +84,9 @@ const Patisserie = () => {
               data-bs-parent="#accordionExample"
             >
               <div className="accordion-body">
-                <p>Vendre</p>
+                <Link href="/signUp" passHref>
+                  <a>Vendre</a>
+                </Link>
               </div>
             </div>
           </div>
@@ -103,12 +108,11 @@ const Patisserie = () => {
                       <h4 className="white pb-4">COMMANDER</h4>
                     </div>
                     <p className="justifypat">
-                      Vous fêtez votre anniversaire ou l'anniversaire d'un de
-                      vos amis ou un événement personnel ou professionnel ? Le
-                      coin des gourmandises vous propose de faire appel aux
-                      amateurs ou professionnels de la pâtisserie , des gâteaux
-                      sur mesure pour tous vos événements que vous ne trouvez
-                      pas en boutique. Cliquer sur Trouver mon pâtissier
+                      Vous fêtez un événement personnel ou professionnel ? Caker
+                      vous propose de faire appel aux professionnels de la
+                      pâtisserie , des gâteaux sur mesure pour tous vos
+                      événements que vous ne trouvez pas en boutique. Cliquer
+                      sur Trouver mon pâtissier
                     </p>
 
                     <div className="row">
@@ -117,14 +121,12 @@ const Patisserie = () => {
                       </div>
                     </div>
                     <p className="justifypat">
-                      Pourquoi devenir pâtissière sur le coin des
-                      Gourmandises,Vous pouvez vendre vos création de gâteaux
-                      sur mesure, quels que soient vos thèmes et vos
-                      envies...... Rejoignez un service de plus en plus
-                      recherché. Une interface simple et intuitive. Complétez
-                      vos revenus grâce à votre passion. Échangez directement
-                      avec vos clients via Whatsapp et par email. Un abonnement
-                      à prix attractif et sans engagement.
+                      Pourquoi devenir pâtissière sur Caker,Vous pouvez vendre
+                      vos création de gâteaux sur mesure, quels que soient vos
+                      thèmes et vos envies...... Rejoignez un service de plus en
+                      plus recherché. Une interface simple et intuitive.
+                      Complétez vos revenus grâce à votre passion. Échangez
+                      directement
                     </p>
                   </li>
                 </ul>
@@ -137,11 +139,8 @@ const Patisserie = () => {
         <div className="container my-4">
           <div className="row text-center py-3">
             <div className="col-lg-6 m-auto">
-              <h1 className="danger h1">LOREM IPSUM</h1>
-              <p className="justifypat text-center">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod Lorem ipsum dolor sit amet.
-              </p>
+              <h1 className="danger h1">LES CRÉATIONS BEST SELLERS</h1>
+              <p className="justifypat text-center">#CAKER</p>
             </div>
             <div className="col-lg-9 m-auto tempaltemo-carousel">
               <div className="row d-flex flex-row">

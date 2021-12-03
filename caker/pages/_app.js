@@ -1,5 +1,6 @@
 import "bootstrap/dist/css/bootstrap.css"
 import "../styles/style.css"
+
 import { AppContextProvider } from "../src/components/AppContext"
 
 import { useEffect } from "react"

@@ -5,11 +5,10 @@ import AppContext from "./AppContext"
 
 const DeleteYourAccount = () => {
   const { api, session } = useContext(AppContext)
-  // const { userId } = session
-  const id = "6"
+  const { userId } = session
   const handleClickDelete = async () => {
     try {
-      await api.delete(`/user/profil/${id}`)
+      await api.delete(`/user/profil/${userId}`)
       router.push("/signUp")
     } catch (err) {
       console.log("une erreur")
