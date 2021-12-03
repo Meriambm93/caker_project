@@ -147,7 +147,7 @@ const ContentShop1 = () => {
       <div className="row mt-5">
         <hr />
         <div className="col-lg-3 mt-5">
-          <h5>Commentaires client</h5>
+          <h5>Commentaire client</h5>
           <h6 className="h6 pt-4">Évaluer ce patissier</h6>
           <Link href="/commentaire" className="btn btn-success text-white mt-2">
             Ecrire un commentaire

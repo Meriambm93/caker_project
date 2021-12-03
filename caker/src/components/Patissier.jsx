@@ -149,28 +149,24 @@ export default ContentPatissier
                     Delete
                   </Button> 
                   
-                  <FormField
-                          as={FormInput}
-                          label="Name"
-                          type="text"
-                          name="name"
-                          className="form-control d-block"
-                          placeholder="ex: Lily"
-                        />
-                        <FormField
-                          as={FormInput}
-                          label="Address"
-                          type="text"
-                          name="address"
-                          className="form-control d-block"
-                          placeholder="ex: 09 rue de la paix "
-                        />
-                        <FormField
-                          as={FormInput}
-                          label="City"
-                          type="text"
-                          name="city"
-                          className="form-control d-block"
-                          placeholder="ex:77040 "
-                        />
-                        */
+                /* const {
+    query: { product_id, shop_id },
+  } = useRouter()
+  const { api } = useContext(AppContext)
+  const [product, setProduct] = useState([])
+
+  useEffect(() => {
+    ;(async () => {
+      const { data } = await api.get(`/product`, {
+        params: { shop_id, product_id },
+      })
+      setProduct(data)
+    })()
+  }, [api, product_id, shop_id])
+    const [user, setUser] = useState([])
+  useEffect(() => {
+    ;(async () => {
+      const { data } = await api.get(`/user/profil/${user_id}`)
+      setUser(data)
+    })()
+  }, [api, user_id])*/

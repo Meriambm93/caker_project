@@ -76,7 +76,6 @@ const ContentShopPatissier = () => {
                 validationSchema={validationSchema}
               >
                 {({ handleSubmit, errors }) =>
-                  console.log(errors) || (
                     <form onSubmit={handleSubmit} className="form-v100">
                       <div className="form-group mx-3">
                         <FormField
@@ -115,7 +114,7 @@ const ContentShopPatissier = () => {
                           className="form-control d-block"
                         />
                         <span className="text-danger">
-                          * ces champs sont requis
+                          * ces champs sont requi
                         </span>
                         <div className="form-login">
                           <Button type="submit" className="my-4">

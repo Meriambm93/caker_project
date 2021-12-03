@@ -129,20 +129,19 @@ const ContentShopProduct = () => {
                 </div>
               </div>
             </div>
-
             <div className="col-lg-7 mt-5">
               <div className="card">
                 <div className="card-body">
                   {product ? (
-                    <li key={product.id}>
+                    <div key={product.id}>
                       <h1 className="modify-h2">{product.name}</h1>
-                      <p>{product.price}</p>
+                      <h6 className="modify-h6">{product.price} €</h6>
 
                       <h6 className="modify-h6">Description:</h6>
                       <p className="modify-p">{product.description}</p>
-                    </li>
+                    </div>
                   ) : null}
-                  <h6 className="modify-h6">CONSEILS DE DÉGUSTATION:</h6>
+                  <h6 className="modify-h6">CONSEIL DE DÉGUSTATION:</h6>
                   <ul className="list-unstyled pb-3">
                     <li className="modify-li">
                       Produit à conserver entre 0 et 3 °C
@@ -201,7 +200,7 @@ const ContentShopProduct = () => {
           </div>
         </div>
       </section>
-      <section className="py-5">
+      <section className="py-1">
         <div className="container">
           <div className="row text-left p-2 pb-3">
             <h4>Catalogue</h4>
