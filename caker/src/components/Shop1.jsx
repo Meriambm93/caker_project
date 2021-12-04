@@ -15,15 +15,22 @@ const ContentShop1 = () => {
   } = useRouter()
   const { api } = useContext(AppContext)
   const [products, setProducts] = useState([])
+  const [comments, setComments] = useState([])
 
   useEffect(() => {
     ;(async () => {
-      const { data } = await api.get("/product", {
+      const { data } = await api.get("/comment", {
         params: { shop_id },
       })
       setProducts(data)
     })()
   }, [api, shop_id])
+  useEffect(() => {
+    ;(async () => {
+      const { data } = await api.get("/comment")
+      setComments(data)
+    })()
+  }, [api])
   const [user, setUser] = useState([])
   useEffect(() => {
     ;(async () => {
@@ -149,7 +156,10 @@ const ContentShop1 = () => {
         <div className="col-lg-3 mt-5">
           <h5>Commentaire client</h5>
           <h6 className="h6 pt-4">Évaluer ce patissier</h6>
-          <Link href="/commentaire" className="btn btn-success text-white mt-2">
+          <Link
+            href={`/user/${user_id}/shop/${shop_id}/commentaire`}
+            className="btn btn-success text-white mt-2"
+          >
             Ecrire un commentaire
           </Link>
         </div>
@@ -166,37 +176,13 @@ const ContentShop1 = () => {
               />
             </div>
             <div className="col-lg-6">
-              <h5 className="h5 fs-6 mt-3">client caker</h5>
-              <p className="text-dark">Commenté en France le 6 octobre 2021</p>
-              <hr />
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-                ipsum omnis cupiditate neque ea ut non distinctio culpa, itaque
-                voluptate in voluptatum quibusdam unde reiciendis quos,
-                voluptates quidem odio tempore?
-              </p>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-lg-1 mt-3">
-              <Image
-                src={avatar}
-                width={30}
-                height={30}
-                alt="avatar"
-                className="d-block ui-w-80 "
-              />
-            </div>
-            <div className="col-lg-6">
-              <h5 className="h5 fs-6 mt-3">greg W</h5>
-              <p className="text-dark">Commenté en France le 1 mars 2021</p>
-              <hr />
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore
-                ipsum omnis cupiditate neque ea ut non distinctio culpa, itaque
-                voluptate in voluptatum quibusdam unde reiciendis quos,
-                voluptates quidem odio tempore?
-              </p>
+              <h5 className="h5 fs-6 mt-3">{user.firstName}</h5>
+              {comments.map((comment) => (
+                <div className="mb-3" key={comment}>
+                  <p>{comment.message}</p>
+                </div>
+              ))}
+              <p></p>
             </div>
           </div>
         </div>

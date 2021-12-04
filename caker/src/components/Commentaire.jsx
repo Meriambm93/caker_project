@@ -7,39 +7,47 @@ import { Field, Formik } from "formik"
 import { useCallback } from "react"
 import * as yup from "yup"
 import FormField from "./FormField"
-import axios from "axios"
-import { useRouter } from "next/router"
+import { useContext, useEffect, useState } from "react"
+import AppContext from "./AppContext"
+import router, { useRouter } from "next/router"
 
 const validationSchema = yup.object().shape({
   message: yup.string().required().min(1).max(120),
   score: yup.number().integer().min(1).max(5).required(),
 })
 const ContentCommentaire = () => {
-  const router = useRouter()
+  const {
+    query: { user_id },
+  } = useRouter()
+  const { api } = useContext(AppContext)
   const initialValues = {
     message: "",
     score: 1,
-    user_id: 1,
-    shop_id: 1,
   }
 
   const handleFormSubmit = useCallback(
     async (values, actions) => {
       try {
-        await axios.post("http://localhost:5000/comment", {
-          message: values.messages,
+        await api.post("/comment", {
+          message: values.message,
           score: values.score,
           user_id: values.user_id,
           shop_id: values.shop_id,
         })
-        router.push("/")
+        history.back()
       } catch (err) {
         actions.setErrors({ form: "une erreur" })
       }
     },
-    [router],
+    [api],
   )
-
+  const [user, setUser] = useState([])
+  useEffect(() => {
+    ;(async () => {
+      const { data } = await api.get(`/user/profil/${user_id}`)
+      setUser(data)
+    })()
+  }, [api, user_id])
   return (
     <div className="container py-5">
       <div className="row">
@@ -56,7 +64,7 @@ const ContentCommentaire = () => {
               />
             </div>
             <div className="col-lg-9">
-              <h1 className="h2 pb-4">Ramirez</h1>
+              <h1 className="h2 pb-4">{user.firstName}</h1>
             </div>
           </div>
         </div>

@@ -11,7 +11,6 @@ import Tartefraise from "../assets/images/la-tarte-fraise.png"
 import Montblanc from "../assets/images/montblanc.png"
 import Mollycakefleur from "../assets/images/mollycakefleur.png"
 import {
-  faCartPlus,
   faChevronCircleDown,
 } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"

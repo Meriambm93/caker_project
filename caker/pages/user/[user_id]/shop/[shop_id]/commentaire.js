@@ -1,5 +1,5 @@
-import Page from "../src/components/Page"
-import Commentaire from "../src/components/Commentaire"
+import Page from "../../../../../src/components/Page"
+import Commentaire from "../../../../../src/components/Commentaire"
 
 const commentaire = () => {
   return (
