@@ -1159,3 +1159,10 @@ nav.main-menu li.active > a,
   font-size: 1.2rem;
   font-weight: bold;
 }
+.comment-section {
+  border: 1px solid #aca689;
+  padding: 5px;
+  margin-bottom: 10px;
+  background-color: white;
+  border-radius: 5px;
+}

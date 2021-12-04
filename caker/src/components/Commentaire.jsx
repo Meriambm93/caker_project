@@ -19,10 +19,13 @@ const ContentCommentaire = () => {
   const {
     query: { user_id },
   } = useRouter()
-  const { api } = useContext(AppContext)
+  const { api, session } = useContext(AppContext)
+  const { userId } = session
   const initialValues = {
     message: "",
     score: 1,
+    user_id: userId,
+    shop_id: 1,
   }
 
   const handleFormSubmit = useCallback(

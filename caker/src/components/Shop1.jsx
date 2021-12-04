@@ -75,7 +75,6 @@ const ContentShop1 = () => {
                   <ul className="collapse show list-unstyled pl-3">
                     <li>
                       <p className="profilshop">
-
                         Je m'appelle
                         <span className="fs-5">"{user.firstName}"</span>,
                         passionné par la pâtisserie je vous propose mes gâteaux
@@ -83,7 +82,6 @@ const ContentShop1 = () => {
                         n'hésitez pas à me contacter ,toutes les garnitures et
                         décors peuvent être modifiés sur demande... alors
                         n'hésitez plus.
-
                         {user.address}
                         Je m'appelle Ramirez, passionné par la pâtisserie je
                         vous propose mes gâteaux qui sont élaborés à partir de
@@ -92,7 +90,6 @@ const ContentShop1 = () => {
                         sur demande... alors n'hésitez plus... pas de
                         livraison..... les commandes sont a récupérer sur
                         noisy-le-sec (93)
-
                       </p>
                     </li>
                   </ul>
@@ -176,10 +173,13 @@ const ContentShop1 = () => {
               />
             </div>
             <div className="col-lg-6">
-              <h5 className="h5 fs-6 mt-3">{user.firstName}</h5>
+              <h5 className="h5 fs-6 mt-3">La Boutique de {user.firstName}</h5>
+              {console.log(comments)}
               {comments.map((comment) => (
-                <div className="mb-3" key={comment}>
+                <div className="mb-3 comment-section" key={comment}>
+                  <p>{comment.firstName + " " + comment.lastName}</p>
                   <p>{comment.message}</p>
+                  <p>Date: {comment.date}</p>
                 </div>
               ))}
               <p></p>
