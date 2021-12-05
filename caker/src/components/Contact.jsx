@@ -2,6 +2,7 @@ import FormInput from "./FormInput"
 import FormLabel from "./FormLabel"
 import Button from "../../src/components/Button"
 import FormContact from "./FormContact"
+import { Formik, Field } from "formik"
 
 const Contact = () => {
   return (
@@ -16,55 +17,61 @@ const Contact = () => {
       </div>
       <div className="container py-1">
         <div className="card-body bg-light">
-          <form className="col-md-9 m-auto" method="post" role="form">
-            <div className="row">
-              <div className="form-group col-md-6 mb-3">
-                <FormLabel for="inputname">Nom</FormLabel>
-                <FormInput
-                  type="text"
-                  className="form-control mt-1"
-                  id="name"
-                  name="name"
-                  placeholder="Charlotte"
-                ></FormInput>
-              </div>
-              <div className="form-group col-md-6 mb-3">
-                <FormLabel for="inputemail">Email</FormLabel>
-                <FormInput
-                  type="email"
-                  className="form-control mt-1"
-                  id="email"
-                  name="email"
-                  placeholder="Charlotteframboise@gmail.com"
-                ></FormInput>
-              </div>
-            </div>
-            <div className="mb-3">
-              <FormLabel for="inputsubject">Sujet</FormLabel>
-              <FormInput
-                type="text"
-                className="form-control mt-1"
-                id="subject"
-                name="subject"
-                placeholder="La Patisserie Au Fraise"
-              ></FormInput>
-            </div>
-            <div className="mb-3">
-              <FormLabel for="inputmessage">Message</FormLabel>
-              <textarea
-                className="form-control mt-1"
-                id="message"
-                name="message"
-                placeholder="Message"
-                rows="8"
-              ></textarea>
-            </div>
-            <div className="row">
-              <div className="col text-end mt-2">
-                <Button type="button">Envoyer</Button>
-              </div>
-            </div>
-          </form>
+          <Formik initialValues={{ subject: "", body: "" }}>
+            {({ handleSubmit, values }) => (
+              <form onSubmit={handleSubmit} className="col-md-9 m-auto">
+                <div className="row">
+                  <div className="form-group col-md-6 mb-3">
+                    <FormLabel for="inputname">Nom</FormLabel>
+                    <FormInput
+                      type="text"
+                      className="form-control mt-1"
+                      id="name"
+                      name="name"
+                      placeholder="Charlotte"
+                    ></FormInput>
+                  </div>
+                  <div className="form-group col-md-6 mb-3">
+                    <FormLabel for="inputemail">Email</FormLabel>
+                    <FormInput
+                      type="email"
+                      className="form-control mt-1"
+                      id="email"
+                      name="email"
+                      placeholder="Charlotteframboise@gmail.com"
+                    ></FormInput>
+                  </div>
+                </div>
+                <div className="form-group col-md-6 mb-3">
+                  <FormLabel for="inputemail">Sujet</FormLabel>
+                  <Field
+                    placeholder="Subject"
+                    name="subject"
+                    className="form-control mt-1"
+                  />
+                </div>
+                <div className="form-group col-md-6 mb-3">
+                  <FormLabel for="inputemail">Message</FormLabel>
+                  <Field
+                    as="textarea"
+                    placeholder="Write your message"
+                    name="body"
+                    className="form-control mt-1"
+                  />
+                </div>
+                <div className="row">
+                  <a
+                    target="_top"
+                    href={`mailto:contact@caker.com?subject=${encodeURIComponent(
+                      values.subject,
+                    )}&body=${encodeURIComponent(values.body)}`}
+                  >
+                    Envoyer
+                  </a>
+                </div>
+              </form>
+            )}
+          </Formik>
         </div>
       </div>
       <div className="row">
