@@ -75,56 +75,55 @@ const ContentShopPatissier = () => {
                 onSubmit={handleFormSubmit}
                 validationSchema={validationSchema}
               >
-                {({ handleSubmit, errors }) =>
-                    <form onSubmit={handleSubmit} className="form-v100">
-                      <div className="form-group mx-3">
-                        <FormField
-                          as={FormInput}
-                          label="Name"
-                          type="text"
-                          name="name"
-                          className="form-control d-block"
-                          placeholder="ex: Lily"
-                        />
-                        <FormField
-                          as={FormInput}
-                          label="Address"
-                          type="text"
-                          name="address"
-                          className="form-control d-block"
-                          placeholder="ex: 09 rue de la paix "
-                        />
-                        <FormField
-                          as={FormInput}
-                          label="City"
-                          type="text"
-                          name="city"
-                          className="form-control d-block"
-                          placeholder="ex:77040 "
-                        />
-                        <FormField
-                          as={FormInput}
-                          type="number"
-                          pattern="[0-9]{5}"
-                          placeholder="code postal"
-                          name="zipCode"
-                          min="1"
-                          max="99999"
-                          label="Code Postal"
-                          className="form-control d-block"
-                        />
-                        <span className="text-danger">
-                          * ces champs sont requi
-                        </span>
-                        <div className="form-login">
-                          <Button type="submit" className="my-4">
-                            Submit
-                          </Button>
-                        </div>
+                {({ handleSubmit }) => (
+                  <form onSubmit={handleSubmit} className="form-v100">
+                    <div className="form-group mx-3">
+                      <FormField
+                        as={FormInput}
+                        label="Name"
+                        type="text"
+                        name="name"
+                        className="form-control d-block"
+                        placeholder="ex: Lily"
+                      />
+                      <FormField
+                        as={FormInput}
+                        label="Address"
+                        type="text"
+                        name="address"
+                        className="form-control d-block"
+                        placeholder="ex: 09 rue de la paix "
+                      />
+                      <FormField
+                        as={FormInput}
+                        label="City"
+                        type="text"
+                        name="city"
+                        className="form-control d-block"
+                        placeholder="ex:77040 "
+                      />
+                      <FormField
+                        as={FormInput}
+                        type="number"
+                        pattern="[0-9]{5}"
+                        placeholder="code postal"
+                        name="zipCode"
+                        min="1"
+                        max="99999"
+                        label="Code Postal"
+                        className="form-control d-block"
+                      />
+                      <span className="text-danger">
+                        * ces champs sont requis
+                      </span>
+                      <div className="form-login">
+                        <Button type="submit" className="my-4">
+                          Submit
+                        </Button>
                       </div>
-                    </form>
-                  )
-                }
+                    </div>
+                  </form>
+                )}
               </Formik>
             </div>
           </div>

@@ -3,7 +3,7 @@ import DashboardShop from "../src/components/DashboardShop"
 
 const dashboardShop = () => {
   return (
-    <Page title="dashboard" hideHeader hideFooter>
+    <Page title="dashboardShop" hideHeader hideFooter>
       <DashboardShop />
     </Page>
   )
