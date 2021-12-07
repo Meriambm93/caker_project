@@ -19,7 +19,7 @@ const ContentShop1 = () => {
 
   useEffect(() => {
     ;(async () => {
-      const { data } = await api.get("/comment", {
+      const { data } = await api.get("/product", {
         params: { shop_id },
       })
       setProducts(data)
@@ -139,7 +139,7 @@ const ContentShop1 = () => {
             {products.map((product) => (
               <CardShopProduct
                 src={shopImage}
-                key={product}
+                key={product.id}
                 href={`/product/${product.id}`}
               >
                 {product.name}
@@ -174,7 +174,6 @@ const ContentShop1 = () => {
             </div>
             <div className="col-lg-6">
               <h5 className="h5 fs-6 mt-3">La Boutique de {user.firstName}</h5>
-              {console.log(comments)}
               {comments.map((comment) => (
                 <div className="mb-3 comment-section" key={comment}>
                   <p>{comment.firstName + " " + comment.lastName}</p>

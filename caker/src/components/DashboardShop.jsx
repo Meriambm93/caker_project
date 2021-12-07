@@ -1,4 +1,11 @@
-import { faHome, faPowerOff, faTable } from "@fortawesome/free-solid-svg-icons"
+import {
+  faComment,
+  faHome,
+  faPowerOff,
+  faStore,
+  faTable,
+  faUser,
+} from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Link from "./Link"
 import { useCallback, useContext, useEffect, useState } from "react"
@@ -26,8 +33,8 @@ const DashboardShop = () => {
   return (
     <div>
       <div>
-        <div className="area">
-          <h3>Tableau de bord</h3>
+        <div className="area container-p-y">
+          <h1 className="dashTitle text-center">Boutiques</h1>
         </div>
         <nav className="main-menu">
           <ul>
@@ -38,26 +45,61 @@ const DashboardShop = () => {
                 <span className="nav-text">Accueil</span>
               </Link>
             </li>
+            <li>
+              <Link href="/dashboardUsers" passHref>
+                <a>
+                  <FontAwesomeIcon icon={faUser} className="iconeDashboard3" />
+                  <i className="fa fa-table fa-2x"></i>
+                  <span className="nav-text">Utilisateurs</span>
+                </a>
+              </Link>
+            </li>
 
             <li>
-              <a href="#">
-                <FontAwesomeIcon icon={faTable} className="iconeDashboard2" />
-                <i className="fa fa-table fa-2x"></i>
-                <span className="nav-text">Tables</span>
-              </a>
+              <Link href="/dashboard" passHref>
+                <a>
+                  <FontAwesomeIcon icon={faTable} className="iconeDashboard2" />
+                  <i className="fa fa-table fa-2x"></i>
+                  <span className="nav-text">Produits</span>
+                </a>
+              </Link>
+
+              <li>
+                <Link href="/dashboardComment" passHref>
+                  <a>
+                    <FontAwesomeIcon
+                      icon={faStore}
+                      className="iconeDashboard5"
+                    />
+                    <i className="fa fa-table fa-2x"></i>
+                    <span className="nav-text">Boutiques</span>
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/dashboardComment" passHref>
+                  <a>
+                    <FontAwesomeIcon
+                      icon={faComment}
+                      className="iconeDashboard4"
+                    />
+                    <i className="fa fa-table fa-2x"></i>
+                    <span className="nav-text">Commentaires</span>
+                  </a>
+                </Link>
+              </li>
             </li>
           </ul>
-
           <ul className="logout">
             <li>
-              <a href="#">
+              <Link href="/" passHref>
                 <FontAwesomeIcon
                   icon={faPowerOff}
                   className="iconeDashboard3"
                 />
                 <i className="fa fa-power-off fa-2x"></i>
                 <span className="nav-text">Déconnexion</span>
-              </a>
+              </Link>
             </li>
           </ul>
         </nav>
@@ -73,7 +115,6 @@ const DashboardShop = () => {
                 <th scope="col">Address</th>
                 <th scope="col">City</th>
                 <th scope="col">Zip Code</th>
-                <th scope="col">Picture</th>
                 <th scope="col">User</th>
                 <th scope="col">Ajouter</th>
                 <th scope="col">Modifier</th>
@@ -88,8 +129,7 @@ const DashboardShop = () => {
                   <td>{shop.address}</td>
                   <td>{shop.city}</td>
                   <td>{shop.zipCode}</td>
-                  <td>{shop.picture}</td>
-                  <td>{shop.user.name}</td>
+                  <td>{shop.user.firstName}</td>
 
                   <td>
                     <button className="dashboardAdd">
@@ -98,7 +138,7 @@ const DashboardShop = () => {
                   </td>
                   <td>
                     <button className="dashboardUp">
-                      <Link href="">Modifier</Link>
+                      <Link href={`shop/${shop.id}/updateShop`}>Modifier</Link>
                     </button>
                   </td>
                   <td>
