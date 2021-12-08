@@ -47,11 +47,6 @@ const Header = () => {
           >
             <div className="flex-fill">
               <ul className="nav navbar-nav d-flex justify-content-around mx-lg-auto">
-                <li className="nav-item">
-                  <Link href="/" passHref>
-                    <a className="nav-link">Accueil</a>
-                  </Link>
-                </li>
                 {session ? (
                   <li className="nav-item">
                     <Link href="/profil" passhref>
@@ -71,6 +66,13 @@ const Header = () => {
                     </Link>
                   </li>
                 )}
+                {(session && session.roleId === 2) || session.roleId === 1 ? (
+                  <li className="nav-item">
+                    <Link href="/shopPatissier" passHref>
+                      <a className="nav-link">Créer Ma Boutique</a>
+                    </Link>
+                  </li>
+                ) : null}
                 {(session && session.roleId === 2) || session.roleId === 1 ? (
                   <li className="nav-item">
                     <Link href="/addNewProduct" passHref>
