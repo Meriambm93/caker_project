@@ -64,7 +64,7 @@ const Dashboard = () => {
               </Link>
 
               <li>
-                <Link href="/dashboardComment" passHref>
+                <Link href="/dashboardShop" passHref>
                   <a>
                     <FontAwesomeIcon
                       icon={faStore}
@@ -76,7 +76,7 @@ const Dashboard = () => {
                 </Link>
               </li>
               <li>
-                <Link href="/dashboardComment" passHref>
+                <Link href="/dashboardcomment" passHref>
                   <a>
                     <FontAwesomeIcon
                       icon={faComment}
@@ -114,10 +114,6 @@ const Dashboard = () => {
                 <th scope="col">Nom</th>
                 <th scope="col">Prix</th>
                 <th scope="col">Description</th>
-
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Desctiption</th>
 
                 <th scope="col">Magasin</th>
                 <th scope="col">Ajouter</th>

@@ -36,7 +36,7 @@ const ContentShopPatissier = () => {
           zipCode: values.zipCode,
           picture: values.picture,
         })
-        router.push("/patissier")
+        router.push("/addNewProduct")
       } catch (err) {
         actions.setErrors({ form: "une erreur" })
       }
